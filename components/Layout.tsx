@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
 import Navbar from './ui/Navbar/Navbar';
+import Footer from './ui/Footer/Footer';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -19,13 +20,15 @@ const bebas_neue = Bebas_Neue({
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`${montserrat.variable} ${bebas_neue.variable} font-sans max-w-screen-2xl  mx-auto px-6 sm:px-10 md:px-16 lg:px-32 text-nuetral-dark`}
+      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-nuetral-dark`}
     >
-      <header>
-        <Navbar />
-      </header>
-      <main className="">{children}</main>
-      <footer></footer>
+      <div className="mx-auto px-6 sm:px-10 md:px-16 lg:px-32">
+        <header>
+          <Navbar />
+        </header>
+        <main className="">{children}</main>
+      </div>
+      <Footer />
     </div>
   );
 };
