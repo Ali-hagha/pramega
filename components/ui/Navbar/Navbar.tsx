@@ -3,7 +3,7 @@ import { RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 
 const Navbar = () => {
   return (
-    <header className="mx-auto px-6 sm:px-10 md:px-16 lg:px-32">
+    <header className="mx-auto px-10">
       <div className="flex items-center justify-between py-4">
         <h3 className="text-5xl font-bebas_neue align-bottom">Pramega</h3>
         <div className="flex">

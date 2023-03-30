@@ -20,13 +20,13 @@ const bebas_neue = Bebas_Neue({
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark px-8`}
+      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark `}
     >
-      <div>
+      <div className="px-8">
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

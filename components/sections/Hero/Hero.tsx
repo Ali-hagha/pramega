@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className="mb-36 bg-neutral-light rounded-3xl flex justify-center items-center pl-6 sm:pl-10 md:pl-16 lg:pl-32 overflow-hidden max-h-[600px]">
-      <div className="py-20 pr-20 flex-1">
+    <div className='mb-36 bg-neutral-light rounded-3xl flex justify-center items-center pl-6 md:pl-10 lg:pl-16 xl:pl-24 overflow-hidden bg-[url("https://dummyimage.com/1000x1000/e8d8b2/404040")] bg-cover bg-center lg:bg-none'>
+      <div className="py-20 pr-20 flex-1  ">
         <h1 className="text-7xl leading-tight font-semibold mb-8">
           DECORATE YOUR DREAMS
         </h1>
@@ -21,13 +21,13 @@ const Hero = () => {
           Explore Products
         </Link>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 self-stretch hidden lg:block">
         <Image
           width={1000}
           height={1000}
           src="https://dummyimage.com/1000x1000/1e1f1a/ebfc4b"
           alt="Dummy Image"
-          className="object-cover h-full w-full"
+          className="object-cover h-full w-full "
         />
       </div>
     </div>
