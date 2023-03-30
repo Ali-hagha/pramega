@@ -13,12 +13,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-montserrat)', ...fontFamily.sans],
+        sans: ['var(--font-montserat)', ...fontFamily.sans],
         bebas_neue: ['var(--font-bebas-neue)', ...fontFamily.sans],
       },
       colors: {
-        'nuetral-dark': '#1e1f1a',
-        'nuetral-light': '#f6f6f6',
+        'neutral-dark': '#1e1f1a',
+        'neutral-light': '#f6f6f6',
         primary: '#ebfc4b',
       },
     },

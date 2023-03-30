@@ -5,7 +5,7 @@ import Footer from './ui/Footer/Footer';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-montserat',
   weight: ['200', '300', '400', '500', '600', '700'],
   style: 'normal',
 });
@@ -20,13 +20,11 @@ const bebas_neue = Bebas_Neue({
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-nuetral-dark`}
+      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark px-8`}
     >
-      <div className="mx-auto px-6 sm:px-10 md:px-16 lg:px-32">
-        <header>
-          <Navbar />
-        </header>
-        <main className="">{children}</main>
+      <div>
+        <Navbar />
+        <main>{children}</main>
       </div>
       <Footer />
     </div>

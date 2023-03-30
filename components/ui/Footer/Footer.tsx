@@ -3,7 +3,7 @@ import { RiMailOpenFill, RiMapPin2Fill, RiPhoneFill } from 'react-icons/ri';
 import LinkListItem from './LinkListItem';
 const Footer = () => {
   return (
-    <footer className="flex justify-between bg-nuetral-dark  text-nuetral-light mx-auto py-10 px-6 sm:px-10 md:px-16 lg:px-32">
+    <footer className="flex justify-between bg-neutral-dark rounded-3xl mb-8  text-neutral-light mx-auto py-12 px-6 sm:px-10 md:px-16 lg:px-32">
       <div className="flex flex-col text-lg">
         <div>
           <h3 className="text-6xl font-bebas_neue align-bottom mb-12">
@@ -13,13 +13,13 @@ const Footer = () => {
         <div className="flex space-x-16 ">
           <div className="mb-6">
             <h4 className="font-semibold mb-1">Contact Us:</h4>
-            <p className="text-nuetral-light/80">+26 921391031</p>
+            <p className="text-neutral-light/80">+26 921391031</p>
           </div>
           <div>
             <h4 className="font-semibold mb-1">Send Us An Email:</h4>
             <Link
               href={'mailto:info@pramega.com'}
-              className="text-nuetral-light/80  underline underline-offset-2 decoration-transparent hover:decoration-primary hover:text-primary hover:opacity-100  transition-all"
+              className="text-neutral-light/80  underline underline-offset-2 decoration-transparent hover:decoration-primary hover:text-primary hover:opacity-100  transition-all"
             >
               info@pramega.com
             </Link>
@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <div>
           <h4 className="font-semibold mb-1">Address:</h4>
-          <p className="text-nuetral-light/80">
+          <p className="text-neutral-light/80">
             5732 Northcote Ave Hammond, Indiana(IN), 46320
           </p>
         </div>
