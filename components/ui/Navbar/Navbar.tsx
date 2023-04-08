@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 import NavGroup from './NavGroup';
 import MenuBtn from './MenuBtn';
+import useNavbarVisibility from '@/hooks/useNavBarVIsibility';
 
 const items = [
   {
@@ -19,6 +20,7 @@ const items = [
 ];
 
 const Navbar = () => {
+  const [visible, isScrolled] = useNavbarVisibility();
   return (
     <header className="mx-auto px-0 lg:px-10">
       <div className="flex items-center justify-between py-4">
