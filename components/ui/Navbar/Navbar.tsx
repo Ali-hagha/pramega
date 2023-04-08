@@ -3,6 +3,8 @@ import { RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 import NavGroup from './NavGroup';
 import MenuBtn from './MenuBtn';
 import useNavbarVisibility from '@/hooks/useNavBarVIsibility';
+import { Transition } from '@headlessui/react';
+import { Fragment } from 'react';
 
 const items = [
   {
@@ -22,36 +24,52 @@ const items = [
 const Navbar = () => {
   const [visible, isScrolled] = useNavbarVisibility();
   return (
-    <header className="mx-auto px-0 lg:px-10">
-      <div className="flex items-center justify-between py-4">
-        <MenuBtn />
-        <h3 className="text-5xl font-bebas_neue align-bottom">Pramega</h3>
-        <div className="flex h-16">
-          <NavGroup items={items} />
+    <Transition
+      show={visible}
+      enter="transition-all "
+      enterFrom="-translate-y-full"
+      enterTo="translate-y-8"
+      leave="transition-all "
+      leaveTo="-translate-y-full"
+      leaveFrom="translate-y-8"
+      unmount={false}
+      as={Fragment}
+    >
+      <header
+        className={` px-0 lg:px-8  fixed z-10  left-0 right-0 backdrop-blur-lg rounded-3xl bg-white/80 mx-16 shadow-xl transition-all
+        ${isScrolled ? 'shadow-neutral-dark/5' : 'shadow-transparent'}
+        `}
+      >
+        <div className="flex items-center justify-between py-4">
+          <MenuBtn />
+          <h3 className="text-5xl font-bebas_neue align-bottom">Pramega</h3>
+          <div className="flex h-16">
+            <NavGroup items={items} />
 
-          <div className="h-full border-l-2 border-neutral-dark/20 mx-8 hidden lg:block"></div>
+            <div className="h-full border-l-2 border-neutral-dark/20 mx-8 hidden lg:block"></div>
 
-          <div className="flex items-center justify-center space-x-4">
-            <Link
-              href={'#'}
-              className={
-                'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
-              }
-            >
-              <RiUserLine className="text-2xl" />
-            </Link>
-            <Link
-              href={'#'}
-              className={
-                'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
-              }
-            >
-              <RiShoppingCartLine className="text-2xl" />
-            </Link>
+            <div className="flex items-center justify-center space-x-4">
+              <Link
+                href={'#'}
+                className={
+                  'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
+                }
+              >
+                <RiUserLine className="text-2xl" />
+              </Link>
+              <Link
+                href={'#'}
+                className={
+                  'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
+                }
+              >
+                <RiShoppingCartLine className="text-2xl" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </Transition>
   );
 };
 
