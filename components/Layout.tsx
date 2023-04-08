@@ -22,7 +22,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <div
       className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark `}
     >
-      <div className="px-8">
+      <div className="px-6 md:px-8">
         <Navbar />
         <main>{children}</main>
         <Footer />

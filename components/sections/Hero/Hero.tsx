@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className='mb-36 bg-neutral-light rounded-3xl flex justify-center items-center pl-6 md:pl-10 lg:pl-16 xl:pl-24 overflow-hidden bg-[url("https://dummyimage.com/1000x1000/e8d8b2/404040")] bg-cover bg-center lg:bg-none'>
-      <div className="py-20 pr-20 flex-1  ">
-        <h1 className="text-7xl leading-tight font-semibold mb-8">
-          DECORATE YOUR DREAMS
+    <div className='mb-36 bg-neutral-light rounded-3xl flex justify-center items-center px-6 md:px-10 lg:px-0 lg:pl-16 xl:pl-24 overflow-hidden bg-[url("https://dummyimage.com/1000x1000/e8d8b2/e8d8b2")] bg-cover bg-center lg:bg-none'>
+      <div className="py-16 md:py-20 lg:pr-20 flex-1  ">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-tight font-bold mb-6 md:mb-8 uppercase">
+          Elevate Your Space
         </h1>
-        <p className="mb-16 text-lg text-neutral-dark/90 leading-relaxed tracking-wide">
+        <p className="mb-12 md:mb-16 text-base md:text-lg text-neutral-dark/90 leading-relaxed tracking-wide">
           We offer a carefully curated selection of premium furniture pieces
           crafted by top designers around the world. From sleek and minimalist
           to bold and statement-making, we have the perfect pieces to transform
