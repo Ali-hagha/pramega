@@ -36,7 +36,7 @@ const Navbar = () => {
       as={Fragment}
     >
       <header
-        className={` px-0 lg:px-8  fixed z-10  left-0 right-0 backdrop-blur-lg rounded-3xl bg-white/80 mx-16 shadow-xl transition-all
+        className={` px-8  fixed z-10  left-0 right-0 backdrop-blur-lg rounded-3xl bg-white/80 mx-12 md:mx-16 shadow-xl transition-all
         ${isScrolled ? 'shadow-neutral-dark/5' : 'shadow-transparent'}
         `}
       >
