@@ -2,6 +2,16 @@ import Link from 'next/link';
 import { RiMailOpenFill, RiMapPin2Fill, RiPhoneFill } from 'react-icons/ri';
 import LinkListItem from './LinkListItem';
 import LinkListGroup from './LinkListGroup';
+import {
+  RiFacebookBoxFill,
+  RiFacebookBoxLine,
+  RiInstagramFill,
+  RiInstagramLine,
+  RiPinterestFill,
+  RiPinterestLine,
+} from 'react-icons/ri';
+import SocialLink from './SocialLink';
+
 const Footer = () => {
   return (
     <footer className=" bg-neutral-dark rounded-3xl mb-8  text-neutral-light mx-auto py-12 px-8 sm:px-16">
@@ -58,8 +68,24 @@ const Footer = () => {
         </div>
       </div>
       <hr className="bg-neutral-light/40 border-0 h-px my-10" />
-      <div className="text-xs text-neutral-light/80">
-        {'© Pramega. All Rights Reserved.'}
+      <div className="flex justify-between items-center">
+        <div className="text-xs text-neutral-light/80">
+          {'© Pramega. All Rights Reserved.'}
+        </div>
+        <div className="flex space-x-6">
+          <SocialLink
+            DefaultIcon={RiFacebookBoxLine}
+            HoverIcon={RiFacebookBoxFill}
+          />
+          <SocialLink
+            DefaultIcon={RiInstagramLine}
+            HoverIcon={RiInstagramFill}
+          />
+          <SocialLink
+            DefaultIcon={RiPinterestLine}
+            HoverIcon={RiPinterestFill}
+          />
+        </div>
       </div>
     </footer>
   );
