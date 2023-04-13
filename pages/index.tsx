@@ -1,3 +1,4 @@
+import Categories from '@/components/sections/Categories/Categories';
 import Hero from '@/components/sections/Hero/Hero';
 import Head from 'next/head';
 
@@ -15,6 +16,7 @@ export default function Home() {
       </Head>
       <div>
         <Hero />
+        <Categories />
       </div>
     </>
   );
