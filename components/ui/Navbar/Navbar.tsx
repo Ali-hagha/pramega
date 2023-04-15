@@ -28,21 +28,21 @@ const Navbar = () => {
       show={visible}
       enter="transition-all "
       enterFrom="-translate-y-full"
-      enterTo="translate-y-8"
+      enterTo="translate-y-0 md:translate-y-6"
       leave="transition-all "
       leaveTo="-translate-y-full"
-      leaveFrom="translate-y-8"
+      leaveFrom="translate-y-0 md:translate-y-6"
       unmount={false}
       as={Fragment}
     >
       <header
-        className={`px-6 md:px-8  fixed z-10  left-0 right-0 backdrop-blur-lg rounded-3xl bg-white/80 mx-12 md:mx-16 shadow-xl transition-all
+        className={`px-6 md:px-8  fixed z-10  left-0 right-0 backdrop-blur-lg md:rounded-3xl bg-white/80 mx-0 md:mx-16 shadow-xl transition-all
         ${isScrolled ? 'shadow-neutral-dark/5' : 'shadow-transparent'}
         `}
       >
-        <div className="flex items-center justify-between py-2 md:py-4">
+        <div className="flex items-center justify-between py-2 md:py-3">
           <MenuBtn />
-          <h3 className="text-4xl md:text-5xl font-bebas_neue align-bottom">
+          <h3 className="hidden sm:block text-4xl md:text-5xl font-bebas_neue align-bottom">
             Pramega
           </h3>
           <div className="flex h-16">
