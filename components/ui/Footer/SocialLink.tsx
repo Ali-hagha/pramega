@@ -14,7 +14,7 @@ const SocialLink = ({ DefaultIcon, HoverIcon }: Props) => {
       onMouseOver={() => setIsMouseOver(true)}
       onMouseOut={() => setIsMouseOver(false)}
     >
-      <Link href={'#'} className={'text-2xl '}>
+      <Link href={'#'} className={'text-xl sm:text-2xl '}>
         {isMouseOver ? <HoverIcon className="text-primary" /> : <DefaultIcon />}
       </Link>
     </div>
