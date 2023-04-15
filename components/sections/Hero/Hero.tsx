@@ -5,7 +5,7 @@ import { RiStarFill } from 'react-icons/ri';
 
 const Hero = () => {
   return (
-    <div className='mb-36 bg-neutral-light rounded-3xl flex justify-center items-center px-6 md:px-10 lg:px-0 lg:pl-16 xl:pl-24 overflow-hidden bg-[url("https://dummyimage.com/1000x1000/e8d8b2/e8d8b2")] bg-cover bg-center lg:bg-none'>
+    <div className='mb-20 bg-neutral-light rounded-3xl flex justify-center items-center px-6 md:px-10 lg:px-0 lg:pl-16 xl:pl-24 overflow-hidden bg-[url("https://dummyimage.com/1000x1000/e8d8b2/e8d8b2")] bg-cover bg-center lg:bg-none'>
       <div className="py-12 md:py-16 lg:pr-16 flex-1 basis-6/12 flex flex-col ">
         <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-tight font-bold mb-6 md:mb-8 uppercase">
           Elevate Your Space
