@@ -20,8 +20,9 @@ const CategoryItem = ({ imgSrc, title }: Props) => {
         <p className="text-lg sm:text-2xl font-medium sm:font-semibold select-none capitalize ">
           {title}
         </p>
-        <div className="h-8 w-8 sm:h-10 sm:w-10 bg-neutral-dark rounded-full flex items-center justify-center ">
-          <RiArrowRightUpLine className="text-primary text-2xl sm:text-3xl " />
+        <div className="h-8 w-8 sm:h-10 sm:w-10 bg-neutral-dark rounded-full flex items-center justify-center overflow-hidden relative">
+          <RiArrowRightUpLine className="text-primary text-2xl sm:text-3xl group-hover:-translate-y-8 group-hover:translate-x-8 transition-transform " />
+          <RiArrowRightUpLine className="text-primary text-2xl sm:text-3xl absolute translate-y-8 -translate-x-8 group-hover:translate-y-0 group-hover:translate-x-0 transition-transform -z-0" />
         </div>
       </div>
     </>
