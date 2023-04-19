@@ -4,11 +4,11 @@ import Link from 'next/link';
 
 const Categories = () => {
   return (
-    <div>
+    <div className="mb-20">
       <h3 className="uppercase mb-8 text-2xl md:text-3xl font-bold">
         top categories
       </h3>
-      <div className="mb-16 grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 xl:grid-cols-5 lg:max-h-[600px]  gap-4 rounded-3xl ">
+      <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 xl:grid-cols-5 lg:max-h-[600px]  gap-4 rounded-3xl ">
         <Link
           href={'#'}
           className="bg-neutral-light col-span-2 row-span-1  md:col-span-2 md:row-span-2 rounded-3xl flex  flex-col items-center justify-center p-4 sm:p-6 group"
@@ -25,7 +25,7 @@ const Categories = () => {
           href={'#'}
           className="group bg-neutral-light  md:col-span-1 md:row-span-1 xl:col-span-2 rounded-3xl  flex  flex-col items-center justify-center p-4 sm:p-6"
         >
-          <CategoryItem imgSrc={'/categories/bed2_tp.png'} title={'beds'} />
+          <CategoryItem imgSrc={'/categories/bed_tp.png'} title={'beds'} />
         </Link>
         <Link
           href={'#'}
