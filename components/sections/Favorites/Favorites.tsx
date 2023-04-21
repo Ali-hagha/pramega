@@ -1,45 +1,49 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import FavoritesItem from './FavoritesItem';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import 'swiper/css';
 import SlideChangeBtn from './SlideChangeBtn';
 
 const Favorites = () => {
-  const swiperRef = useRef<SwiperCore>();
+  const swiperRef = useRef<SwiperRef>(null);
+
+  const handlePrev = useCallback(() => {
+    if (!swiperRef.current) return;
+    swiperRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!swiperRef.current) return;
+    swiperRef.current.swiper.slideNext();
+  }, []);
 
   return (
-    <section className="mb-20 relative bg-primary rounded-3xl p-10">
+    <section className="mb-20 relative bg-primary rounded-3xl p-6 pt-10 sm:p-10">
       <h3 className="uppercase mb-12 text-2xl md:text-3xl font-bold">
         All-Time Favorites
       </h3>
       <div className="sm:px-20">
         <Swiper
+          ref={swiperRef}
           className="mySwiper "
           slidesPerView={1}
           spaceBetween={20}
-          onBeforeInit={swiper => {
-            swiperRef.current = swiper;
-          }}
           breakpoints={{
             640: {
               slidesPerView: 1,
-              spaceBetween: 20,
               slidesPerGroup: 1,
             },
             768: {
               slidesPerView: 2,
-              spaceBetween: 40,
               slidesPerGroup: 2,
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 50,
               slidesPerGroup: 3,
             },
             1280: {
               slidesPerView: 4,
-              spaceBetween: 50,
               slidesPerGroup: 4,
             },
           }}
@@ -100,7 +104,7 @@ const Favorites = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <SlideChangeBtn swiper={swiperRef.current} />
+      <SlideChangeBtn handleNext={handleNext} handlePrev={handlePrev} />
     </section>
   );
 };

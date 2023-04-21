@@ -11,7 +11,7 @@ type Props = {
 
 const FavoritesItem = ({ title, href, price, imgSrc, hoverImgSrc }: Props) => {
   return (
-    <Link href={href} className="group  ">
+    <Link href={href} className="group">
       <div className="bg-white rounded-2xl overflow-hidden relative ">
         <Image src={imgSrc} width={600} height={600} alt={''} className="" />
         <Image
