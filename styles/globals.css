@@ -11,3 +11,7 @@ html {
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
 }
+.swiper-pagination {
+  margin-top: 24px;
+  position: relative !important;
+}

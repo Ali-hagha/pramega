@@ -10,7 +10,7 @@ const SlideChangeBtn = ({
   handlePrev: () => void;
 }) => {
   return (
-    <div className="text-4xl hidden sm:block">
+    <div className="text-4xl hidden md:block">
       <button
         className="group p-1 absolute top-1/2 right-10 rounded-full bg-neutral-dark text-neutral-light overflow-hidden"
         onClick={handleNext}
