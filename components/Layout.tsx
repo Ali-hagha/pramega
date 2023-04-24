@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
 import Navbar from './ui/Navbar/Navbar';
 import Footer from './ui/Footer/Footer';
+import BottomNavigation from './ui/BottomNavigation/BottomNavigation';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -26,6 +27,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <Navbar />
         <main className="pt-24">{children}</main>
         <Footer />
+        <BottomNavigation />
       </div>
     </div>
   );

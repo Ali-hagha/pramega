@@ -40,12 +40,12 @@ const Navbar = () => {
         ${isScrolled ? 'shadow-neutral-dark/5' : 'shadow-transparent'}
         `}
       >
-        <div className="flex items-center justify-between py-2 md:py-3">
+        <div className="flex items-center justify-between py-1 md:py-3">
           <MenuBtn />
           <h3 className="hidden sm:block text-4xl md:text-5xl font-bebas_neue align-bottom">
-            Pramega
+            <Link href={'/'}>Pramega</Link>
           </h3>
-          <div className="flex h-16">
+          <nav className="flex h-16">
             <NavGroup items={items} />
 
             <div className="h-full border-l-2 border-neutral-dark/20 mx-8 hidden lg:block"></div>
@@ -68,7 +68,7 @@ const Navbar = () => {
                 <RiShoppingCartLine className="text-2xl" />
               </Link>
             </div>
-          </div>
+          </nav>
         </div>
       </header>
     </Transition>

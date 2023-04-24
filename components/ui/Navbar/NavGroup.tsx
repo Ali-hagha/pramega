@@ -8,7 +8,7 @@ type Items = Item[];
 
 const NavGroup = ({ items }: { items: Items }) => {
   return (
-    <nav className="lg:flex items-center hidden ">
+    <div className="lg:flex items-center hidden ">
       <ul className="flex my-auto space-x-10 font-medium text-lg">
         {items.map((item, i) => (
           <li key={i}>
@@ -23,7 +23,7 @@ const NavGroup = ({ items }: { items: Items }) => {
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 

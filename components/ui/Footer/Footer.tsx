@@ -14,7 +14,7 @@ import SocialLink from './SocialLink';
 
 const Footer = () => {
   return (
-    <footer className=" bg-neutral-dark rounded-3xl mb-8  text-neutral-light mx-auto py-12 px-6 sm:px-16">
+    <footer className=" bg-neutral-dark rounded-3xl mb-24 md:mb-8  text-neutral-light mx-auto py-12 px-6 sm:px-16">
       <div className="flex flex-col lg:flex-row justify-between">
         <div className="flex flex-col lg:text-lg mb-16 lg:mb-0">
           <div>
