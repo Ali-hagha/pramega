@@ -26,7 +26,7 @@ const Favorites = () => {
   } as React.CSSProperties;
 
   return (
-    <section className="mb-20 relative bg-primary/80 rounded-3xl p-6 pb-2 pt-10 sm:p-10">
+    <section className="mb-20 relative bg-primary/80 rounded-3xl p-6 pb-2 pt-10 ">
       <h3 className="uppercase mb-12 text-2xl md:text-3xl font-bold">
         All-Time Favorites
       </h3>

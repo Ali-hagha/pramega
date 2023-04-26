@@ -25,7 +25,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     >
       <div className="px-6 md:px-8">
         <Navbar />
-        <main className="pt-24">{children}</main>
+        <main className="pt-20 md:pt-24">{children}</main>
         <Footer />
         <BottomNavigation />
       </div>

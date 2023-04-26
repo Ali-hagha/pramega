@@ -14,7 +14,6 @@ const BottomNavItem = ({ title, location, DefaultIcon, ActiveIcon }: Props) => {
   const router = useRouter();
 
   const isActive = (pathname: string) => {
-    console.log(router.pathname);
     return router.pathname === pathname ? true : false;
   };
 

@@ -8,13 +8,11 @@ import {
   RiUserLine,
   RiUserFill,
 } from 'react-icons/ri';
-import Link from 'next/link';
 import BottomNavItem from './BottomNavItem';
-import { IconBaseProps } from 'react-icons/lib';
 
 const BottomNavigation = () => {
   return (
-    <nav className="fixed bottom-0 left-0 w-full backdrop-blur-lg  bg-white/80 text-white text-center flex justify-around items-center p-4 z-50 md:hidden">
+    <nav className="fixed bottom-0 left-0 w-full backdrop-blur-lg  bg-white/80 text-white text-center flex justify-around items-center p-2 z-50 md:hidden ">
       <BottomNavItem
         title={'home'}
         location={'/'}
@@ -31,13 +29,13 @@ const BottomNavigation = () => {
         title={'cart'}
         location={'/cart'}
         DefaultIcon={RiShoppingCartLine}
-        ActiveIcon={RiHomeFill}
+        ActiveIcon={RiShoppingCartFill}
       />
       <BottomNavItem
         title={'profile'}
         location={'/profile'}
         DefaultIcon={RiUserLine}
-        ActiveIcon={RiHeart3Fill}
+        ActiveIcon={RiUserFill}
       />
     </nav>
   );

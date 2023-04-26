@@ -40,7 +40,7 @@ const Navbar = () => {
         ${isScrolled ? 'shadow-neutral-dark/5' : 'shadow-transparent'}
         `}
       >
-        <div className="flex items-center justify-between py-1 md:py-3">
+        <div className="flex items-center justify-between  md:py-3">
           <MenuBtn />
           <h3 className="hidden sm:block text-4xl md:text-5xl font-bebas_neue align-bottom">
             <Link href={'/'}>Pramega</Link>
