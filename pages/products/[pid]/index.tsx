@@ -28,14 +28,14 @@ const ProductDetails = () => {
   } = useRouter();
 
   return (
-    <div className="px-20">
+    <div className="px-0 md:px-16 mb-20">
       <Crumbs
         title={product.name}
         href={`/products/${pid}`}
         classes="mb-6 text-sm text-neutral-dark/50"
       />
-      <div className="flex">
-        <div className="flex-1 w-1/2 flex items-center justify-center">
+      <div className="flex flex-col lg:flex-row items-center justify-center">
+        <div className="flex-1 lg:w-1/2 flex items-center justify-center">
           <Image
             src={'/categories/chair_tp.png'}
             alt={''}
@@ -43,30 +43,29 @@ const ProductDetails = () => {
             height={600}
           />
         </div>
-        <div className="flex-1 w-1/2">
-          <div className="px-32 flex flex-col">
+        <div className="flex-1 lg:w-1/2">
+          <div className="max-w-[500px] lg:max-w-full px-0 sm:px-8 lg:px-16 xl:px-24 flex flex-col">
             <h2 className="text-3xl font-bold capitalize mb-4">
               {product.name}
             </h2>
 
-            <div className="flex">
+            <div className="flex items-center mb-8">
               <Rating
                 name="read-only"
                 value={product.rating}
                 precision={0.5}
                 readOnly
-                className="mb-8"
               />
-              <p className="ml-4  text-neutral-dark/70 font-light">
+              <p className="ml-4 text-sm md:text-base text-neutral-dark/70 font-light">
                 {product.ratingCount} Reviews
               </p>
             </div>
 
-            <p className="font-medium text-lg text-neutral-dark/80 mb-4">
+            <p className="font-medium text-base md:text-lg text-neutral-dark/80 mb-4">
               {product.description}
             </p>
 
-            <p className="text-3xl font-semibold mb-10">
+            <p className="text-2xl md:text-3xl font-bold md:font-semibold mb-10">
               ${product.price}{' '}
               <span className="text-xs text-neutral-dark/40 font-semibold">
                 per item
@@ -77,7 +76,7 @@ const ProductDetails = () => {
 
             <ProductCounter count={count} setCount={setCount} />
 
-            <button className="rounded-lg bg-neutral-dark px-6 py-4 text-neutral-light w-full font-semibold text-lg uppercase shadow-lg hover:bg-neutral-dark/90 transition-colors ">
+            <button className="rounded-lg bg-neutral-dark px-6 py-4  w-full font-bold md:font-semibold text-base md:text-lg uppercase shadow-[0_0_20px_#ebfc4b]    hover:bg-neutral-dark/90 transition-colors shadow-primary text-primary">
               add to cart - ${product.price * count}
             </button>
           </div>
