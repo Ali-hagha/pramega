@@ -1,8 +1,7 @@
 import Crumbs from '@/components/ui/Crumbs/Crumbs';
 import ProductCounter from '@/pages/products/[pid]/ProductCounter';
-import { Breadcrumbs, Rating } from '@mui/material';
+import { Rating } from '@mui/material';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Dimensions from './Dimensions';
