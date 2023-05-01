@@ -35,8 +35,8 @@ const ProductDetails = () => {
         href={`${pid}`}
         classes="mb-6 text-sm text-neutral-dark/50"
       />
-      <div className="flex flex-col lg:flex-row items-center justify-center">
-        <div className="flex-1 w-full lg:w-1/2 left-0 right-0">
+      <div className="flex flex-col lg:flex-row items-start justify-center">
+        <div className="flex-1 w-full lg:w-1/2  ">
           <ImageGallery />
         </div>
         <div className="flex-1  lg:w-1/2">
@@ -45,7 +45,7 @@ const ProductDetails = () => {
               {product.name}
             </h2>
 
-            <div className="flex items-center mb-8">
+            <div className="flex items-center mb-12">
               <Rating
                 name="read-only"
                 value={product.rating}
@@ -57,11 +57,11 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            <p className="font-medium text-base md:text-lg text-neutral-dark/80 mb-4">
+            <p className="font-medium text-base md:text-lg text-neutral-dark/80 mb-6">
               {product.description}
             </p>
 
-            <p className="text-2xl md:text-3xl font-bold md:font-semibold mb-10">
+            <p className="text-2xl md:text-3xl font-bold md:font-semibold mb-12">
               ${product.price}{' '}
               <span className="text-xs text-neutral-dark/40 font-semibold">
                 per item

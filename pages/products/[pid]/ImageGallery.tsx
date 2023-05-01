@@ -13,6 +13,9 @@ import {
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
+import { ScrollContainer } from 'react-indiana-drag-scroll';
+import 'react-indiana-drag-scroll/dist/style.css';
+
 const images = [
   '/categories/chair_tp.png',
   '/categories/lamp_tp.png',
@@ -57,24 +60,30 @@ const ImageGallery = () => {
           </ButtonNext>
         </div>
         <DotGroup
-          className="overflow-hidden px-6 py-4 "
+          className="overflow-hidden px-4 py-4 "
           renderDots={({ currentSlide }) => {
             return (
-              <div className="flex overflow-auto py-2">
+              <ScrollContainer className="flex px-2 py-2">
                 {images.map((image, i) => {
                   return (
                     <Dot
                       slide={i}
                       key={i}
-                      className={`rounded-xl mr-4 bg-white flex-shrink-0 flex-grow-0 basis-20 outline outline-offset-4 outline-primary ${
+                      className={`rounded-xl mr-4 last:mr-0 bg-white flex-shrink-0 flex-grow-0 basis-20 outline outline-offset-4 outline-primary ${
                         currentSlide === i ? 'outline-4' : 'outline-0'
                       }`}
                     >
-                      <Image src={image} alt={''} width={80} height={80} />
+                      <Image
+                        src={image}
+                        alt={''}
+                        width={80}
+                        height={80}
+                        className="pointer-events-none"
+                      />
                     </Dot>
                   );
                 })}
-              </div>
+              </ScrollContainer>
             );
           }}
         />
