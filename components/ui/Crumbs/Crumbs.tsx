@@ -20,7 +20,7 @@ const Crumbs = ({ title, href, classes }: Props) => {
 
       <Link
         key={title}
-        href={`/prodcut/${href}`}
+        href={`/prodcuts/${href}`}
         className="capitalize hover:underline"
       >
         {title}

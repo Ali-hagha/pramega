@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Dimensions from './Dimensions';
+import ImageGallery from './ImageGallery';
 
 const product = {
   id: '12345abcd',
@@ -31,19 +32,14 @@ const ProductDetails = () => {
     <div className="px-0 md:px-16 mb-20">
       <Crumbs
         title={product.name}
-        href={`/products/${pid}`}
+        href={`${pid}`}
         classes="mb-6 text-sm text-neutral-dark/50"
       />
       <div className="flex flex-col lg:flex-row items-center justify-center">
-        <div className="flex-1 lg:w-1/2 flex items-center justify-center">
-          <Image
-            src={'/categories/chair_tp.png'}
-            alt={''}
-            width={600}
-            height={600}
-          />
+        <div className="flex-1 w-full lg:w-1/2 left-0 right-0">
+          <ImageGallery />
         </div>
-        <div className="flex-1 lg:w-1/2">
+        <div className="flex-1  lg:w-1/2">
           <div className="max-w-[500px] lg:max-w-full px-0 sm:px-8 lg:px-16 xl:px-24 flex flex-col">
             <h2 className="text-3xl font-bold capitalize mb-4">
               {product.name}
