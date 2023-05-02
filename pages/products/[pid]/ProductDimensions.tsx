@@ -5,7 +5,7 @@ type Props = {
     height: number;
   };
 };
-const Dimensions = ({ dimensions: { width, depth, height } }: Props) => {
+const ProductDimensions = ({ dimensions: { width, depth, height } }: Props) => {
   return (
     <div className="border-2 border-neutral-dark/10  self-start rounded mb-12 h-16 flex items-center justify-center">
       <DimensionItem title={'width'} dimension={width} />
@@ -41,4 +41,4 @@ const Divider = () => {
   return <div className="h-12 border-l-2"></div>;
 };
 
-export default Dimensions;
+export default ProductDimensions;
