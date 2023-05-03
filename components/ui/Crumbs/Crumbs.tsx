@@ -1,11 +1,12 @@
 import { Breadcrumbs } from '@mui/material';
 import { CommonProps } from '@mui/material/OverridableComponent';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 type Props = {
   classes?: string;
-  title: string;
-  href: string;
+  title?: string;
+  href?: string;
 };
 
 const Crumbs = ({ title, href, classes }: Props) => {
@@ -17,14 +18,15 @@ const Crumbs = ({ title, href, classes }: Props) => {
       <Link href={'/products'} className="capitalize hover:underline">
         products
       </Link>
-
-      <Link
-        key={title}
-        href={`/prodcuts/${href}`}
-        className="capitalize hover:underline"
-      >
-        {title}
-      </Link>
+      {title && (
+        <Link
+          key={title}
+          href={`/prodcuts/${href}`}
+          className="capitalize hover:underline"
+        >
+          {title}
+        </Link>
+      )}
     </Breadcrumbs>
   );
 };
