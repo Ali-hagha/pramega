@@ -6,9 +6,10 @@ const products = [
   {
     productName: 'joshua chair',
     price: 239,
-    baseImage: '',
-    secondaryImage: '',
+    baseImage: '/products/chairs/Joshua-3.png',
+    secondaryImage: '/products/chairs/Joshua-2.jpg',
     productTag: 'new',
+    isFavorite: false,
   },
 ];
 const index = () => {
