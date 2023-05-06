@@ -17,7 +17,7 @@ const ImageGallery = () => {
     <div className="bg-neutral-light rounded-3xl mb-8">
       <CarouselProvider
         naturalSlideWidth={600}
-        naturalSlideHeight={500}
+        naturalSlideHeight={600}
         totalSlides={images.length}
         infinite={true}
         className="relative"
