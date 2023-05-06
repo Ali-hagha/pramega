@@ -14,15 +14,20 @@ const products = [
 ];
 const index = () => {
   return (
-    <div className="px-0 md:px-16 mb-20">
+    <div className="   mb-20">
       <Crumbs />
-      <div className="grid grid-cols-4 gap-5">
-        <ProductCard product={products[0]} />
-        <ProductCard product={products[0]} />
-        <ProductCard product={products[0]} />
-        <ProductCard product={products[0]} />
-        <ProductCard product={products[0]} />
-        <ProductCard product={products[0]} />
+      <div className="flex mt-6">
+        <div className="bg-red-300 w-72 shrink-0 mr-6 hidden lg:block">
+          sidebar
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-5 ">
+          <ProductCard product={products[0]} />
+          <ProductCard product={products[0]} />
+          <ProductCard product={products[0]} />
+          <ProductCard product={products[0]} />
+          <ProductCard product={products[0]} />
+          <ProductCard product={products[0]} />
+        </div>
       </div>
     </div>
   );
