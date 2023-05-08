@@ -2,6 +2,9 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -21,7 +24,7 @@ module.exports = {
         'neutral-light': '#f6f6f6',
         primary: '#ebfc4b',
         'primary-dark': '#D9F104',
-        'primary-darker': '#91a102',
+        'primary-darker': '#b5c903',
         'primary-light': '#f4fd9b',
       },
     },

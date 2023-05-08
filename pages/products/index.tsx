@@ -20,7 +20,7 @@ const index = () => {
         <div className="bg-red-300 w-72 shrink-0 mr-6 hidden lg:block">
           sidebar
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-5 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-5 flex-1">
           <ProductCard product={products[0]} />
           <ProductCard product={products[0]} />
           <ProductCard product={products[0]} />
