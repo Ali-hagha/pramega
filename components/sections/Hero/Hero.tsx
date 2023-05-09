@@ -17,7 +17,7 @@ const Hero = () => {
           your home into a stylish sanctuary.
         </p>
         <Link
-          href="#"
+          href="/products"
           className="self-start block px-10 py-3 mb-12 md:mb-16 bg-neutral-dark rounded-full text-neutral-light hover:bg-neutral-dark/80 transition-colors"
         >
           Explore Products

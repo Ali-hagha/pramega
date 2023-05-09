@@ -9,15 +9,15 @@ import { Fragment } from 'react';
 const items = [
   {
     title: 'home',
-    location: '#',
+    location: '/',
   },
   {
     title: 'products',
-    location: '#',
+    location: '/products',
   },
   {
     title: 'contact',
-    location: '#',
+    location: '/contact-us',
   },
 ];
 
