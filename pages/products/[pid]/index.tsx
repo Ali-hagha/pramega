@@ -29,13 +29,9 @@ const ProductDetails = () => {
   } = useRouter();
 
   return (
-    <div className="px-0 md:px-16 mb-20">
-      <Crumbs
-        title={product.name}
-        href={`${pid}`}
-        classes="mb-6 text-sm text-neutral-dark/50"
-      />
-      <div className="flex flex-col lg:flex-row items-start justify-center">
+    <div className="md:px-10 mb-20 pt-6">
+      <Crumbs title={product.name} href={`${pid}`} />
+      <div className="flex flex-col lg:flex-row items-start justify-center pt-6">
         <div className="flex-1 w-full lg:w-1/2  ">
           <ImageGallery />
         </div>
