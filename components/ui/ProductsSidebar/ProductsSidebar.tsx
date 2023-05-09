@@ -27,7 +27,7 @@ const CategoryListItem = ({
     <li className="mb-1">
       <Link
         href={`products${path}`}
-        className="flex group items-center justify-between font-medium text-neutral-dark/70 hover:text-neutral-dark hover:bg-gray-200 rounded-md  w-full py-1 px-2 transition-colors"
+        className="flex group items-center justify-between font-medium text-neutral-dark/70 hover:text-neutral-dark hover:bg-gray-100 rounded-md  w-full py-2 px-3 transition-colors"
       >
         <p className="capitalize">{category}</p>
         <RiArrowRightSLine className="text-xl relative opacity-0 group-hover:opacity-100 transition-all right-2 group-hover:right-0 " />

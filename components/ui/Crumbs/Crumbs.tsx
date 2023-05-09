@@ -11,7 +11,11 @@ type Props = {
 
 const Crumbs = ({ title, href, classes }: Props) => {
   return (
-    <Breadcrumbs aria-label="breadcrumb" separator=">" className={classes}>
+    <Breadcrumbs
+      aria-label="breadcrumb"
+      separator=">"
+      className={`${classes} font-sans font-medium text-gray-500/80`}
+    >
       <Link href={'/'} className="capitalize hover:underline">
         home
       </Link>
