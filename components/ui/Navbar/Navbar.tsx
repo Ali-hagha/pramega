@@ -36,8 +36,12 @@ const Navbar = () => {
       as={Fragment}
     >
       <header
-        className={`px-6  md:mx-12 xl:mx-20   fixed  left-0 right-0 backdrop-blur-lg md:rounded-3xl bg-white/80  shadow-xl transition-all z-50
-        ${isScrolled ? 'shadow-neutral-dark/5' : 'shadow-transparent'}
+        className={`px-6  md:mx-12 xl:mx-20  fixed  left-0 right-0 backdrop-blur-lg md:rounded-3xl   shadow-xl transition-all z-50
+        ${
+          isScrolled
+            ? 'shadow-neutral-dark/5 bg-gray-100/70'
+            : 'shadow-transparent bg-white'
+        }
         `}
       >
         <div className="flex items-center justify-between  md:py-3">

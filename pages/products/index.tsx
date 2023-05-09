@@ -15,9 +15,9 @@ const products = [
 ];
 const index = () => {
   return (
-    <div className="mb-20">
+    <div className="mb-20 md:px-10">
       <Crumbs classes="" />
-      <div className="flex mt-6">
+      <div className="flex mt-6 pt-6">
         <ProductsSidebar />
         <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-5 flex-1">
           <ProductCard product={products[0]} />

@@ -1,18 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  CarouselProvider,
-  Dot,
-  DotGroup,
-  Slide,
-  Slider,
-} from 'pure-react-carousel';
-import {
-  RiHeart3Fill,
-  RiHeart3Line,
-  RiShoppingCartFill,
-  RiShoppingCartLine,
-} from 'react-icons/ri';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { useScreenSize } from '@/hooks/useScreenSize';
 import ProductPreviewImageGallery from './ProductPreviewImageGallery';
