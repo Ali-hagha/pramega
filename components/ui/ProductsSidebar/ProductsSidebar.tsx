@@ -3,9 +3,6 @@ import { useRouter } from 'next/router';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 const ProductsSidebar = () => {
-  const router = useRouter();
-  console.log(router.asPath);
-
   return (
     <div className="w-64 shrink-0 mr-8 hidden lg:block">
       <h3 className=" text-2xl font-bold mb-3">Categories</h3>
