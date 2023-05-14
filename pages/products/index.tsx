@@ -1,7 +1,8 @@
-import Crumbs from '@/components/ui/Crumbs/Crumbs';
-import ProductCard from '@/components/ui/ProductCard/ProductCard';
+import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
 import ProductsSidebar from '@/components/ui/ProductsSidebar/ProductsSidebar';
 import React from 'react';
+import { NextPageWithLayout } from '../_app';
+import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 
 const products = [
   {
@@ -13,23 +14,18 @@ const products = [
     isFavorite: false,
   },
 ];
-const index = () => {
+
+const Products: NextPageWithLayout = () => {
   return (
-    <div className="mb-20 md:px-10 pt-6">
-      <Crumbs classes="" />
-      <div className="flex mt-6">
-        <ProductsSidebar />
-        <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-5 flex-1">
-          <ProductCard product={products[0]} />
-          <ProductCard product={products[0]} />
-          <ProductCard product={products[0]} />
-          <ProductCard product={products[0]} />
-          <ProductCard product={products[0]} />
-          <ProductCard product={products[0]} />
-        </div>
-      </div>
-    </div>
+    <>
+      <ProductsSidebar />
+      <ProductsGrid products={products} />
+    </>
   );
 };
 
-export default index;
+Products.getLayout = function getLayout(page: React.ReactElement) {
+  return <ProductsLayout>{page}</ProductsLayout>;
+};
+
+export default Products;

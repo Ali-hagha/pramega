@@ -1,10 +1,7 @@
 import Crumbs from '@/components/ui/Crumbs/Crumbs';
-import ProductCounter from '@/pages/products/[pid]/ProductCounter';
-import { Rating } from '@mui/material';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import ProductDimensions from './ProductDimensions';
-import ImageGallery from '../../../components/ui/ImageGallery/ImageGallery';
+import ImageGallery from '../../../../components/ui/ImageGallery/ImageGallery';
 import ProductInfo from './ProductInfo';
 
 const product = {
