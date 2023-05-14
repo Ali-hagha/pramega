@@ -1,15 +1,18 @@
+import { useCrumbs } from '@/hooks/useCrumbs';
 import { Breadcrumbs } from '@mui/material';
-import { CommonProps } from '@mui/material/OverridableComponent';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 type Props = {
   classes?: string;
-  title?: string;
-  href?: string;
+  crumb?: {
+    title: string;
+    href: string;
+  };
 };
 
-const Crumbs = ({ title, href, classes }: Props) => {
+const Crumbs = ({ crumb, classes }: Props) => {
+  const { crumbs, crumbPaths } = useCrumbs();
+
   return (
     <Breadcrumbs
       aria-label="breadcrumb"
@@ -19,18 +22,32 @@ const Crumbs = ({ title, href, classes }: Props) => {
       <Link href={'/'} className="capitalize hover:underline">
         home
       </Link>
-      <Link href={'/products'} className="capitalize hover:underline">
-        products
-      </Link>
-      {title && (
-        <Link
-          key={title}
-          href={`/prodcuts/${href}`}
-          className="capitalize hover:underline"
-        >
-          {title}
-        </Link>
-      )}
+
+      {crumbs.map((crumbItem, i, arr) => {
+        if (i == arr.length - 1 && crumb) {
+          return (
+            <Link
+              key={i}
+              href={crumbPaths[i - 1] + crumb.href}
+              className="capitalize hover:underline"
+            >
+              {crumb.title}
+            </Link>
+          );
+        }
+
+        console.log(crumbItem);
+
+        return (
+          <Link
+            key={i}
+            href={crumbPaths[i]}
+            className="capitalize hover:underline"
+          >
+            {crumbItem}
+          </Link>
+        );
+      })}
     </Breadcrumbs>
   );
 };

@@ -7,6 +7,7 @@ import ProductInfo from './ProductInfo';
 const product = {
   id: '12345abcd',
   name: 'Joshua Chair',
+  category: 'chairs',
   price: 249,
   rating: 4.5,
   ratingCount: 629,
@@ -21,13 +22,10 @@ const product = {
 
 const ProductDetails = () => {
   const [productCount, setProductCount] = useState(1);
-  const {
-    query: { pid },
-  } = useRouter();
 
   return (
     <div className="md:px-10 mb-20 pt-6">
-      <Crumbs title={product.name} href={`${pid}`} />
+      <Crumbs crumb={{ title: product.name, href: product.id }} />
       <div className="flex flex-col lg:flex-row items-start justify-center pt-6">
         <div className="flex-1 w-full lg:w-1/2  ">
           <ImageGallery />
