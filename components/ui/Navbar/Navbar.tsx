@@ -21,8 +21,13 @@ const items = [
   },
 ];
 
-const Navbar = () => {
+type Props = {
+  toggleCart: () => void;
+};
+
+const Navbar = ({ toggleCart }: Props) => {
   const [visible, isScrolled] = useNavbarVisibility();
+
   return (
     <Transition
       show={visible}
@@ -63,14 +68,14 @@ const Navbar = () => {
               >
                 <RiUserLine className="text-2xl" />
               </Link>
-              <Link
-                href={'#'}
+              <button
                 className={
                   'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
                 }
+                onClick={toggleCart}
               >
                 <RiShoppingCartLine className="text-2xl" />
-              </Link>
+              </button>
             </div>
           </nav>
         </div>

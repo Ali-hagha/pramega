@@ -1,8 +1,9 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
 import Navbar from './ui/Navbar/Navbar';
 import Footer from './ui/Footer/Footer';
 import BottomNavigation from './ui/BottomNavigation/BottomNavigation';
+import CartSidebar from './ui/CartSidebar/CartSidebar';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -19,16 +20,23 @@ const bebas_neue = Bebas_Neue({
 });
 
 const Layout = ({ children }: { children: ReactNode }) => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(prevState => !prevState);
+  };
+
   return (
     <div
-      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark `}
+      className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark relative`}
     >
       <div className="px-6 md:px-8 xl:px-16">
-        <Navbar />
+        <Navbar toggleCart={toggleCart} />
         <main className="pt-20 md:pt-24">{children}</main>
         <Footer />
         <BottomNavigation />
       </div>
+      <CartSidebar isCartOpen={isCartOpen} toggleCart={toggleCart} />
     </div>
   );
 };
