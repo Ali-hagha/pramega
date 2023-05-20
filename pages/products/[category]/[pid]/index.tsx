@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import ImageGallery from '../../../../components/ui/ImageGallery/ImageGallery';
 import ProductInfo from './ProductInfo';
 
-const product = {
+const product: Product = {
   id: '12345abcd',
   name: 'Joshua Chair',
   category: 'chairs',

@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import Link from 'next/link';
 import { RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 import NavGroup from './NavGroup';
@@ -5,6 +6,7 @@ import MenuBtn from './MenuBtn';
 import useNavbarVisibility from '@/hooks/useNavBarVIsibility';
 import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import CartContext from '@/components/context/CartContext';
 
 const items = [
   {
@@ -21,12 +23,10 @@ const items = [
   },
 ];
 
-type Props = {
-  toggleCart: () => void;
-};
-
-const Navbar = ({ toggleCart }: Props) => {
+const Navbar = () => {
   const [visible, isScrolled] = useNavbarVisibility();
+
+  const { toggleCart } = useContext(CartContext) as CartContextValue;
 
   return (
     <Transition

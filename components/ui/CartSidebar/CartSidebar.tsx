@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
+import CartContext from '@/components/context/CartContext';
 
-type Props = {
-  isCartOpen: boolean;
-  toggleCart: () => void;
-};
+const CartSidebar = () => {
+  const { isCartOpen, toggleCart, products } = useContext(
+    CartContext
+  ) as CartContextValue;
 
-const CartSidebar = ({ isCartOpen, toggleCart }: Props) => {
   // hide overflow on body when sidedrawer is open to stop scrolling
   useEffect(() => {
     if (isCartOpen) document.body.classList.add('overflow-hidden');
