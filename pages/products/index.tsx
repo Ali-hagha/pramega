@@ -4,14 +4,25 @@ import React from 'react';
 import { NextPageWithLayout } from '../_app';
 import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 
-const products = [
+const products: Product[] = [
   {
-    productName: 'joshua chair',
-    price: 239,
-    baseImage: '/products/chairs/Joshua-3.png',
-    secondaryImage: '/products/chairs/Joshua-2.jpg',
+    id: '12345abcd',
+    name: 'Joshua Chair',
+    category: 'chairs',
+    price: 249,
+    rating: 4.5,
+    ratingCount: 629,
+    dimensions: {
+      width: 50,
+      depth: 53,
+      height: 80,
+    },
+    description:
+      'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
+    imageUrlPrimary: '/products/chairs/Joshua-3.png',
+    imageUrlSecondary: '/products/chairs/Joshua-2.jpg',
     productTag: 'new',
-    isFavorite: false,
+    imageGalleryUrl: [''],
   },
 ];
 

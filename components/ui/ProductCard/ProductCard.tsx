@@ -7,25 +7,11 @@ import WishlistBtn from './WishlistBtn';
 import AddToCartBtn from './AddToCartBtn';
 
 type Props = {
-  product: {
-    baseImage: string;
-    secondaryImage: string;
-    productName: string;
-    price: number;
-    productTag: string;
-    isFavorite: boolean;
-  };
+  product: Product;
 };
 
 const ProductCard = ({
-  product: {
-    baseImage,
-    secondaryImage,
-    productName,
-    price,
-    productTag,
-    isFavorite,
-  },
+  product: { imageUrlPrimary, imageUrlSecondary, name, price, productTag },
 }: Props) => {
   return (
     <Link href={'#'}>
@@ -36,13 +22,16 @@ const ProductCard = ({
           </div>
 
           <WishlistBtn
-            isFavorite={isFavorite}
+            isFavorite={false}
             onClick={() => console.log('add to wishlist')}
           />
-          <Images baseImage={baseImage} secondaryImage={secondaryImage} />
+          <Images
+            baseImage={imageUrlPrimary}
+            secondaryImage={imageUrlSecondary}
+          />
         </div>
         <div className="flex flex-col p-5 ">
-          <p className="text-xl font-semibold  mb-4">{productName}</p>
+          <p className="text-xl font-semibold  mb-4">{name}</p>
           <div className="flex items-center justify-between w-full">
             <div>
               <p className="text-sm mb-1 text-neutral-dark/70">Price:</p>

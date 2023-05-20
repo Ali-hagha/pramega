@@ -2,17 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
 import Thumbnails from '@/components/ui/ImageGallery/Thumbnails';
 import Navigation from '@/components/ui/ImageGallery/Navigation';
 
-const images = [
-  '/categories/chair_tp.png',
-  '/categories/lamp_tp.png',
-  '/categories/bed_tp.png',
-];
+type Props = {
+  images: string[];
+};
 
-const ImageGallery = () => {
+const ImageGallery = ({ images }: Props) => {
   return (
     <div className="bg-neutral-light rounded-3xl mb-8">
       <CarouselProvider

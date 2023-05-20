@@ -11,4 +11,8 @@ type Product = {
     height: number;
   };
   description: string;
+  imageUrlPrimary: string;
+  imageUrlSecondary: string;
+  productTag: string;
+  imageGalleryUrl: string[];
 };

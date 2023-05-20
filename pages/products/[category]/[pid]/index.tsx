@@ -18,6 +18,14 @@ const product: Product = {
   },
   description:
     'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
+  imageUrlPrimary: '/products/chairs/Joshua-3.png',
+  imageUrlSecondary: '/products/chairs/Joshua-2.jpg',
+  productTag: 'new',
+  imageGalleryUrl: [
+    '/categories/chair_tp.png',
+    '/categories/lamp_tp.png',
+    '/categories/bed_tp.png',
+  ],
 };
 
 const ProductDetails = () => {
@@ -28,7 +36,7 @@ const ProductDetails = () => {
       <Crumbs crumb={{ title: product.name, href: product.id }} />
       <div className="flex flex-col lg:flex-row items-start justify-center pt-6">
         <div className="flex-1 w-full lg:w-1/2  ">
-          <ImageGallery />
+          <ImageGallery images={product.imageGalleryUrl} />
         </div>
         <div className="flex-1  lg:w-1/2">
           <ProductInfo
