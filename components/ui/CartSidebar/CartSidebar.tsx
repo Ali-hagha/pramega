@@ -1,9 +1,10 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
-import CartContext from '@/components/context/CartContext';
+import CartContext from '@/context/CartContext';
+import CartItems from './CartItems';
 
 const CartSidebar = () => {
-  const { isCartOpen, toggleCart, products } = useContext(
+  const { isCartOpen, toggleCart } = useContext(
     CartContext
   ) as CartContextValue;
 
@@ -47,7 +48,7 @@ const CartSidebar = () => {
         leaveTo="translate-x-full"
         as={Fragment}
       >
-        <div className="fixed  inset-y-0 right-0 max-w-full w-64 bg-white z-[100] shadow-lg">
+        <div className="fixed  inset-y-0 right-0 max-w-full w-[500px] bg-white z-[100] shadow-lg">
           <div className="p-4">
             <button
               className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700"
@@ -68,7 +69,7 @@ const CartSidebar = () => {
               </svg>
             </button>
             <h2 className="text-xl font-bold mb-4">Sidebar</h2>
-            {/* Sidebar content */}
+            <CartItems />
           </div>
         </div>
       </Transition>
