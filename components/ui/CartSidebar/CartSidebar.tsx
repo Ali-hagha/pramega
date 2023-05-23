@@ -2,9 +2,10 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import CartContext from '@/context/CartContext';
 import CartItems from './CartItems';
+import { RiCloseFill } from 'react-icons/ri';
 
 const CartSidebar = () => {
-  const { isCartOpen, toggleCart } = useContext(
+  const { isCartOpen, toggleCart, cartProducts } = useContext(
     CartContext
   ) as CartContextValue;
 
@@ -48,27 +49,16 @@ const CartSidebar = () => {
         leaveTo="translate-x-full"
         as={Fragment}
       >
-        <div className="fixed  inset-y-0 right-0 max-w-full w-[500px] bg-white z-[100] shadow-lg">
-          <div className="p-4">
-            <button
-              className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700"
-              onClick={toggleCart}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-            <h2 className="text-xl font-bold mb-4">Sidebar</h2>
+        <div className="fixed  inset-y-0 right-0 max-w-full w-[550px] bg-white z-[100] shadow-lg">
+          <div className="p-6">
+            <div className="mb-6 flex items-center justify-between">
+              <h2 className="text-xl font-bold">
+                My Cart({cartProducts.length})
+              </h2>
+              <button className=" pr-0 p-2 text-3xl " onClick={toggleCart}>
+                <RiCloseFill />
+              </button>
+            </div>
             <CartItems />
           </div>
         </div>
