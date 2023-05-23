@@ -7,6 +7,7 @@ import useNavbarVisibility from '@/hooks/useNavBarVIsibility';
 import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import CartContext from '@/context/CartContext';
+import { Badge } from '@mui/material';
 
 const items = [
   {
@@ -26,7 +27,9 @@ const items = [
 const Navbar = () => {
   const [visible, isScrolled] = useNavbarVisibility();
 
-  const { toggleCart } = useContext(CartContext) as CartContextValue;
+  const { toggleCart, cartProducts } = useContext(
+    CartContext
+  ) as CartContextValue;
 
   return (
     <Transition
@@ -68,14 +71,26 @@ const Navbar = () => {
               >
                 <RiUserLine className="text-2xl" />
               </Link>
-              <button
-                className={
-                  'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
-                }
-                onClick={toggleCart}
+              <Badge
+                badgeContent={cartProducts.length}
+                // color="primary"
+                sx={{
+                  '& .MuiBadge-badge': {
+                    backgroundColor: '#d9f104',
+                    fontWeight: '600',
+                    paddingY: '10px',
+                  },
+                }}
               >
-                <RiShoppingCartLine className="text-2xl" />
-              </button>
+                <button
+                  className={
+                    'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
+                  }
+                  onClick={toggleCart}
+                >
+                  <RiShoppingCartLine className="text-2xl" />
+                </button>
+              </Badge>
             </div>
           </nav>
         </div>
