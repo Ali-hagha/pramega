@@ -36,8 +36,6 @@ const Crumbs = ({ crumb, classes }: Props) => {
           );
         }
 
-        console.log(crumbItem);
-
         return (
           <Link
             key={i}
