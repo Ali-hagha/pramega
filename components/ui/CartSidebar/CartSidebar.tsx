@@ -51,8 +51,8 @@ const CartSidebar = () => {
         as={Fragment}
       >
         <div className="fixed  inset-y-0 right-0 max-w-full w-[550px] bg-white z-[100] shadow-lg">
-          <div className="p-6 flex flex-col h-full">
-            <div className="mb-6 flex items-center justify-between">
+          <div className=" flex flex-col h-full">
+            <div className="py-4 px-6  flex items-center justify-between">
               <h2 className="text-xl font-bold">
                 My Cart({cartProducts.length})
               </h2>
@@ -60,8 +60,10 @@ const CartSidebar = () => {
                 <RiCloseFill />
               </button>
             </div>
-            <CartItems />
-            <div className="mt-auto">
+            <div className="overflow-auto">
+              <CartItems />
+            </div>
+            <div className="mt-auto p-6 bg-white border-t-2 border-t-gray-100">
               <div className="flex justify-between mb-8 items-center">
                 <p className="text-xl font-semibold">Grand Total:</p>
                 <p className="text-3xl font-semibold">

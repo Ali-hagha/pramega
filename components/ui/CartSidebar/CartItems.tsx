@@ -25,7 +25,7 @@ const CartItems = () => {
       {cartProducts.map((product, i, arr) => {
         return (
           <>
-            <div key={product.id} className="flex   py-6 ">
+            <div key={product.id} className="flex   p-6 ">
               <div className="shrink-0 aspect-square bg-neutral-light flex items-center justify-center p-3 rounded-2xl mr-6">
                 <Image
                   src={product.imageUrlPrimary}
