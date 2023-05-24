@@ -5,4 +5,5 @@ type CartContextValue = {
   cartProductCount: Map<string, number>;
   addToCart: (product: Product, count: number) => void;
   removeFromCart: (product: Product) => void;
+  getGrandTotal: () => number;
 };

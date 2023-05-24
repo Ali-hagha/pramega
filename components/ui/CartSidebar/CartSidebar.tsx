@@ -3,9 +3,10 @@ import { Transition } from '@headlessui/react';
 import CartContext from '@/context/CartContext';
 import CartItems from './CartItems';
 import { RiCloseFill } from 'react-icons/ri';
+import { currencyFormatter } from '@/helpers';
 
 const CartSidebar = () => {
-  const { isCartOpen, toggleCart, cartProducts } = useContext(
+  const { isCartOpen, toggleCart, cartProducts, getGrandTotal } = useContext(
     CartContext
   ) as CartContextValue;
 
@@ -50,7 +51,7 @@ const CartSidebar = () => {
         as={Fragment}
       >
         <div className="fixed  inset-y-0 right-0 max-w-full w-[550px] bg-white z-[100] shadow-lg">
-          <div className="p-6">
+          <div className="p-6 flex flex-col h-full">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="text-xl font-bold">
                 My Cart({cartProducts.length})
@@ -60,6 +61,17 @@ const CartSidebar = () => {
               </button>
             </div>
             <CartItems />
+            <div className="mt-auto">
+              <div className="flex justify-between mb-8 items-center">
+                <p className="text-xl font-semibold">Grand Total:</p>
+                <p className="text-3xl font-semibold">
+                  {currencyFormatter.format(getGrandTotal())}
+                </p>
+              </div>
+              <button className="rounded-lg bg-neutral-dark px-6 py-4  w-full font-bold md:font-semibold text-base md:text-lg uppercase shadow-[0_0_20px_#ebfc4b]    hover:bg-neutral-dark/90 transition-colors shadow-primary text-primary">
+                Checkout
+              </button>
+            </div>
           </div>
         </div>
       </Transition>

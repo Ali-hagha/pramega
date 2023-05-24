@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const initProducts = [
   {
@@ -83,6 +83,15 @@ export const useCart = (): CartContextValue => {
     ])
   );
 
+  const getGrandTotal = () => {
+    let grandTotal = 0;
+    cartProducts.forEach(p => {
+      grandTotal += p.price * cartProductCount.get(p.id)!;
+    });
+
+    return grandTotal;
+  };
+
   const addToCart = (product: Product, count: number) => {
     // don't add a product to the products array if it already exists
     if (!cartProducts.some(p => p.id === product.id)) {
@@ -122,5 +131,6 @@ export const useCart = (): CartContextValue => {
     cartProductCount,
     addToCart,
     removeFromCart,
+    getGrandTotal,
   };
 };
