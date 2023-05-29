@@ -66,7 +66,7 @@ const Images = ({
             width={600}
             height={600}
             alt={''}
-            className="object-contain h-full w-full scale-110"
+            className="object-contain h-full w-full"
           />
           <Image
             src={secondaryImage}

@@ -18,8 +18,8 @@ const products: Product[] = [
     },
     description:
       'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
-    imageUrlPrimary: '/products/chairs/Joshua-3.png',
-    imageUrlSecondary: '/products/chairs/Joshua-2.jpg',
+    imageUrlPrimary: '/products/chairs/joshua/primary.jpg',
+    imageUrlSecondary: '/products/chairs/joshua/secondary.jpg',
     productTag: 'new',
     imageGalleryUrl: [''],
   },
