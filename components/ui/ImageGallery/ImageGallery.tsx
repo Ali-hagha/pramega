@@ -6,7 +6,7 @@ import Thumbnails from '@/components/ui/ImageGallery/Thumbnails';
 import Navigation from '@/components/ui/ImageGallery/Navigation';
 
 type Props = {
-  images: string[];
+  images: [{ attributes: { url: string } }];
 };
 
 const ImageGallery = ({ images }: Props) => {
@@ -27,7 +27,12 @@ const ImageGallery = ({ images }: Props) => {
                 index={index}
                 innerClassName="flex items-center justify-center"
               >
-                <Image src={image} alt={''} width={600} height={600} />
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
+                  alt={''}
+                  width={600}
+                  height={600}
+                />
               </Slide>
             );
           })}

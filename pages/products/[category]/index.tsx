@@ -2,28 +2,22 @@ import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
 import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 import ProductsSidebar from '@/components/ui/ProductsSidebar/ProductsSidebar';
 import { NextPageWithLayout } from '@/pages/_app';
+import { GetStaticProps } from 'next';
 
-const products: Product[] = [
-  {
-    id: '12345abcd',
-    name: 'Joshua Chair',
-    category: 'chairs',
-    price: 249,
-    rating: 4.5,
-    ratingCount: 629,
-    dimensions: {
-      width: 50,
-      depth: 53,
-      height: 80,
-    },
-    description:
-      'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
-    imageUrlPrimary: '/products/chairs/joshua/primary.jpg',
-    imageUrlSecondary: '/products/chairs/joshua/secondary.jpg',
-    productTag: 'new',
-    imageGalleryUrl: [''],
-  },
-];
+type PageProps = {
+  products: Product[];
+};
+
+const ProductCategories: NextPageWithLayout<PageProps> = ({
+  products,
+}: PageProps) => {
+  return (
+    <>
+      <ProductsSidebar />
+      <ProductsGrid products={products} />
+    </>
+  );
+};
 
 export const getStaticPaths = async () => {
   return {
@@ -58,23 +52,24 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = () => {
-  return {
-    props: { products },
-  };
-};
+export const getStaticProps: GetStaticProps<{
+  products: Product[];
+}> = async ({ params }) => {
+  const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
-const Tables: NextPageWithLayout = () => {
-  return (
-    <>
-      <ProductsSidebar />
-      <ProductsGrid products={products} />
-    </>
+  const res = await fetch(
+    `${strapiUrl}/api/products?populate=primaryImage&populate=secondaryImage&filters[category][$eq]=${
+      params!.category
+    }`
   );
+
+  const jsonRes = await res.json();
+  const products = jsonRes.data;
+  return { props: { products } };
 };
 
-Tables.getLayout = function getLayout(page: React.ReactElement) {
+ProductCategories.getLayout = function getLayout(page: React.ReactElement) {
   return <ProductsLayout>{page}</ProductsLayout>;
 };
 
-export default Tables;
+export default ProductCategories;

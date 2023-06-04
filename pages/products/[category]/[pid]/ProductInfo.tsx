@@ -4,19 +4,7 @@ import ProductDimensions from './ProductDimensions';
 import ProductCounter from './ProductCounter';
 
 type Props = {
-  product: {
-    id: string;
-    name: string;
-    price: number;
-    rating: number;
-    ratingCount: number;
-    dimensions: {
-      width: number;
-      depth: number;
-      height: number;
-    };
-    description: string;
-  };
+  product: Product['attributes'];
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -49,7 +37,7 @@ const ProductInfo = ({ product, count, setCount }: Props) => {
         </span>
       </p>
 
-      <ProductDimensions dimensions={product.dimensions} />
+      <ProductDimensions product={product} />
 
       <ProductCounter count={count} setCount={setCount} />
 

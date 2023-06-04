@@ -14,10 +14,18 @@ type Props = {
 const backendUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const ProductCard = ({
-  product: { primaryImage, secondaryImage, name, price, productTag },
+  product: {
+    primaryImage,
+    secondaryImage,
+    name,
+    price,
+    productTag,
+    category,
+    productId,
+  },
 }: Props) => {
   return (
-    <Link href={'#'}>
+    <Link href={`/products/${category}/${productId}`}>
       <div className=" rounded-3xl  overflow-hidden border hover:border-gray-300 group/card transition-colors">
         <div className=" aspect-square relative border-b bg-gray-100">
           {productTag && <ProductTag productTag={productTag} />}

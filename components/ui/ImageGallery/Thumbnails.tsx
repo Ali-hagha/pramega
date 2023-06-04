@@ -5,7 +5,7 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css';
 
 type Props = {
-  images: string[];
+  images: [{ attributes: { url: string } }];
 };
 
 const Thumbnails = ({ images }: Props) => {
@@ -25,7 +25,7 @@ const Thumbnails = ({ images }: Props) => {
                   }`}
                 >
                   <Image
-                    src={image}
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
                     alt={''}
                     width={80}
                     height={80}

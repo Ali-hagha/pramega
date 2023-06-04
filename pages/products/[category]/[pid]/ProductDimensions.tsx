@@ -1,11 +1,11 @@
 type Props = {
-  dimensions: {
+  product: {
     width: number;
     depth: number;
     height: number;
   };
 };
-const ProductDimensions = ({ dimensions: { width, depth, height } }: Props) => {
+const ProductDimensions = ({ product: { width, depth, height } }: Props) => {
   return (
     <div className="border-2 border-neutral-dark/10  self-start rounded mb-12 h-16 flex items-center justify-center">
       <DimensionItem title={'width'} dimension={width} />
