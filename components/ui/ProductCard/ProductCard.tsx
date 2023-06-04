@@ -5,29 +5,29 @@ import { useScreenSize } from '@/hooks/useScreenSize';
 import ProductPreviewImageGallery from './ProductPreviewImageGallery';
 import WishlistBtn from './WishlistBtn';
 import AddToCartBtn from './AddToCartBtn';
+import ProductTag from './ProductTag';
 
 type Props = {
-  product: Product;
+  product: Product['attributes'];
 };
 
+const backendUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+
 const ProductCard = ({
-  product: { imageUrlPrimary, imageUrlSecondary, name, price, productTag },
+  product: { primaryImage, secondaryImage, name, price, productTag },
 }: Props) => {
   return (
     <Link href={'#'}>
       <div className=" rounded-3xl  overflow-hidden border hover:border-gray-300 group/card transition-colors">
         <div className=" aspect-square relative border-b bg-gray-100">
-          <div className="absolute z-20 top-6 left-6 capitalize py-2 px-4 bg-primary-light rounded-md text-neutral-dark/80 text-sm font-semibold ">
-            {productTag}
-          </div>
-
+          {productTag && <ProductTag productTag={productTag} />}
           <WishlistBtn
             isFavorite={false}
             onClick={() => console.log('add to wishlist')}
           />
           <Images
-            baseImage={imageUrlPrimary}
-            secondaryImage={imageUrlSecondary}
+            baseImage={backendUrl + primaryImage.data.attributes.url}
+            secondaryImage={backendUrl + secondaryImage.data.attributes.url}
           />
         </div>
         <div className="flex flex-col p-5 ">
