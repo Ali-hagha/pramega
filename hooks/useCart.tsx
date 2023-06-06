@@ -1,92 +1,16 @@
 import { useEffect, useState } from 'react';
 
-const initProducts = [
-  {
-    id: '12345abcd',
-    name: 'Nadine Chair',
-    category: 'chairs',
-    price: 249,
-    rating: 4.5,
-    ratingCount: 629,
-    dimensions: {
-      width: 50,
-      depth: 53,
-      height: 80,
-    },
-    description:
-      'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
-    imageUrlPrimary: '/categories/chair_tp.png',
-    imageUrlSecondary: '/products/chairs/Joshua-2.jpg',
-    productTag: 'new',
-    imageGalleryUrl: [
-      '/categories/chair_tp.png',
-      '/categories/lamp_tp.png',
-      '/categories/bed_tp.png',
-    ],
-  },
-  {
-    id: '12345abc',
-    name: 'Joshua Chair',
-    category: 'chairs',
-    price: 499,
-    rating: 4.5,
-    ratingCount: 629,
-    dimensions: {
-      width: 50,
-      depth: 53,
-      height: 80,
-    },
-    description:
-      'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
-    imageUrlPrimary: '/categories/chair_tp.png',
-    imageUrlSecondary: '/products/chairs/Joshua-2.jpg',
-    productTag: 'new',
-    imageGalleryUrl: [
-      '/categories/chair_tp.png',
-      '/categories/lamp_tp.png',
-      '/categories/bed_tp.png',
-    ],
-  },
-  {
-    id: '12345ab',
-    name: 'Jacob Chair',
-    category: 'chairs',
-    price: 299,
-    rating: 4.5,
-    ratingCount: 629,
-    dimensions: {
-      width: 50,
-      depth: 53,
-      height: 80,
-    },
-    description:
-      'The popular Joshua is a mid-century inspired collection with a curved seat and back, designed for maximal comfort.',
-    imageUrlPrimary: '/categories/chair_tp.png',
-    imageUrlSecondary: '/products/chairs/Joshua-2.jpg',
-    productTag: 'new',
-    imageGalleryUrl: [
-      '/categories/chair_tp.png',
-      '/categories/lamp_tp.png',
-      '/categories/bed_tp.png',
-    ],
-  },
-];
-
 export const useCart = (): CartContextValue => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartProducts, setCartProducts] = useState<Product[]>(initProducts);
-  const [cartProductCount, setCartProductCount] = useState<Map<string, number>>(
-    new Map([
-      ['12345abcd', 1],
-      ['12345ab', 3],
-      ['12345abc', 2],
-    ])
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+  const [cartProductCount, setCartProductCount] = useState<Map<number, number>>(
+    new Map([])
   );
 
   const getGrandTotal = () => {
     let grandTotal = 0;
     cartProducts.forEach(p => {
-      grandTotal += p.price * cartProductCount.get(p.id)!;
+      grandTotal += p.attributes.price * cartProductCount.get(p.id)!;
     });
 
     return grandTotal;
