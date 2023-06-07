@@ -6,4 +6,6 @@ type CartContextValue = {
   addToCart: (product: Product, count: number) => void;
   removeFromCart: (product: Product) => void;
   getGrandTotal: () => number;
+  error: Error | null;
+  loading: boolean;
 };

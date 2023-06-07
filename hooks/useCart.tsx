@@ -16,7 +16,7 @@ export const useCart = (): CartContextValue => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${strapiUrl}/api/carts/${20}?populate=products.primaryImage`
+          `${strapiUrl}/api/carts/${21}?populate=products.primaryImage`
         );
         if (!response.ok) {
           throw new Error('Network response was not OK');
@@ -93,5 +93,7 @@ export const useCart = (): CartContextValue => {
     addToCart,
     removeFromCart,
     getGrandTotal,
+    error,
+    loading,
   };
 };
