@@ -21,15 +21,23 @@ const CartItems = () => {
   };
 
   return (
-    <>
+    <div className="p-6">
+      {/* show some text when the cart is empty */}
+      {cartProducts.length < 1 && (
+        <div className="flex flex-1 items-center justify-center">
+          <h2 className="text-xl font-semibold text-gray-500">
+            Your cart is empty
+          </h2>
+        </div>
+      )}
       {cartProducts.map((product, i, arr) => {
         return (
           <>
-            <div key={product.id} className="flex   p-6 ">
+            <div key={product.id} className="flex">
               <div className="shrink-0 aspect-square bg-neutral-light flex items-center justify-center p-3 rounded-2xl mr-6">
                 <Image
-                  src={product.imageUrlPrimary}
-                  alt={product.name}
+                  src={product.attributes.primaryImage.data.attributes.url}
+                  alt={product.attributes.name}
                   width={80}
                   height={80}
                 />
@@ -38,9 +46,11 @@ const CartItems = () => {
                 <div className="flex justify-between">
                   <div>
                     <p className="text-gray-500  font-medium mb-1">
-                      {product.category}
+                      {product.attributes.category}
                     </p>
-                    <p className="font-bold text-lg mb-4">{product.name}</p>
+                    <p className="font-bold text-lg mb-4">
+                      {product.attributes.name}
+                    </p>
                   </div>
                   <button
                     onClick={() => removeFromCart(product)}
@@ -69,7 +79,8 @@ const CartItems = () => {
                   </div>
                   <p className="text-2xl font-bold">
                     {currencyFormatter.format(
-                      product.price * cartProductCount.get(product.id)!
+                      product.attributes.price *
+                        cartProductCount.get(product.id)!
                     )}
                   </p>
                 </div>
@@ -81,7 +92,7 @@ const CartItems = () => {
           </>
         );
       })}
-    </>
+    </div>
   );
 };
 
