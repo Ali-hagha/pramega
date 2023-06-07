@@ -1,11 +1,48 @@
 import { useEffect, useState } from 'react';
 
+const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
+
 export const useCart = (): CartContextValue => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
   const [cartProductCount, setCartProductCount] = useState<Map<number, number>>(
     new Map([])
   );
+
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${strapiUrl}/api/carts/${20}?populate=products.primaryImage`
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not OK');
+        }
+        const json = await response.json();
+        const products = json.data.attributes.products.data;
+        const productCount = json.data.attributes.productCount;
+
+        const tempCount = new Map();
+        if (productCount) {
+          productCount.forEach((p: { id: number; quantity: number }) => {
+            tempCount.set(p.id, p.quantity);
+          });
+        }
+
+        setCartProductCount(tempCount);
+        setCartProducts(products);
+      } catch (error: any) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const getGrandTotal = () => {
     let grandTotal = 0;

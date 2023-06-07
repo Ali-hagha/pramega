@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useContext } from 'react';
 import { RiAddFill, RiDeleteBinLine, RiSubtractFill } from 'react-icons/ri';
 
+const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
+
 const CartItems = () => {
   const { cartProducts, cartProductCount, addToCart, removeFromCart } =
     useContext(CartContext) as CartContextValue;
@@ -32,14 +34,14 @@ const CartItems = () => {
       )}
       {cartProducts.map((product, i, arr) => {
         return (
-          <>
+          <div key={product.id}>
             <div key={product.id} className="flex">
-              <div className="shrink-0 aspect-square bg-neutral-light flex items-center justify-center p-3 rounded-2xl mr-6">
+              <div className="shrink-0 grow-0 p-1 aspect-square bg-neutral-light flex items-center justify-center overflow-hidden rounded-2xl mr-6">
                 <Image
-                  src={product.attributes.primaryImage.data.attributes.url}
+                  src={`${strapiUrl}${product.attributes.primaryImage.data.attributes.url}`}
                   alt={product.attributes.name}
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                 />
               </div>
               <div className="flex flex-col w-full justify-between">
@@ -89,7 +91,7 @@ const CartItems = () => {
             {i !== arr.length - 1 && (
               <div className="w-full border-b-primary/80 border-b-2"></div>
             )}
-          </>
+          </div>
         );
       })}
     </div>
