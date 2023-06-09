@@ -15,7 +15,7 @@ export const useCart = (): CartContextValue => {
     new Map([])
   );
 
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
   const [localCartId, setLocalCartId] = useState<string | null>(null);
   const [localCartUniqueId, setlocalCartUniqueId] = useState<string | null>(
@@ -36,6 +36,7 @@ export const useCart = (): CartContextValue => {
         const url = `${strapiUrl}/api/carts/${localCartId}?populate=products.primaryImage`;
 
         try {
+          setLoading(true);
           const response = await fetch(url);
           if (!response.ok) {
             throw new Error('Network response was not OK');
@@ -83,6 +84,8 @@ export const useCart = (): CartContextValue => {
       };
 
       try {
+        setLoading(true);
+
         const response = await fetch(url, {
           method: 'POST',
           headers: {
@@ -102,8 +105,6 @@ export const useCart = (): CartContextValue => {
         setlocalCartUniqueId(
           localStorage.getItem(localStorageKeys.cartUniqueId)
         );
-
-        console.log(json);
       } catch (error: any) {
         setError(error);
         console.log(error);
@@ -132,6 +133,8 @@ export const useCart = (): CartContextValue => {
       };
 
       try {
+        setLoading(true);
+
         const response = await fetch(url, {
           method: 'PUT',
           headers: {
@@ -154,15 +157,17 @@ export const useCart = (): CartContextValue => {
           });
         }
 
-        setCartProductCount(tempCount);
-        setCartProducts(products);
-
-        console.log(json);
+        setTimeout(() => {
+          setCartProductCount(tempCount);
+          setCartProducts(products);
+        }, 1000);
       } catch (error: any) {
         setError(error);
         console.log(error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       }
     }
   };
@@ -185,9 +190,10 @@ export const useCart = (): CartContextValue => {
         productCount: quantities,
       },
     };
-    console.log(data);
 
     try {
+      setLoading(true);
+
       const response = await fetch(url, {
         method: 'PUT',
         headers: {
@@ -210,15 +216,17 @@ export const useCart = (): CartContextValue => {
         });
       }
 
-      setCartProductCount(tempCount);
-      setCartProducts(products);
-
-      console.log(json);
+      setTimeout(() => {
+        setCartProductCount(tempCount);
+        setCartProducts(products);
+      }, 1000);
     } catch (error: any) {
       setError(error);
       console.log(error);
     } finally {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   };
 

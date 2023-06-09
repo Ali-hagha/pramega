@@ -1,25 +1,40 @@
 import CartContext from '@/context/CartContext';
 import { currencyFormatter } from '@/helpers';
+import { CircularProgress } from '@mui/material';
 import Image from 'next/image';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { RiAddFill, RiDeleteBinLine, RiSubtractFill } from 'react-icons/ri';
 
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
 const CartItems = () => {
-  const { cartProducts, cartProductCount, addToCart, removeFromCart } =
+  const { cartProducts, cartProductCount, addToCart, removeFromCart, loading } =
     useContext(CartContext) as CartContextValue;
 
+  const productIdEdit = useRef(-1);
+
   const handleIncrementCartItem = (product: Product, count: 1) => {
+    productIdEdit.current = product.id;
     if (cartProductCount.get(product.id)! < 6) {
       addToCart(product, count);
     }
+    setTimeout(() => {
+      productIdEdit.current = -1;
+    }, 1000);
   };
 
   const handleDecrementCartItem = (product: Product, count: -1) => {
+    productIdEdit.current = product.id;
     if (cartProductCount.get(product.id)! > 1) {
       addToCart(product, count);
     }
+    setTimeout(() => {
+      productIdEdit.current = -1;
+    }, 1000);
+  };
+
+  const handleRemoveFromCart = (product: Product) => {
+    removeFromCart(product);
   };
 
   return (
@@ -55,8 +70,9 @@ const CartItems = () => {
                     </p>
                   </div>
                   <button
-                    onClick={() => removeFromCart(product)}
-                    className="text-gray-400 text-2xl p-1 hover:text-gray-700 transition-colors self-start"
+                    onClick={() => handleRemoveFromCart(product)}
+                    disabled={loading}
+                    className="text-gray-400 text-2xl p-1 hover:text-gray-700 transition-colors self-start "
                   >
                     <RiDeleteBinLine />
                   </button>
@@ -65,16 +81,27 @@ const CartItems = () => {
                   <div className="flex items-center justify-center  rounded-lg">
                     <button
                       onClick={() => handleDecrementCartItem(product, -1)}
-                      className="p-2 text-lg bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+                      disabled={loading}
+                      className="p-2 text-lg bg-gray-100 rounded-md hover:bg-gray-200 transition-colors disabled:bg-transparent disabled:opacity-30"
                     >
                       <RiSubtractFill />
                     </button>
-                    <div className="w-10 text-center text-lg font-medium">
-                      {cartProductCount.get(product.id)}
+                    <div className="w-10 text-center text-lg font-medium flex items-center justify-center">
+                      {/* show spinner only on the product that is changing */}
+                      {loading && productIdEdit.current === product.id && (
+                        <CircularProgress
+                          className="text-neutral-dark/70"
+                          size={24}
+                        />
+                      )}
+                      {/* hide text only on the product that is changing */}
+                      {!(loading && productIdEdit.current === product.id) &&
+                        cartProductCount.get(product.id)}
                     </div>
                     <button
                       onClick={() => handleIncrementCartItem(product, 1)}
-                      className="p-2 text-lg  bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+                      disabled={loading}
+                      className="p-2 text-lg  bg-gray-100 rounded-md hover:bg-gray-200 transition-colors disabled:bg-transparent disabled:opacity-30"
                     >
                       <RiAddFill />
                     </button>

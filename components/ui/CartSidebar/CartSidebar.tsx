@@ -4,11 +4,11 @@ import CartContext from '@/context/CartContext';
 import CartItems from './CartItems';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
+import { CircularProgress } from '@mui/material';
 
 const CartSidebar = () => {
-  const { isCartOpen, toggleCart, cartProducts, getGrandTotal } = useContext(
-    CartContext
-  ) as CartContextValue;
+  const { isCartOpen, toggleCart, cartProducts, getGrandTotal, loading } =
+    useContext(CartContext) as CartContextValue;
 
   // hide overflow on body when sidedrawer is open to stop scrolling
   useEffect(() => {
@@ -25,16 +25,16 @@ const CartSidebar = () => {
       {/* Backdrop */}
       <Transition
         show={isCartOpen}
-        enter="transition-opacity ease-linear duration-300"
+        enter="transition-opacity ease-linear duration-100"
         enterFrom="opacity-0"
         enterTo="opacity-100"
-        leave="transition-opacity ease-linear duration-300"
+        leave="transition-opacity ease-linear duration-100"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
         as={Fragment}
       >
         <div
-          className="fixed inset-0 bg-black/50 z-[90]"
+          className="fixed inset-0 bg-black/50 z-[90] "
           onClick={toggleCart}
         ></div>
       </Transition>
@@ -70,8 +70,20 @@ const CartSidebar = () => {
                   {currencyFormatter.format(getGrandTotal())}
                 </p>
               </div>
-              <button className="rounded-lg bg-neutral-dark px-6 py-4  w-full font-bold md:font-semibold text-base md:text-lg uppercase shadow-[0_0_20px_#ebfc4b]    hover:bg-neutral-dark/90 transition-colors shadow-primary text-primary">
-                Checkout
+
+              <button
+                // disable the button only if the cart is not open
+                disabled={loading}
+                className="flex items-center justify-center rounded-lg bg-neutral-dark px-6 py-4  w-full font-bold md:font-semibold text-base md:text-lg uppercase shadow-[0_0_20px_#ebfc4b] hover:shadow-[0_0_40px_#ebfc4b] hover:bg-black transition-all shadow-primary text-primary disabled:bg-neutral-500 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {/* show spinner only if the cart is not open */}
+                {loading && (
+                  <CircularProgress
+                    sx={{ color: 'rgb(235,252,75)' }}
+                    size={28}
+                  />
+                )}
+                {!loading && <span>Checkout</span>}
               </button>
             </div>
           </div>
