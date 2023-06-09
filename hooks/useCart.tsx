@@ -167,15 +167,59 @@ export const useCart = (): CartContextValue => {
     }
   };
 
-  const removeFromCart = (product: Product) => {
-    setCartProducts(prevState => prevState.filter(p => p.id !== product.id));
+  const removeFromCart = async (product: Product) => {
+    const url = `${strapiUrl}/api/carts/${localCartId}?populate=products.primaryImage`;
+    const quantities = Array.from(cartProductCount, p => {
+      return { id: p[0], quantity: p[1] };
+    }).filter(p => p.id !== product.id);
 
-    const updatedCounts = new Map(cartProductCount);
-    if (updatedCounts.has(product.id)) {
-      updatedCounts.delete(product.id);
+    const data = {
+      data: {
+        products: [
+          ...cartProducts
+            .map(p => {
+              return p.id;
+            })
+            .filter(id => id !== product.id),
+        ],
+        productCount: quantities,
+      },
+    };
+    console.log(data);
+
+    try {
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+      const json = await response.json();
+
+      const products = json.data.attributes.products.data;
+      const productCount = json.data.attributes.productCount;
+
+      const tempCount = new Map();
+      if (productCount) {
+        productCount.forEach((p: { id: number; quantity: number }) => {
+          tempCount.set(p.id, p.quantity);
+        });
+      }
+
+      setCartProductCount(tempCount);
+      setCartProducts(products);
+
+      console.log(json);
+    } catch (error: any) {
+      setError(error);
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
-
-    setCartProductCount(updatedCounts);
   };
 
   const getGrandTotal = () => {
