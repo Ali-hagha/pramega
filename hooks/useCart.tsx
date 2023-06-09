@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
+
+const localStorageKeys = {
+  cardId: 'cartId',
+  cartUniqueId: 'cartUniqueId',
+};
 
 export const useCart = (): CartContextValue => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -11,17 +17,133 @@ export const useCart = (): CartContextValue => {
 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
+  const [localCartId, setLocalCartId] = useState<string | null>(null);
+  const [localCartUniqueId, setlocalCartUniqueId] = useState<string | null>(
+    null
+  );
+
+  // set cart id state from local storage when the app is loaded
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setLocalCartId(localStorage.getItem(localStorageKeys.cardId));
+      setlocalCartUniqueId(localStorage.getItem(localStorageKeys.cartUniqueId));
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
+      if (localCartId !== null) {
+        const url = `${strapiUrl}/api/carts/${localCartId}?populate=products.primaryImage`;
+
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Network response was not OK');
+          }
+          const json = await response.json();
+          const products = json.data.attributes.products.data;
+          const productCount = json.data.attributes.productCount;
+
+          const tempCount = new Map();
+          if (productCount) {
+            productCount.forEach((p: { id: number; quantity: number }) => {
+              tempCount.set(p.id, p.quantity);
+            });
+          }
+
+          setCartProductCount(tempCount);
+          setCartProducts(products);
+        } catch (error: any) {
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchData();
+  }, [localCartId]);
+
+  const addToCart = async (product: Product, count: number) => {
+    // if there's no local data about the cart create a new cart on the server and set the local ids
+    if (localCartId === null) {
+      const uuid = uuidv4();
+      const url = `${strapiUrl}/api/carts`;
+      const data = {
+        data: {
+          products: product.id,
+          productCount: [
+            {
+              id: product.id,
+              quantity: count,
+            },
+          ],
+          cartUniqueId: uuid,
+        },
+      };
+
       try {
-        const response = await fetch(
-          `${strapiUrl}/api/carts/${21}?populate=products.primaryImage`
-        );
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
         const json = await response.json();
+
+        localStorage.setItem(localStorageKeys.cartUniqueId, uuid);
+        localStorage.setItem(localStorageKeys.cardId, json.data.id);
+
+        setLocalCartId(localStorage.getItem(localStorageKeys.cardId));
+        setlocalCartUniqueId(
+          localStorage.getItem(localStorageKeys.cartUniqueId)
+        );
+
+        console.log(json);
+      } catch (error: any) {
+        setError(error);
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      const url = `${strapiUrl}/api/carts/${localCartId}?populate=products.primaryImage`;
+      const quantities = Array.from(cartProductCount, p => {
+        return { id: p[0], quantity: p[1] };
+      });
+
+      const i = quantities.findIndex(_el => _el.id === product.id);
+      if (i > -1)
+        quantities[i] = {
+          id: product.id,
+          quantity: count + quantities[i].quantity,
+        };
+      else quantities.push({ id: product.id, quantity: count });
+
+      const data = {
+        data: {
+          products: [...cartProducts.map(p => p.id), product.id],
+          productCount: quantities,
+        },
+      };
+
+      try {
+        const response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not OK');
+        }
+        const json = await response.json();
+
         const products = json.data.attributes.products.data;
         const productCount = json.data.attributes.productCount;
 
@@ -34,40 +156,15 @@ export const useCart = (): CartContextValue => {
 
         setCartProductCount(tempCount);
         setCartProducts(products);
+
+        console.log(json);
       } catch (error: any) {
         setError(error);
+        console.log(error);
       } finally {
         setLoading(false);
       }
-    };
-
-    fetchData();
-  }, []);
-
-  const getGrandTotal = () => {
-    let grandTotal = 0;
-    cartProducts.forEach(p => {
-      grandTotal += p.attributes.price * cartProductCount.get(p.id)!;
-    });
-
-    return grandTotal;
-  };
-
-  const addToCart = (product: Product, count: number) => {
-    // don't add a product to the products array if it already exists
-    if (!cartProducts.some(p => p.id === product.id)) {
-      const updatedProducts = [...cartProducts, product];
-      setCartProducts(updatedProducts);
     }
-
-    const updatedCounts = new Map(cartProductCount);
-    if (updatedCounts.has(product.id)) {
-      updatedCounts.set(product.id, updatedCounts.get(product.id)! + count);
-    } else {
-      updatedCounts.set(product.id, count);
-    }
-
-    setCartProductCount(updatedCounts);
   };
 
   const removeFromCart = (product: Product) => {
@@ -79,6 +176,15 @@ export const useCart = (): CartContextValue => {
     }
 
     setCartProductCount(updatedCounts);
+  };
+
+  const getGrandTotal = () => {
+    let grandTotal = 0;
+    cartProducts.forEach(p => {
+      grandTotal += p.attributes.price * cartProductCount.get(p.id)!;
+    });
+
+    return grandTotal;
   };
 
   const toggleCart = () => {
@@ -95,5 +201,7 @@ export const useCart = (): CartContextValue => {
     getGrandTotal,
     error,
     loading,
+    localCartId,
+    localCartUniqueId,
   };
 };

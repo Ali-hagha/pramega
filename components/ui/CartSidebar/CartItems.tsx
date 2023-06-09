@@ -35,7 +35,7 @@ const CartItems = () => {
       {cartProducts.map((product, i, arr) => {
         return (
           <div key={product.id}>
-            <div key={product.id} className="flex">
+            <div className="flex py-4">
               <div className="shrink-0 grow-0 p-1 aspect-square bg-neutral-light flex items-center justify-center overflow-hidden rounded-2xl mr-6">
                 <Image
                   src={`${strapiUrl}${product.attributes.primaryImage.data.attributes.url}`}

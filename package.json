@@ -25,9 +25,11 @@
     "react-icons": "^4.8.0",
     "react-indiana-drag-scroll": "^3.0.3-alpha",
     "swiper": "^9.2.3",
-    "typescript": "5.0.2"
+    "typescript": "5.0.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.1",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"

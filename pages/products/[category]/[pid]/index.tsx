@@ -27,7 +27,7 @@ const ProductDetails = ({ product }: PageProps) => {
           <ProductInfo
             count={productCount}
             setCount={setProductCount}
-            product={product.attributes}
+            product={product}
           />
         </div>
       </div>

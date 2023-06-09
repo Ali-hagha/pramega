@@ -8,4 +8,6 @@ type CartContextValue = {
   getGrandTotal: () => number;
   error: Error | null;
   loading: boolean;
+  localCartId: String | null;
+  localCartUniqueId: string | null;
 };
