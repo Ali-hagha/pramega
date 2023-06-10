@@ -11,7 +11,7 @@ type Props = {
 
 const ImageGallery = ({ images }: Props) => {
   return (
-    <div className="bg-neutral-light rounded-3xl overflow-hidden mb-8">
+    <div className="  mb-8">
       <CarouselProvider
         naturalSlideWidth={600}
         naturalSlideHeight={600}
@@ -19,26 +19,28 @@ const ImageGallery = ({ images }: Props) => {
         infinite={true}
         className="relative"
       >
-        <Slider className="">
-          {images.map((image, index) => {
-            return (
-              <Slide
-                key={index}
-                index={index}
-                innerClassName="flex items-center justify-center"
-              >
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
-                  alt={''}
-                  width={900}
-                  height={900}
-                />
-              </Slide>
-            );
-          })}
-        </Slider>
-        <Navigation />
-        <Thumbnails images={images} />
+        <div className="flex flex-col-reverse xl:flex-row">
+          <Thumbnails images={images} />
+          <Slider className="flex-1 rounded-3xl overflow-hidden mb-4 xl:ml-4 xl:mb-0">
+            {images.map((image, index) => {
+              return (
+                <Slide
+                  key={index}
+                  index={index}
+                  innerClassName="flex items-center justify-center"
+                >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
+                    alt={''}
+                    width={900}
+                    height={900}
+                  />
+                </Slide>
+              );
+            })}
+          </Slider>
+          <Navigation />
+        </div>
       </CarouselProvider>
     </div>
   );

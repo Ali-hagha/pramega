@@ -20,10 +20,10 @@ const ProductDetails = ({ product }: PageProps) => {
         }}
       />
       <div className="flex flex-col lg:flex-row items-start justify-center pt-6">
-        <div className="flex-1 w-full lg:w-1/2  ">
+        <div className="grow-[7] shrink-[7] basis-[0%] w-full lg:w-1/2  ">
           <ImageGallery images={product.attributes.imageGallery.data} />
         </div>
-        <div className="flex-1  lg:w-1/2">
+        <div className="grow-[5] shrink-[5] basis-[0%]  lg:w-1/2">
           <ProductInfo
             count={productCount}
             setCount={setProductCount}

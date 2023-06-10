@@ -21,7 +21,7 @@ module.exports = {
       },
       colors: {
         'neutral-dark': '#1e1f1a',
-        'neutral-light': '#f6f6f6',
+        'neutral-light': '#f3f5f7',
         primary: '#ebfc4b',
         'primary-dark': '#D9F104',
         'primary-darker': '#b5c903',
