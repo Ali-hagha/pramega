@@ -51,12 +51,12 @@ const CartItems = () => {
         return (
           <div key={product.id}>
             <div className="flex py-4">
-              <div className="shrink-0 grow-0 p-1 aspect-square bg-neutral-light flex items-center justify-center overflow-hidden rounded-2xl mr-6">
+              <div className="shrink-0 grow-0  aspect-square bg-neutral-light flex items-center justify-center overflow-hidden rounded-2xl mr-6">
                 <Image
                   src={`${strapiUrl}${product.attributes.primaryImage.data.attributes.url}`}
                   alt={product.attributes.name}
-                  width={100}
-                  height={100}
+                  width={110}
+                  height={110}
                 />
               </div>
               <div className="flex flex-col w-full justify-between">
