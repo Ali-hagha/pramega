@@ -2,14 +2,21 @@ import CartContext from '@/context/CartContext';
 import { currencyFormatter } from '@/helpers';
 import { CircularProgress } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useContext, useRef } from 'react';
 import { RiAddFill, RiDeleteBinLine, RiSubtractFill } from 'react-icons/ri';
 
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
 const CartItems = () => {
-  const { cartProducts, cartProductCount, addToCart, removeFromCart, loading } =
-    useContext(CartContext) as CartContextValue;
+  const {
+    toggleCart,
+    cartProducts,
+    cartProductCount,
+    addToCart,
+    removeFromCart,
+    loading,
+  } = useContext(CartContext) as CartContextValue;
 
   const productIdEdit = useRef(-1);
 
@@ -52,22 +59,37 @@ const CartItems = () => {
           <div key={product.id}>
             <div className="flex py-4">
               <div className="shrink-0 grow-0  aspect-square bg-neutral-light flex items-center justify-center overflow-hidden rounded-2xl mr-6">
-                <Image
-                  src={`${strapiUrl}${product.attributes.primaryImage.data.attributes.url}`}
-                  alt={product.attributes.name}
-                  width={110}
-                  height={110}
-                />
+                <Link
+                  href={`/products/${product.attributes.category}/${product.attributes.productId}`}
+                  onClick={toggleCart}
+                >
+                  <Image
+                    src={`${strapiUrl}${product.attributes.primaryImage.data.attributes.url}`}
+                    alt={product.attributes.name}
+                    width={110}
+                    height={110}
+                  />
+                </Link>
               </div>
               <div className="flex flex-col w-full justify-between">
                 <div className="flex justify-between">
                   <div>
-                    <p className="text-gray-500  font-medium mb-1">
-                      {product.attributes.category}
-                    </p>
-                    <p className="font-bold text-lg mb-4">
-                      {product.attributes.name}
-                    </p>
+                    <Link
+                      href={`/products/${product.attributes.category}`}
+                      onClick={toggleCart}
+                    >
+                      <p className="text-gray-500  font-medium mb-1">
+                        {product.attributes.category}
+                      </p>
+                    </Link>
+                    <Link
+                      href={`/products/${product.attributes.category}/${product.attributes.productId}`}
+                      onClick={toggleCart}
+                    >
+                      <p className="font-bold text-lg mb-4">
+                        {product.attributes.name}
+                      </p>
+                    </Link>
                   </div>
                   <button
                     onClick={() => handleRemoveFromCart(product)}
