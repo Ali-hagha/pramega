@@ -110,6 +110,9 @@ export const useCart = (): CartContextValue => {
         console.log(error);
       } finally {
         setLoading(false);
+        if (!isCartOpen) {
+          setIsCartOpen(true);
+        }
       }
     } else {
       const url = `${strapiUrl}/api/carts/${localCartId}?populate=products.primaryImage`;
@@ -167,6 +170,9 @@ export const useCart = (): CartContextValue => {
       } finally {
         setTimeout(() => {
           setLoading(false);
+          if (!isCartOpen) {
+            setIsCartOpen(true);
+          }
         }, 1000);
       }
     }
