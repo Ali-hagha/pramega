@@ -11,7 +11,7 @@ type Props = {
 
 const ImageGallery = ({ images }: Props) => {
   return (
-    <div className="bg-neutral-light rounded-3xl mb-8">
+    <div className="bg-neutral-light rounded-3xl overflow-hidden mb-8">
       <CarouselProvider
         naturalSlideWidth={600}
         naturalSlideHeight={600}
@@ -30,8 +30,8 @@ const ImageGallery = ({ images }: Props) => {
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
                   alt={''}
-                  width={600}
-                  height={600}
+                  width={900}
+                  height={900}
                 />
               </Slide>
             );

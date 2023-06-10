@@ -20,7 +20,7 @@ const Thumbnails = ({ images }: Props) => {
                 <Dot
                   slide={i}
                   key={i}
-                  className={`rounded-xl mr-4 last:mr-0 bg-white flex-shrink-0 flex-grow-0 basis-20 outline outline-offset-4 outline-primary ${
+                  className={`rounded-xl overflow-hidden mr-4 last:mr-0 bg-white flex-shrink-0 flex-grow-0 basis-20 outline outline-offset-4 outline-primary-dark ${
                     currentSlide === i ? 'outline-4' : 'outline-0'
                   }`}
                 >
