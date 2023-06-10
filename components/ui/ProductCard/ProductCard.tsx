@@ -6,48 +6,67 @@ import ProductPreviewImageGallery from './ProductPreviewImageGallery';
 import WishlistBtn from './WishlistBtn';
 import AddToCartBtn from './AddToCartBtn';
 import ProductTag from './ProductTag';
+import { useContext, useRef } from 'react';
+import CartContext from '@/context/CartContext';
 
 type Props = {
-  product: Product['attributes'];
+  product: Product;
 };
 
 const backendUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const ProductCard = ({
-  product: {
-    primaryImage,
-    secondaryImage,
-    name,
-    price,
-    productTag,
-    category,
-    productId,
-  },
-}: Props) => {
+const ProductCard = ({ product }: Props) => {
+  const { addToCart } = useContext(CartContext) as CartContextValue;
+
+  const productIdEdit = useRef(-1);
+
+  const handleAddToCart = (product: Product) => {
+    productIdEdit.current = product.id;
+    addToCart(product, 1);
+
+    setTimeout(() => {
+      productIdEdit.current = -1;
+    }, 1000);
+  };
+
   return (
-    <Link href={`/products/${category}/${productId}`}>
+    <Link
+      href={`/products/${product.attributes.category}/${product.attributes.productId}`}
+    >
       <div className=" rounded-3xl  overflow-hidden border hover:border-gray-300 group/card transition-colors">
         <div className=" aspect-square relative border-b bg-gray-100">
-          {productTag && <ProductTag productTag={productTag} />}
+          {product.attributes.productTag && (
+            <ProductTag productTag={product.attributes.productTag} />
+          )}
           <WishlistBtn
             isFavorite={false}
             onClick={() => console.log('add to wishlist')}
           />
           <Images
-            baseImage={backendUrl + primaryImage.data.attributes.url}
-            secondaryImage={backendUrl + secondaryImage.data.attributes.url}
+            baseImage={
+              backendUrl + product.attributes.primaryImage.data.attributes.url
+            }
+            secondaryImage={
+              backendUrl + product.attributes.secondaryImage.data.attributes.url
+            }
           />
         </div>
         <div className="flex flex-col p-5 ">
-          <p className="text-xl font-semibold  mb-4">{name}</p>
+          <p className="text-xl font-semibold  mb-4">
+            {product.attributes.name}
+          </p>
           <div className="flex items-center justify-between w-full">
             <div>
               <p className="text-sm mb-1 text-neutral-dark/70">Price:</p>
               <p className="text-xl font-semibold text-neutral-dark/90">
-                ${price}
+                ${product.attributes.price}
               </p>
             </div>
-            <AddToCartBtn onClick={() => console.log('add to cart')} />
+            <AddToCartBtn
+              onClick={() => handleAddToCart(product)}
+              productIdEdit={productIdEdit}
+              productId={product.id}
+            />
           </div>
         </div>
       </div>
