@@ -19,7 +19,7 @@ const ProductInfo = ({ product, count, setCount }: Props) => {
     addToCart(product, count);
   };
   return (
-    <div className="max-w-[500px] lg:max-w-full px-0 sm:px-8 lg:px-16 xl:px-24 flex flex-col">
+    <div className="lg:max-w-[500px] max-w-full px-0 lg:px-8 xl:px-16 flex flex-col ">
       <h2 className="text-3xl font-bold capitalize mb-4">
         {product.attributes.name}
       </h2>

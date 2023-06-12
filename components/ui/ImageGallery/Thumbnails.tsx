@@ -11,7 +11,7 @@ type Props = {
 const Thumbnails = ({ images }: Props) => {
   return (
     <DotGroup
-      className="overflow-hidden px-4 py-4  bg-neutral-light rounded-3xl"
+      className="overflow-hidden px-2 py-2 md:px-4 md:py-4  bg-neutral-light rounded-3xl"
       renderDots={({ currentSlide }) => {
         return (
           <ScrollContainer className="flex px-2 py-2 flex-row xl:flex-col">
