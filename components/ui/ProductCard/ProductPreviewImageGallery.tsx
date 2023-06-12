@@ -22,10 +22,10 @@ const ProductPreviewImageGallery = ({ baseImage, secondaryImage }: Props) => {
     >
       <Slider className="">
         <Slide index={0} innerClassName="flex items-center justify-center">
-          <Image src={baseImage} alt={''} width={600} height={600} />
+          <Image src={baseImage} alt={''} width={700} height={700} />
         </Slide>
         <Slide index={1} innerClassName="flex items-center justify-center">
-          <Image src={secondaryImage} alt={''} width={600} height={600} />
+          <Image src={secondaryImage} alt={''} width={700} height={700} />
         </Slide>
       </Slider>
       <DotGroup

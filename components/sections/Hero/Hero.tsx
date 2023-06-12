@@ -8,7 +8,7 @@ const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
 const Hero = ({ images }: { images: HeroImages }) => {
   const imgUrl = `${strapiUrl}/uploads/hero_image_4_2930f06d1e.jpg`;
-  console.log(imgUrl);
+
   return (
     <div
       className={`mb-20 bg-transparent lg:bg-neutral-light rounded-3xl flex justify-center items-center px-6 md:px-10 lg:px-0 lg:pl-12 xl:pl-20 overflow-hidden  relative`}

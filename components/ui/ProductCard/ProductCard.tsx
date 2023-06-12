@@ -51,7 +51,7 @@ const ProductCard = ({ product }: Props) => {
             }
           />
         </div>
-        <div className="flex flex-col p-5 ">
+        <div className="flex flex-col p-5  bg-white">
           <p className="text-xl font-semibold  mb-4">
             {product.attributes.name}
           </p>
@@ -83,10 +83,10 @@ const Images = ({
   baseImage: string;
   secondaryImage: string;
 }) => {
-  const { isDesktop } = useScreenSize();
+  const { isDesktop, isXlDesktop, is2XlDesktop } = useScreenSize();
   return (
     <>
-      {isDesktop ? (
+      {isDesktop || isXlDesktop || is2XlDesktop ? (
         <>
           <Image
             src={baseImage}

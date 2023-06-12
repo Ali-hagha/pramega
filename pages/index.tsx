@@ -6,9 +6,10 @@ import Head from 'next/head';
 
 type PageProps = {
   images: HeroImages;
+  favoriteProducts: FavoriteProducts;
 };
 
-export default function Home({ images }: PageProps) {
+export default function Home({ images, favoriteProducts }: PageProps) {
   return (
     <>
       <Head>
@@ -23,7 +24,7 @@ export default function Home({ images }: PageProps) {
       <div>
         <Hero images={images} />
         <Categories />
-        <Favorites />
+        <Favorites favoriteProducts={favoriteProducts} />
       </div>
     </>
   );
@@ -34,9 +35,20 @@ export const getStaticProps: GetStaticProps<{
 }> = async () => {
   const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
-  const res = await fetch(`${strapiUrl}/api/hero-image?populate=images`);
+  const [imageRes, favRes] = await Promise.all([
+    fetch(`${strapiUrl}/api/hero-image?populate=images`),
+    fetch(
+      `${strapiUrl}/api/favorite?populate=products.primaryImage&populate=products.secondaryImage`
+    ),
+  ]);
 
-  const jsonRes = await res.json();
-  const images = jsonRes.data;
-  return { props: { images } };
+  const [imageJson, favJson] = await Promise.all([
+    imageRes.json(),
+    favRes.json(),
+  ]);
+
+  const images = imageJson.data;
+  const favoriteProducts = favJson.data;
+
+  return { props: { images, favoriteProducts } };
 };

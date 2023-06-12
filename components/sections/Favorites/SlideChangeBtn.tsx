@@ -1,33 +1,17 @@
+import { ButtonBack, ButtonNext } from 'pure-react-carousel';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
-import React from 'react';
-import SwiperCore from 'swiper';
 
-const SlideChangeBtn = ({
-  handleNext,
-  handlePrev,
-}: {
-  handleNext: () => void;
-  handlePrev: () => void;
-}) => {
+const FavPageChangeBtn = () => {
   return (
-    <div className="text-4xl hidden md:block">
-      <button
-        className="group p-1 absolute top-1/2 right-10 rounded-full bg-neutral-dark text-neutral-light overflow-hidden"
-        onClick={handleNext}
-      >
-        <RiArrowRightSLine className=" group-hover:translate-x-8 transition-transform" />
-        <RiArrowRightSLine className="absolute -translate-x-8 -translate-y-full group-hover:translate-x-0 transition-transform" />
-      </button>
-      <button
-        className="group p-1  absolute top-1/2  left-10 rounded-full bg-neutral-dark text-neutral-light overflow-hidden"
-        onClick={handlePrev}
-      >
-        <RiArrowLeftSLine className="group-hover:-translate-x-8 transition-transform" />
-        <RiArrowLeftSLine className="absolute translate-x-8 -translate-y-full group-hover:translate-x-0 transition-transform" />
-      </button>
+    <div className="hidden md:block text-4xl text-gray-500 ">
+      <ButtonBack className="absolute top-1/2 -translate-y-1/2 -left-4 shadow-md p-2 rounded-full bg-white hover:text-gray-700 transition-colors">
+        <RiArrowLeftSLine />
+      </ButtonBack>
+      <ButtonNext className="absolute top-1/2 -translate-y-1/2 -right-4 shadow-md p-2 rounded-full bg-white hover:text-gray-700 transition-colors">
+        <RiArrowRightSLine />
+      </ButtonNext>
     </div>
   );
 };
-SlideChangeBtn.displayName = 'SlideChangeBtn';
 
-export default SlideChangeBtn;
+export default FavPageChangeBtn;
