@@ -3,6 +3,8 @@ import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 import ProductsSidebar from '@/components/ui/ProductsSidebar/ProductsSidebar';
 import { NextPageWithLayout } from '@/pages/_app';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 type PageProps = {
   products: Product[];
@@ -11,8 +13,22 @@ type PageProps = {
 const ProductCategories: NextPageWithLayout<PageProps> = ({
   products,
 }: PageProps) => {
+  const router = useRouter();
+  const category = router.query.category;
+  const title =
+    typeof category === 'string' &&
+    category.charAt(0).toUpperCase() + category.slice(1);
+
   return (
     <>
+      <Head>
+        <title>{title || 'Pramega'}</title>
+        <meta
+          name="description"
+          content="Luxury & modern furniture and home decor."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <ProductsSidebar />
       <ProductsGrid products={products} />
     </>

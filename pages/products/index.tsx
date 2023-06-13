@@ -4,6 +4,7 @@ import React from 'react';
 import { NextPageWithLayout } from '../_app';
 import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 type PageProps = {
   products: Product[];
@@ -12,6 +13,14 @@ type PageProps = {
 const Products: NextPageWithLayout<PageProps> = ({ products }: PageProps) => {
   return (
     <>
+      <Head>
+        <title>Products</title>
+        <meta
+          name="description"
+          content="Luxury & modern furniture and home decor."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <ProductsSidebar />
       <ProductsGrid products={products} />
     </>

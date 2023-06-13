@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ImageGallery from '../../../../components/ui/ImageGallery/ImageGallery';
 import ProductInfo from './ProductInfo';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 type PageProps = {
   product: Product;
@@ -12,26 +13,37 @@ const ProductDetails = ({ product }: PageProps) => {
   const [productCount, setProductCount] = useState(1);
 
   return (
-    <div className="md:px-10 mb-20 pt-6">
-      <Crumbs
-        crumb={{
-          title: product.attributes.name,
-          href: product.attributes.productId,
-        }}
-      />
-      <div className="flex flex-col  lg:flex-row items-center justify-center pt-6">
-        <div className="grow-[7] shrink-[7] basis-[0%] w-full sm:max-w-xl lg:max-w-none">
-          <ImageGallery images={product.attributes.imageGallery.data} />
-        </div>
-        <div className="grow-[5] shrink-[5] basis-[0%] flex  sm:max-w-xl lg:max-w-none">
-          <ProductInfo
-            count={productCount}
-            setCount={setProductCount}
-            product={product}
-          />
+    <>
+      <Head>
+        <title>{product.attributes.name}</title>
+        <meta
+          name="description"
+          content="Luxury & modern furniture and home decor."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+
+      <div className="md:px-10 mb-20 pt-6">
+        <Crumbs
+          crumb={{
+            title: product.attributes.name,
+            href: product.attributes.productId,
+          }}
+        />
+        <div className="flex flex-col  lg:flex-row items-center justify-center pt-6">
+          <div className="grow-[7] shrink-[7] basis-[0%] w-full sm:max-w-xl lg:max-w-none">
+            <ImageGallery images={product.attributes.imageGallery.data} />
+          </div>
+          <div className="grow-[5] shrink-[5] basis-[0%] flex  sm:max-w-xl lg:max-w-none">
+            <ProductInfo
+              count={productCount}
+              setCount={setProductCount}
+              product={product}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
