@@ -10,4 +10,5 @@ type CartContextValue = {
   loading: boolean;
   localCartId: String | null;
   localCartUniqueId: string | null;
+  productToAddToCartId: number | null;
 };

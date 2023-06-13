@@ -14,9 +14,13 @@ export const useCart = (): CartContextValue => {
   const [cartProductCount, setCartProductCount] = useState<Map<number, number>>(
     new Map([])
   );
+  const [productToAddToCartId, setProductToAddToCartId] = useState<
+    number | null
+  >(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
+
   const [localCartId, setLocalCartId] = useState<string | null>(null);
   const [localCartUniqueId, setlocalCartUniqueId] = useState<string | null>(
     null
@@ -85,6 +89,7 @@ export const useCart = (): CartContextValue => {
 
       try {
         setLoading(true);
+        setProductToAddToCartId(product.id);
 
         const response = await fetch(url, {
           method: 'POST',
@@ -110,6 +115,7 @@ export const useCart = (): CartContextValue => {
         console.log(error);
       } finally {
         setLoading(false);
+        setProductToAddToCartId(null);
         if (!isCartOpen) {
           setIsCartOpen(true);
         }
@@ -137,6 +143,7 @@ export const useCart = (): CartContextValue => {
 
       try {
         setLoading(true);
+        setProductToAddToCartId(product.id);
 
         const response = await fetch(url, {
           method: 'PUT',
@@ -170,6 +177,7 @@ export const useCart = (): CartContextValue => {
       } finally {
         setTimeout(() => {
           setLoading(false);
+          setProductToAddToCartId(null);
           if (!isCartOpen) {
             setIsCartOpen(true);
           }
@@ -257,6 +265,8 @@ export const useCart = (): CartContextValue => {
     addToCart,
     removeFromCart,
     getGrandTotal,
+
+    productToAddToCartId,
     error,
     loading,
     localCartId,

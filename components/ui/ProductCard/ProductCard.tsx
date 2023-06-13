@@ -18,15 +18,8 @@ const backendUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 const ProductCard = ({ product }: Props) => {
   const { addToCart } = useContext(CartContext) as CartContextValue;
 
-  const productIdEdit = useRef(-1);
-
   const handleAddToCart = (product: Product) => {
-    productIdEdit.current = product.id;
     addToCart(product, 1);
-
-    setTimeout(() => {
-      productIdEdit.current = -1;
-    }, 1000);
   };
 
   return (
@@ -64,7 +57,6 @@ const ProductCard = ({ product }: Props) => {
             </div>
             <AddToCartBtn
               onClick={() => handleAddToCart(product)}
-              productIdEdit={productIdEdit}
               productId={product.id}
             />
           </div>
