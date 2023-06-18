@@ -110,15 +110,16 @@ export const useCart = (): CartContextValue => {
         setlocalCartUniqueId(
           localStorage.getItem(localStorageKeys.cartUniqueId)
         );
+
+        if (!isCartOpen) {
+          setIsCartOpen(true);
+        }
       } catch (error: any) {
         setError(error);
         console.log(error);
       } finally {
         setLoading(false);
         setProductToAddToCartId(null);
-        if (!isCartOpen) {
-          setIsCartOpen(true);
-        }
       }
     } else {
       const url = `${strapiUrl}/api/carts/${localCartId}?populate=products.primaryImage`;
@@ -167,21 +168,18 @@ export const useCart = (): CartContextValue => {
           });
         }
 
-        setTimeout(() => {
-          setCartProductCount(tempCount);
-          setCartProducts(products);
-        }, 1000);
+        setCartProductCount(tempCount);
+        setCartProducts(products);
+
+        if (!isCartOpen) {
+          setIsCartOpen(true);
+        }
       } catch (error: any) {
         setError(error);
         console.log(error);
       } finally {
-        setTimeout(() => {
-          setLoading(false);
-          setProductToAddToCartId(null);
-          if (!isCartOpen) {
-            setIsCartOpen(true);
-          }
-        }, 1000);
+        setLoading(false);
+        setProductToAddToCartId(null);
       }
     }
   };
@@ -230,17 +228,13 @@ export const useCart = (): CartContextValue => {
         });
       }
 
-      setTimeout(() => {
-        setCartProductCount(tempCount);
-        setCartProducts(products);
-      }, 1000);
+      setCartProductCount(tempCount);
+      setCartProducts(products);
     } catch (error: any) {
       setError(error);
       console.log(error);
     } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
+      setLoading(false);
     }
   };
 

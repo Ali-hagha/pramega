@@ -9,7 +9,7 @@ type Props = {
 };
 
 const AddToCartBtn = ({ onClick, productId }: Props) => {
-  const { loading, productToAddToCartId } = useContext(
+  const { loading, productToAddToCartId, isCartOpen } = useContext(
     CartContext
   ) as CartContextValue;
   return (
@@ -20,10 +20,13 @@ const AddToCartBtn = ({ onClick, productId }: Props) => {
         e.preventDefault();
         onClick();
       }}
+      disabled={loading}
     >
       {/* show spinner and hide icon only on the product that is getting added to cart  */}
-      {loading && productToAddToCartId === productId && <Spinner />}
-      {!(loading && productToAddToCartId === productId) && (
+      {loading && productToAddToCartId === productId && !isCartOpen && (
+        <Spinner />
+      )}
+      {!(loading && productToAddToCartId === productId && !isCartOpen) && (
         <>
           <RiShoppingCartFill className="group-hover/button:translate-x-12 transition-transform" />
           <RiShoppingCartFill className="absolute -translate-y-full -translate-x-12 group-hover/button:translate-x-0 transition-transform" />
