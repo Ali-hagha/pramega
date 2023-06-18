@@ -9,7 +9,7 @@ const MenuBtn = ({ setIsSideDrawerActive }: Props) => {
     <div className="lg:hidden w-24">
       <button
         className={
-          'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
+          'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 active:text-primary active:bg-neutral-dark/90 transition-colors'
         }
         // onClick={() => setIsSideDrawerActive(prevState => !prevState)}
       >

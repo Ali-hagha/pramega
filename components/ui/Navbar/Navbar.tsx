@@ -66,7 +66,7 @@ const Navbar = () => {
               <Link
                 href={'#'}
                 className={
-                  'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
+                  'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 active:text-primary active:bg-neutral-dark/90 transition-colors'
                 }
               >
                 <RiUserLine className="text-2xl" />
@@ -78,13 +78,12 @@ const Navbar = () => {
                   '& .MuiBadge-badge': {
                     backgroundColor: '#d9f104',
                     fontWeight: '600',
-                    paddingY: '10px',
                   },
                 }}
               >
                 <button
                   className={
-                    'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 transition-colors'
+                    'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 active:text-primary active:bg-neutral-dark/90 transition-colors'
                   }
                   onClick={toggleCart}
                 >
