@@ -63,8 +63,8 @@ const CartSidebar = () => {
             <div className="overflow-auto">
               <CartItems />
             </div>
-            <div className="mt-auto p-6 bg-white border-t-2 border-t-gray-100">
-              <div className="flex justify-between mb-8 items-center">
+            <div className="mt-auto px-6 py-4 bg-white border-t-2 border-t-gray-100">
+              <div className="flex justify-between mb-6 items-center">
                 <p className="text-xl font-semibold">Grand Total:</p>
                 <p className="text-3xl font-semibold">
                   {currencyFormatter.format(getGrandTotal())}

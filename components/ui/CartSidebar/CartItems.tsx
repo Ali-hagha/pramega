@@ -32,7 +32,7 @@ const CartItems = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="px-6">
       {/* show some text when the cart is empty */}
       {cartProducts.length < 1 && (
         <div className="flex flex-1 items-center justify-center">
@@ -53,8 +53,8 @@ const CartItems = () => {
                   <Image
                     src={`${strapiUrl}${product.attributes.primaryImage.data.attributes.url}`}
                     alt={product.attributes.name}
-                    width={110}
-                    height={110}
+                    width={125}
+                    height={125}
                   />
                 </Link>
               </div>
@@ -86,8 +86,8 @@ const CartItems = () => {
                     <RiDeleteBinLine />
                   </button>
                 </div>
-                <div className="flex items-center justify-between ">
-                  <div className="flex items-center justify-center  rounded-lg">
+                <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between ">
+                  <div className="flex sm:items-center sm:justify-center mt-6 sm:mt-0 rounded-lg">
                     <button
                       onClick={() => handleDecrementCartItem(product, -1)}
                       disabled={loading}
