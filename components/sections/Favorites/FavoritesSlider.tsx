@@ -24,7 +24,7 @@ const FavoritesSlider = ({ favoriteProducts }: Props) => {
   return (
     <CarouselProvider
       naturalSlideWidth={400}
-      naturalSlideHeight={isMobile ? 520 : 580}
+      naturalSlideHeight={580}
       totalSlides={productsArr.length}
       infinite={true}
       visibleSlides={getSlideCount()}
@@ -34,7 +34,11 @@ const FavoritesSlider = ({ favoriteProducts }: Props) => {
         {productsArr.map((product, index) => {
           return (
             <Slide key={index} index={index} innerClassName="px-2">
-              <ProductCard product={product} />
+              <ProductCard
+                product={product}
+                // disable preview image gallery touch on mobile and tablet size
+                touchEnabled={(isTablet || isMobile) && false}
+              />
             </Slide>
           );
         })}

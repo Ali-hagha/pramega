@@ -7,7 +7,7 @@ import Image from 'next/image';
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
 const Hero = ({ images }: { images: HeroImages }) => {
-  const imgUrl = `${strapiUrl}/uploads/hero_image_4_2930f06d1e.jpg`;
+  const imgUrl = `${strapiUrl}/uploads/hero_image_4_877184fa9f.jpg`;
 
   return (
     <div

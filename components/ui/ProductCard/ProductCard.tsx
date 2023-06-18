@@ -11,11 +11,12 @@ import CartContext from '@/context/CartContext';
 
 type Props = {
   product: Product;
+  touchEnabled: boolean;
 };
 
 const backendUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product, touchEnabled }: Props) => {
   const { addToCart } = useContext(CartContext) as CartContextValue;
 
   const handleAddToCart = (product: Product) => {
@@ -42,6 +43,7 @@ const ProductCard = ({ product }: Props) => {
             secondaryImage={
               backendUrl + product.attributes.secondaryImage.data.attributes.url
             }
+            touchEnabled={touchEnabled}
           />
         </div>
         <div className="flex flex-col p-5  bg-white">
@@ -71,9 +73,11 @@ const ProductCard = ({ product }: Props) => {
 const Images = ({
   baseImage,
   secondaryImage,
+  touchEnabled,
 }: {
   baseImage: string;
   secondaryImage: string;
+  touchEnabled: boolean;
 }) => {
   const { isDesktop, isXlDesktop, is2XlDesktop } = useScreenSize();
   return (
@@ -99,6 +103,7 @@ const Images = ({
         <ProductPreviewImageGallery
           baseImage={baseImage}
           secondaryImage={secondaryImage}
+          touchEnabled={touchEnabled}
         />
       )}
     </>

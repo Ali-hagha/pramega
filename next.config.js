@@ -12,6 +12,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'pramega-backend.iran.liara.run',
+        port: '',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'dummyimage.com',
         port: '',
         pathname: '/700x500/**',
