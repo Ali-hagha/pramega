@@ -11,12 +11,12 @@ import CartContext from '@/context/CartContext';
 
 type Props = {
   product: Product;
-  touchEnabled: boolean;
+  touchEnabled?: boolean;
 };
 
 const backendUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const ProductCard = ({ product, touchEnabled }: Props) => {
+const ProductCard = ({ product, touchEnabled = true }: Props) => {
   const { addToCart } = useContext(CartContext) as CartContextValue;
 
   const handleAddToCart = (product: Product) => {

@@ -1,3 +1,4 @@
+import { Nanum_Gothic } from 'next/font/google';
 import Image from 'next/image';
 import {
   ButtonBack,
@@ -37,27 +38,9 @@ const ProductPreviewImageGallery = ({
           <Image src={secondaryImage} alt={''} width={700} height={700} />
         </Slide>
       </Slider>
-      <div className="absolute top-1/2 z-50 w-full text-3xl text-gray-600 ">
-        <ButtonBack
-          onClick={e => {
-            e?.preventDefault();
-            e?.stopPropagation();
-            console.log(e);
-          }}
-          className=" bg-white/40 rounded-r-md  px-1 py-5 absolute left-0 -translate-y-1/2"
-        >
-          <RiArrowLeftSLine />
-        </ButtonBack>
-        <ButtonNext
-          onClick={e => {
-            e?.preventDefault();
-            e?.stopPropagation();
-          }}
-          className=" bg-white/40 rounded-l-md  px-1 py-5 absolute right-0 -translate-y-1/2"
-        >
-          <RiArrowRightSLine />
-        </ButtonNext>
-      </div>
+      {/* slide change buttons to show when touch is disabled on mobile size */}
+      {!touchEnabled && <SlideChangeBtns />}
+
       <DotGroup
         className=""
         renderDots={({ currentSlide }) => {
@@ -80,6 +63,31 @@ const ProductPreviewImageGallery = ({
         }}
       />
     </CarouselProvider>
+  );
+};
+
+const SlideChangeBtns = () => {
+  return (
+    <div className="absolute top-1/2 z-50 w-full text-3xl text-gray-600 ">
+      <ButtonBack
+        onClick={e => {
+          e?.preventDefault();
+          e?.stopPropagation();
+        }}
+        className=" bg-white/40 rounded-r-md  px-1 py-5 absolute left-0 -translate-y-1/2"
+      >
+        <RiArrowLeftSLine />
+      </ButtonBack>
+      <ButtonNext
+        onClick={e => {
+          e?.preventDefault();
+          e?.stopPropagation();
+        }}
+        className=" bg-white/40 rounded-l-md  px-1 py-5 absolute right-0 -translate-y-1/2"
+      >
+        <RiArrowRightSLine />
+      </ButtonNext>
+    </div>
   );
 };
 
