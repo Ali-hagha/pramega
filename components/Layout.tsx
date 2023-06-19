@@ -33,7 +33,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <Navbar />
           <main className="pt-20 md:pt-24">{children}</main>
           <Footer />
-          <BottomNavigation />
         </div>
         <CartSidebar />
       </CartContext.Provider>
