@@ -73,11 +73,11 @@ const Navbar = () => {
               </Link>
               <Badge
                 badgeContent={cartProducts.length}
-                // color="primary"
                 sx={{
                   '& .MuiBadge-badge': {
                     backgroundColor: '#d9f104',
                     fontWeight: '600',
+                    marginTop: '5px',
                   },
                 }}
               >
