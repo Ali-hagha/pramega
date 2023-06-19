@@ -8,16 +8,17 @@ type Props = {
 };
 
 const SocialLink = ({ DefaultIcon, HoverIcon }: Props) => {
-  const [isMouseOver, setIsMouseOver] = useState(false);
   return (
-    <div
-      onMouseOver={() => setIsMouseOver(true)}
-      onMouseOut={() => setIsMouseOver(false)}
-    >
-      <Link href={'#'} className={'text-xl sm:text-2xl '}>
-        {isMouseOver ? <HoverIcon className="text-primary" /> : <DefaultIcon />}
-      </Link>
-    </div>
+    <Link href={'#'} className={'text-2xl'}>
+      <div className="grid grid-cols-1 group">
+        <HoverIcon
+          className={`text-primary col-start-1 col-end-1 group-hover:opacity-100 opacity-0`}
+        />
+        <DefaultIcon
+          className={`absolute col-start-1 col-end-1 group-hover:opacity-0 opacity-100 `}
+        />
+      </div>
+    </Link>
   );
 };
 

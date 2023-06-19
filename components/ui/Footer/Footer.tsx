@@ -68,8 +68,8 @@ const Footer = () => {
         </div>
       </div>
       <hr className="bg-neutral-light/40 border-0 h-px my-10" />
-      <div className="flex justify-between items-center">
-        <div className="text-xs text-neutral-light/80">
+      <div className="flex flex-col sm:flex-row justify-between items-center">
+        <div className="text-xs text-neutral-light/80 mb-4 sm:mb-0">
           {'© Pramega. All Rights Reserved.'}
         </div>
         <div className="flex space-x-6">
