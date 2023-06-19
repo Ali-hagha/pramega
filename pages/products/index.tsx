@@ -5,6 +5,7 @@ import { NextPageWithLayout } from '../_app';
 import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import ProdcutsCategories from '@/components/ui/ProdcutsCategories/ProdcutsCategories';
 
 type PageProps = {
   products: Product[];
@@ -21,8 +22,11 @@ const Products: NextPageWithLayout<PageProps> = ({ products }: PageProps) => {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <ProductsSidebar />
-      <ProductsGrid products={products} />
+      <div className="flex flex-col lg:flex-row w-full">
+        <ProductsSidebar />
+        <ProdcutsCategories />
+        <ProductsGrid products={products} />
+      </div>
     </>
   );
 };

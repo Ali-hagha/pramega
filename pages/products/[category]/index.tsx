@@ -1,3 +1,4 @@
+import ProdcutsCategories from '@/components/ui/ProdcutsCategories/ProdcutsCategories';
 import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
 import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
 import ProductsSidebar from '@/components/ui/ProductsSidebar/ProductsSidebar';
@@ -29,8 +30,11 @@ const ProductCategories: NextPageWithLayout<PageProps> = ({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <ProductsSidebar />
-      <ProductsGrid products={products} />
+      <div className="flex flex-col lg:flex-row w-full">
+        <ProductsSidebar />
+        <ProdcutsCategories />
+        <ProductsGrid products={products} />
+      </div>
     </>
   );
 };

@@ -7,6 +7,7 @@ const ProductsSidebar = () => {
     <div className="w-64 shrink-0 mr-8 hidden lg:block">
       <h3 className=" text-2xl font-bold mb-3">Categories</h3>
       <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
+        <CategoryListItem category={'all'} href={'/products'} />
         <CategoryListItem category={'chairs'} href={'/products/chairs'} />
         <CategoryListItem category={'lamps'} href={'/products/lamps'} />
         <CategoryListItem category={'beds'} href={'/products/beds'} />
