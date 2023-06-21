@@ -1,17 +1,18 @@
 import { Dispatch, SetStateAction } from 'react';
 import { RiMenuLine } from 'react-icons/ri';
+import { useContext } from 'react';
+import { MenuDrawerContext } from '@/context/MenuDrawerContext';
 
-type Props = {
-  setIsSideDrawerActive?: Dispatch<SetStateAction<boolean>>;
-};
-const MenuBtn = ({ setIsSideDrawerActive }: Props) => {
+const MenuBtn = () => {
+  const { toggleMenu } = useContext(MenuDrawerContext);
+
   return (
     <div className="lg:hidden w-24">
       <button
         className={
           'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 active:text-primary active:bg-neutral-dark/90 transition-colors'
         }
-        // onClick={() => setIsSideDrawerActive(prevState => !prevState)}
+        onClick={toggleMenu}
       >
         <RiMenuLine className="text-2xl" />
       </button>

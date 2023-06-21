@@ -8,6 +8,7 @@ import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { CartContext } from '@/context/CartContext';
 import { Badge } from '@mui/material';
+import { MenuDrawerContext } from '@/context/MenuDrawerContext';
 
 const items = [
   {
@@ -54,7 +55,7 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between  md:py-3">
           <MenuBtn />
-          <h3 className="hidden sm:block text-4xl md:text-5xl font-bebas_neue align-bottom">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bebas_neue align-bottom">
             <Link href={'/'}>Pramega</Link>
           </h3>
           <nav className="flex h-16">

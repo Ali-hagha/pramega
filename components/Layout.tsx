@@ -5,6 +5,8 @@ import Footer from './ui/Footer/Footer';
 import CartDrawer from './ui/CartDrawer/CartDrawer';
 import { CartContextProvider } from '../context/CartContext';
 import ErrorSnackBar from './ui/ErrorSnackBar/ErrorSnackBar';
+import { MenuDrawerContextProvider } from '@/context/MenuDrawerContext';
+import MenuSideDrawer from './ui/MenuSideDrawer/MenuSideDrawer';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -26,13 +28,16 @@ const Layout = ({ children }: { children: ReactNode }) => {
       className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark relative`}
     >
       <CartContextProvider>
-        <div className="px-6 md:px-8 xl:px-16">
-          <Navbar />
-          <main className="pt-20 md:pt-24">{children}</main>
-          <Footer />C
-        </div>
-        <CartDrawer />
-        <ErrorSnackBar />
+        <MenuDrawerContextProvider>
+          <div className="px-6 md:px-8 xl:px-16">
+            <Navbar />
+            <main className="pt-20 md:pt-24">{children}</main>
+            <Footer />C
+          </div>
+          <CartDrawer />
+          <MenuSideDrawer />
+          <ErrorSnackBar />
+        </MenuDrawerContextProvider>
       </CartContextProvider>
     </div>
   );
