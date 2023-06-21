@@ -1,10 +1,9 @@
-import { ReactNode, useContext, useState } from 'react';
+import { ReactNode } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
 import Navbar from './ui/Navbar/Navbar';
 import Footer from './ui/Footer/Footer';
-import CartSidebar from './ui/CartSidebar/CartSidebar';
-import { CartContext, CartContextProvider } from '../context/CartContext';
-import { Alert, Snackbar } from '@mui/material';
+import CartDrawer from './ui/CartDrawer/CartDrawer';
+import { CartContextProvider } from '../context/CartContext';
 import ErrorSnackBar from './ui/ErrorSnackBar/ErrorSnackBar';
 
 const montserrat = Montserrat({
@@ -32,7 +31,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <main className="pt-20 md:pt-24">{children}</main>
           <Footer />C
         </div>
-        <CartSidebar />
+        <CartDrawer />
         <ErrorSnackBar />
       </CartContextProvider>
     </div>

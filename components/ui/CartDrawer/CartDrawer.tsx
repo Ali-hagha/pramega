@@ -6,7 +6,7 @@ import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
 import { CircularProgress } from '@mui/material';
 
-const CartSidebar = () => {
+const CartDrawer = () => {
   const { isCartOpen, toggleCart, cartProducts, getGrandTotal, loading } =
     useContext(CartContext) as CartContextValue;
 
@@ -93,4 +93,4 @@ const CartSidebar = () => {
   );
 };
 
-export default CartSidebar;
+export default CartDrawer;
