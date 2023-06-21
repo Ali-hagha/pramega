@@ -6,8 +6,8 @@ import ProductPreviewImageGallery from './ProductPreviewImageGallery';
 import WishlistBtn from './WishlistBtn';
 import AddToCartBtn from './AddToCartBtn';
 import ProductTag from './ProductTag';
-import { useContext, useRef } from 'react';
-import CartContext from '@/context/CartContext';
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 
 type Props = {
   product: Product;

@@ -11,4 +11,5 @@ type CartContextValue = {
   localCartId: String | null;
   localCartUniqueId: string | null;
   productToAddToCartId: number | null;
+  handleClearError: () => void;
 };

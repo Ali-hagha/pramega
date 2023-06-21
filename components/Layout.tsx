@@ -1,11 +1,11 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useContext, useState } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
 import Navbar from './ui/Navbar/Navbar';
 import Footer from './ui/Footer/Footer';
-import BottomNavigation from './ui/BottomNavigation/BottomNavigation';
 import CartSidebar from './ui/CartSidebar/CartSidebar';
-import CartContext from '../context/CartContext';
-import { useCart } from '@/hooks/useCart';
+import { CartContext, CartContextProvider } from '../context/CartContext';
+import { Alert, Snackbar } from '@mui/material';
+import ErrorSnackBar from './ui/ErrorSnackBar/ErrorSnackBar';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -22,20 +22,19 @@ const bebas_neue = Bebas_Neue({
 });
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const cartData = useCart();
-
   return (
     <div
       className={`${montserrat.variable} ${bebas_neue.variable} font-sans  text-neutral-dark relative`}
     >
-      <CartContext.Provider value={cartData}>
+      <CartContextProvider>
         <div className="px-6 md:px-8 xl:px-16">
           <Navbar />
           <main className="pt-20 md:pt-24">{children}</main>
-          <Footer />
+          <Footer />C
         </div>
         <CartSidebar />
-      </CartContext.Provider>
+        <ErrorSnackBar />
+      </CartContextProvider>
     </div>
   );
 };

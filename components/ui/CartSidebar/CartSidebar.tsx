@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
-import CartContext from '@/context/CartContext';
+import { CartContext } from '@/context/CartContext';
 import CartItems from './CartItems';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';

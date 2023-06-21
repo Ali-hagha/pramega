@@ -6,7 +6,7 @@ import MenuBtn from './MenuBtn';
 import useNavbarVisibility from '@/hooks/useNavBarVIsibility';
 import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import CartContext from '@/context/CartContext';
+import { CartContext } from '@/context/CartContext';
 import { Badge } from '@mui/material';
 
 const items = [

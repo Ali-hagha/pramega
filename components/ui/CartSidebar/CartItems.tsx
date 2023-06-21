@@ -1,4 +1,4 @@
-import CartContext from '@/context/CartContext';
+import { CartContext } from '@/context/CartContext';
 import { currencyFormatter } from '@/helpers';
 import { CircularProgress } from '@mui/material';
 import Image from 'next/image';

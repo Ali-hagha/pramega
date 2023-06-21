@@ -2,7 +2,7 @@ import { CircularProgress, Rating } from '@mui/material';
 import React, { useContext } from 'react';
 import ProductDimensions from './ProductDimensions';
 import ProductCounter from './ProductCounter';
-import CartContext from '@/context/CartContext';
+import { CartContext } from '@/context/CartContext';
 
 type Props = {
   product: Product;
