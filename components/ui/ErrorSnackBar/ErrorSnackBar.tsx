@@ -12,7 +12,7 @@ const ErrorSnackBar = () => {
       open={!!error}
       autoHideDuration={6000}
       onClose={handleClearError}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
     >
       <Alert severity="error" sx={{ width: '100%' }} onClose={handleClearError}>
         Something went wrong. Please try again later.
