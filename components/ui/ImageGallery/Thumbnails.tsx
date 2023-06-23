@@ -20,7 +20,7 @@ const Thumbnails = ({ images }: Props) => {
                 <Dot
                   slide={i}
                   key={i}
-                  className={`rounded-xl overflow-hidden xl:mb-6 xl:mr-0 xl:last:mb-0 mr-4 last:mr-0 h-20 w-20 xl:h-auto xl:w-auto bg-white flex-shrink-0 flex-grow-0  outline outline-offset-4 outline-primary-dark ${
+                  className={`rounded-xl overflow-hidden xl:mb-6 xl:mr-0 xl:last:mb-0 mr-4 last:mr-0 h-20 w-20 xl:h-auto xl:w-auto  flex-shrink-0 flex-grow-0  outline outline-offset-4 outline-primary-dark bg-neutral-light ${
                     currentSlide === i ? 'outline-4' : 'outline-0'
                   }`}
                 >
@@ -29,7 +29,7 @@ const Thumbnails = ({ images }: Props) => {
                     alt={''}
                     width={96}
                     height={96}
-                    className="pointer-events-none"
+                    className="pointer-events-none aspect-square object-cover"
                   />
                 </Dot>
               );

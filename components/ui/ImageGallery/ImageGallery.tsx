@@ -27,7 +27,7 @@ const ImageGallery = ({ images }: Props) => {
                 <Slide
                   key={index}
                   index={index}
-                  innerClassName="flex items-center justify-center"
+                  innerClassName="flex items-center justify-center bg-neutral-light"
                 >
                   <Image
                     src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
