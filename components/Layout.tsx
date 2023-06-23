@@ -32,7 +32,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <div className="px-6 md:px-8 xl:px-16">
             <Navbar />
             <main className="pt-20 md:pt-24">{children}</main>
-            <Footer />C
+            <Footer />
           </div>
           <CartDrawer />
           <MenuSideDrawer />
