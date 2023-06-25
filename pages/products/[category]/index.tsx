@@ -49,7 +49,7 @@ export const getStaticPaths = async () => {
       },
       {
         params: {
-          category: 'lamps',
+          category: 'storage',
         },
       },
       {

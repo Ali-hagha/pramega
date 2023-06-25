@@ -7,7 +7,7 @@ const ProdcutsCategories = () => {
     <div className=" lg:hidden mb-6 flex overflow-x-auto pb-3">
       <CategoryButton title="all" href="/products" />
       <CategoryButton title="chairs" href="/products/chairs" />
-      <CategoryButton title="lamps" href="/products/lamps" />
+      <CategoryButton title="storage" href="/products/storage" />
       <CategoryButton title="beds" href="/products/beds" />
       <CategoryButton title="sofas" href="/products/sofas" />
       <CategoryButton title="tables" href="/products/tables" />

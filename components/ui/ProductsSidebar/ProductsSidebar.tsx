@@ -9,7 +9,7 @@ const ProductsSidebar = () => {
       <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
         <CategoryListItem category={'all'} href={'/products'} />
         <CategoryListItem category={'chairs'} href={'/products/chairs'} />
-        <CategoryListItem category={'lamps'} href={'/products/lamps'} />
+        <CategoryListItem category={'storage'} href={'/products/storage'} />
         <CategoryListItem category={'beds'} href={'/products/beds'} />
         <CategoryListItem category={'sofas'} href={'/products/sofas'} />
         <CategoryListItem category={'tables'} href={'/products/tables'} />
