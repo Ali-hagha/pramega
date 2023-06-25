@@ -33,8 +33,8 @@ const CategoryButton = ({ title, href }: { title: string; href: string }) => {
     <Link
       href={href}
       ref={btnRef}
-      className={`capitalize py-2 px-4 mr-4 last:mr-0 transition-all  rounded-lg border-solid border-2  border-gray-500 active:border-gray-700 active:bg-slate-200  text-gray-500 font-semibold active:text-gray-700  
-      ${isBtnActive && 'bg-gray-500 text-white'}
+      className={`capitalize py-2 px-4 mr-4 last:mr-0 transition-all  rounded-lg border-solid border-2  border-gray-100  active:border-gray-700 active:bg-slate-200  text-gray-500 font-semibold active:text-gray-700  
+      ${isBtnActive && 'bg-gray-400 text-white border-gray-400'}
       `}
     >
       {title}
