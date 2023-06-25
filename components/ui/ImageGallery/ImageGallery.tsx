@@ -19,7 +19,7 @@ const ImageGallery = ({ images }: Props) => {
         infinite={true}
         className="relative"
       >
-        <div className="flex flex-col-reverse xl:flex-row ">
+        <div className="flex flex-col-reverse xl:flex-row xl:items-start relative">
           <Thumbnails images={images} />
           <Slider className="flex-1 rounded-3xl overflow-hidden mb-4 xl:ml-4 xl:mb-0">
             {images.map((image, index) => {

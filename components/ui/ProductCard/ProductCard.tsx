@@ -27,7 +27,7 @@ const ProductCard = ({ product, touchEnabled = true }: Props) => {
     <Link
       href={`/products/${product.attributes.category}/${product.attributes.productId}`}
     >
-      <div className=" rounded-3xl  overflow-hidden  shadow-xl  hover:border-gray-300 group/card transition-colors">
+      <div className=" rounded-3xl  overflow-hidden border-4 border-solid border-gray-100 hover:border-gray-300 active:border-gray-300 group/card transition-colors">
         <div className=" aspect-square relative  bg-gray-100">
           {product.attributes.productTag && (
             <ProductTag productTag={product.attributes.productTag} />

@@ -30,7 +30,7 @@ const ProductDetails = ({ product }: PageProps) => {
             href: product.attributes.productId,
           }}
         />
-        <div className="flex flex-col  lg:flex-row items-center justify-center pt-6">
+        <div className="flex flex-col  lg:flex-row items-center lg:items-start justify-center pt-6">
           <div className="grow-[7] shrink-[7] basis-[0%] w-full sm:max-w-xl lg:max-w-none">
             <ImageGallery images={product.attributes.imageGallery.data} />
           </div>
