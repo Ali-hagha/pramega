@@ -8,7 +8,6 @@ import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { CartContext } from '@/context/CartContext';
 import { Badge } from '@mui/material';
-import { MenuDrawerContext } from '@/context/MenuDrawerContext';
 
 const items = [
   {
