@@ -47,23 +47,23 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-8 sm:space-y-0 sm:flex-row flex-grow  lg:justify-around  pl:24 xl:pl-32">
           <LinkListGroup title="What's Popular">
-            <LinkListItem href="#">L Shaped Couch</LinkListItem>
-            <LinkListItem href="#">Dining Table</LinkListItem>
-            <LinkListItem href="#">Queen Size Bed</LinkListItem>
-            <LinkListItem href="#">King Size Bed</LinkListItem>
-            <LinkListItem href="#">Lamps</LinkListItem>
+            <LinkListItem href="/">L Shaped Couch</LinkListItem>
+            <LinkListItem href="/">Dining Table</LinkListItem>
+            <LinkListItem href="/">Queen Size Bed</LinkListItem>
+            <LinkListItem href="/">King Size Bed</LinkListItem>
+            <LinkListItem href="/">Lamps</LinkListItem>
           </LinkListGroup>
           <LinkListGroup title="The Company">
-            <LinkListItem href="#">Careers</LinkListItem>
-            <LinkListItem href="#">About Us</LinkListItem>
-            <LinkListItem href="#">Customer Reviews</LinkListItem>
-            <LinkListItem href="#">Contact Us</LinkListItem>
+            <LinkListItem href="/">Careers</LinkListItem>
+            <LinkListItem href="/">About Us</LinkListItem>
+            <LinkListItem href="/">Customer Reviews</LinkListItem>
+            <LinkListItem href="/">Contact Us</LinkListItem>
           </LinkListGroup>
           <LinkListGroup title="Shopping Wtih Us" classes="hidden xl:block">
-            <LinkListItem href="#">Delivery</LinkListItem>
-            <LinkListItem href="#">Product Warranty</LinkListItem>
-            <LinkListItem href="#">Sales & Refunds</LinkListItem>
-            <LinkListItem href="#">Help Center</LinkListItem>
+            <LinkListItem href="/">Delivery</LinkListItem>
+            <LinkListItem href="/">Product Warranty</LinkListItem>
+            <LinkListItem href="/">Sales & Refunds</LinkListItem>
+            <LinkListItem href="/">Help Center</LinkListItem>
           </LinkListGroup>
         </div>
       </div>

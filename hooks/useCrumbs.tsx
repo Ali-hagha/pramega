@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 
 export const useCrumbs = () => {
   const router = useRouter();
-  const crumbs = router.asPath.split('/');
-  crumbs.shift();
+  const crumbsRaw = router.asPath.split('/');
+  crumbsRaw.shift();
+  const crumbs = crumbsRaw.filter(c => c !== '');
 
   let crumbPaths: string[] = [];
   let path = '/';

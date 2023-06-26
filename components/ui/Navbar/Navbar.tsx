@@ -64,7 +64,7 @@ const Navbar = () => {
 
             <div className="flex items-center justify-center space-x-4">
               <Link
-                href={'#'}
+                href={'/'}
                 className={
                   'p-2 rounded hover:text-primary hover:bg-neutral-dark/90 active:text-primary active:bg-neutral-dark/90 transition-colors'
                 }
