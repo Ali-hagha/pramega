@@ -4,7 +4,7 @@ import { CartContext } from '@/context/CartContext';
 import CartItems from './CartItems';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Fade, Slide } from '@mui/material';
 
 const CartDrawer = () => {
   const { isCartOpen, toggleCart, cartProducts, getGrandTotal, loading } =
@@ -23,33 +23,15 @@ const CartDrawer = () => {
   return (
     <>
       {/* Backdrop */}
-      <Transition
-        show={isCartOpen}
-        enter="transition-opacity ease-linear duration-100"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity ease-linear duration-100"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-        as={Fragment}
-      >
+      <Fade in={isCartOpen}>
         <div
           className="fixed inset-0 bg-black/50 z-[90] "
           onClick={toggleCart}
         ></div>
-      </Transition>
+      </Fade>
 
       {/* Sidebar */}
-      <Transition
-        show={isCartOpen}
-        enter="transition-transform ease-in-out duration-300"
-        enterFrom="translate-x-full"
-        enterTo="translate-x-0"
-        leave="transition-transform ease-in-out duration-300"
-        leaveFrom="translate-x-0"
-        leaveTo="translate-x-full"
-        as={Fragment}
-      >
+      <Slide in={isCartOpen} direction="left" timeout={200}>
         <div className="fixed  inset-y-0 right-0 max-w-full w-[550px] bg-white z-[100] shadow-lg">
           <div className=" flex flex-col h-full">
             <div className="py-4 px-6  flex items-center justify-between">
@@ -88,7 +70,7 @@ const CartDrawer = () => {
             </div>
           </div>
         </div>
-      </Transition>
+      </Slide>
     </>
   );
 };
