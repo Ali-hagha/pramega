@@ -4,7 +4,7 @@ export const useCrumbs = () => {
   const router = useRouter();
   const crumbsRaw = router.asPath.split('/');
   crumbsRaw.shift();
-  const crumbs = crumbsRaw.filter(c => c !== '');
+  const crumbs = crumbsRaw.filter(c => c !== '' && !c.includes('?'));
 
   let crumbPaths: string[] = [];
   let path = '/';
