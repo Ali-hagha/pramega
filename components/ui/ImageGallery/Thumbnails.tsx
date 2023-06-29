@@ -26,15 +26,15 @@ const Thumbnails = ({ images }: Props) => {
                     <Dot
                       slide={i}
                       key={i}
-                      className={`rounded-xl overflow-hidden xl:mb-6 xl:mr-0  mr-4 last:mr-0 h-20 w-20 xl:h-auto xl:w-auto  flex-shrink-0 flex-grow-0  outline outline-offset-4 outline-primary-dark bg-neutral-light ${
+                      className={`rounded-xl overflow-hidden xl:mb-6 xl:mr-0  mr-4 last:mr-0 h-20 w-20 xl:h-24 xl:w-24  flex-shrink-0 flex-grow-0  outline outline-offset-4 outline-primary-dark bg-neutral-light ${
                         currentSlide === i ? 'outline-4' : 'outline-0'
                       }`}
                     >
                       <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
                         alt={''}
-                        width={96}
-                        height={96}
+                        width={160}
+                        height={160}
                         className="pointer-events-none aspect-square object-cover"
                       />
                     </Dot>
