@@ -1,4 +1,4 @@
-import Categories from '@/components/ui/CategoryThumbnails/CategoryThumbnails';
+import CategoryThumbnailGroup from '@/components/ui/CategoryThumbnails/CategoryThumbnailGroup';
 import FavoriteProducts from '@/components/ui/FavoriteProducts/FavoriteProducts';
 import Hero from '@/components/ui/Hero/Hero';
 import { GetStaticProps } from 'next';
@@ -22,7 +22,7 @@ export default function Home({ images, favoriteProducts }: PageProps) {
       </Head>
       <div>
         <Hero images={images} />
-        <Categories />
+        <CategoryThumbnailGroup />
         <FavoriteProducts favoriteProducts={favoriteProducts} />
       </div>
     </>

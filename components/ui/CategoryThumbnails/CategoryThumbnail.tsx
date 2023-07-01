@@ -6,7 +6,7 @@ type Props = {
   title: string;
 };
 
-const CategoryItem = ({ imgSrc, title }: Props) => {
+const CategoryThumbnail = ({ imgSrc, title }: Props) => {
   return (
     <>
       <Image
@@ -29,4 +29,4 @@ const CategoryItem = ({ imgSrc, title }: Props) => {
   );
 };
 
-export default CategoryItem;
+export default CategoryThumbnail;
