@@ -21,7 +21,7 @@ const ThumbnailItem = ({ currentSlide, index, imgUrl }: Props) => {
     if (isThumbActive) {
       thumbRef.current?.scrollIntoView({
         behavior: 'smooth',
-        block: 'nearest',
+        block: 'end',
         inline: 'center',
       });
     }
