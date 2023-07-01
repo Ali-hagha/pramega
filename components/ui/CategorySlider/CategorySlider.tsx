@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
-const ProdcutsCategories = () => {
+const CategorySlider = () => {
   return (
     <div className=" lg:hidden mb-6 flex overflow-x-auto pb-3">
       <CategoryButton title="all" href="/products" />
@@ -29,7 +29,11 @@ const CategoryButton = ({ title, href }: { title: string; href: string }) => {
   // scroll active btn into view
   useEffect(() => {
     if (isBtnActive) {
-      btnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      btnRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'nearest',
+      });
     }
   }, [isBtnActive]);
 
@@ -46,4 +50,4 @@ const CategoryButton = ({ title, href }: { title: string; href: string }) => {
   );
 };
 
-export default ProdcutsCategories;
+export default CategorySlider;
