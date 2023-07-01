@@ -1,10 +1,10 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-import { Transition } from '@headlessui/react';
+import React, { useContext, useEffect } from 'react';
 import { CartContext } from '@/context/CartContext';
 import CartItems from './CartItems';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
 import { CircularProgress, Fade, Slide } from '@mui/material';
+import ActionBtn from '../ActionBtn/ActionBtn';
 
 const CartDrawer = () => {
   const { isCartOpen, toggleCart, cartProducts, getGrandTotal, loading } =
@@ -38,7 +38,7 @@ const CartDrawer = () => {
               <h2 className="text-xl font-bold">
                 My Cart({cartProducts.length})
               </h2>
-              <button className=" pr-0 p-2 text-3xl " onClick={toggleCart}>
+              <button className="pr-0 p-2 text-3xl" onClick={toggleCart}>
                 <RiCloseFill />
               </button>
             </div>
@@ -52,21 +52,13 @@ const CartDrawer = () => {
                   {currencyFormatter.format(getGrandTotal())}
                 </p>
               </div>
-
-              <button
-                // disable the button only if the cart is not open
+              <ActionBtn
                 disabled={loading}
-                className="flex items-center justify-center rounded-lg bg-neutral-dark px-6 py-4  w-full font-bold md:font-semibold text-base md:text-lg uppercase shadow-[0_0_20px_#ebfc4b] hover:shadow-[0_0_40px_#ebfc4b] hover:bg-black transition-all shadow-primary text-primary disabled:bg-neutral-500 disabled:opacity-60 disabled:cursor-not-allowed"
+                onClick={() => console.log('checkout')}
               >
-                {/* show spinner only if the cart is not open */}
-                {loading && (
-                  <CircularProgress
-                    sx={{ color: 'rgb(235,252,75)' }}
-                    size={28}
-                  />
-                )}
+                {/* when loading is true show spinner and hide text */}
                 {!loading && <span>Checkout</span>}
-              </button>
+              </ActionBtn>
             </div>
           </div>
         </div>
