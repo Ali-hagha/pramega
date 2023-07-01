@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ProdcutsCategories = () => {
   return (
@@ -16,11 +16,15 @@ const ProdcutsCategories = () => {
 };
 
 const CategoryButton = ({ title, href }: { title: string; href: string }) => {
-  const router = useRouter();
-  const path = router.asPath;
+  const { isReady, asPath } = useRouter();
+  const [isBtnActive, setIsBtnActive] = useState(false);
   const btnRef = useRef<HTMLAnchorElement>(null);
 
-  const isBtnActive = href === path;
+  useEffect(() => {
+    if (isReady) {
+      setIsBtnActive(asPath === href);
+    }
+  }, [asPath, href, isReady]);
 
   // scroll active btn into view
   useEffect(() => {

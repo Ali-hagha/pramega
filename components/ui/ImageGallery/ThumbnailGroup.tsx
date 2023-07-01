@@ -1,14 +1,14 @@
-import Image from 'next/image';
-import { Dot, DotGroup } from 'pure-react-carousel';
+import { DotGroup } from 'pure-react-carousel';
 import React from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css';
+import ThumbnailItem from './ThumbnailItem';
 
 type Props = {
   images: [{ attributes: { url: string } }];
 };
 
-const Thumbnails = ({ images }: Props) => {
+const ThumbnailGroup = ({ images }: Props) => {
   return (
     <>
       {/* filler element to push image slider to right and open space for thumbnails */}
@@ -23,21 +23,12 @@ const Thumbnails = ({ images }: Props) => {
               <ScrollContainer className="flex px-2 py-2 flex-row xl:flex-col">
                 {images.map((image, i) => {
                   return (
-                    <Dot
-                      slide={i}
+                    <ThumbnailItem
                       key={i}
-                      className={`rounded-xl overflow-hidden xl:mb-6 xl:mr-0  mr-4 last:mr-0 h-20 w-20 xl:h-24 xl:w-24  flex-shrink-0 flex-grow-0  outline outline-offset-4 outline-primary-dark bg-neutral-light ${
-                        currentSlide === i ? 'outline-4' : 'outline-0'
-                      }`}
-                    >
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
-                        alt={''}
-                        width={160}
-                        height={160}
-                        className="pointer-events-none aspect-square object-cover"
-                      />
-                    </Dot>
+                      currentSlide={currentSlide}
+                      index={i}
+                      imgUrl={image.attributes.url}
+                    />
                   );
                 })}
               </ScrollContainer>
@@ -49,4 +40,4 @@ const Thumbnails = ({ images }: Props) => {
   );
 };
 
-export default Thumbnails;
+export default ThumbnailGroup;
