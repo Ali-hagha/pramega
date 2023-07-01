@@ -1,6 +1,6 @@
-import Categories from '@/components/sections/Categories/Categories';
-import Favorites from '@/components/sections/Favorites/Favorites';
-import Hero from '@/components/sections/Hero/Hero';
+import Categories from '@/components/ui/CategoryThumbnails/CategoryThumbnails';
+import FavoriteProducts from '@/components/ui/FavoriteProducts/FavoriteProducts';
+import Hero from '@/components/ui/Hero/Hero';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
@@ -23,7 +23,7 @@ export default function Home({ images, favoriteProducts }: PageProps) {
       <div>
         <Hero images={images} />
         <Categories />
-        <Favorites favoriteProducts={favoriteProducts} />
+        <FavoriteProducts favoriteProducts={favoriteProducts} />
       </div>
     </>
   );
