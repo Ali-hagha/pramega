@@ -4,6 +4,7 @@ import ProductDimensions from './ProductDimensions';
 import ProductCounter from './ProductCounter';
 import { CartContext } from '@/context/CartContext';
 import ActionBtn from '@/components/ui/ActionBtn/ActionBtn';
+import { currencyFormatter } from '@/helpers';
 
 type Props = {
   product: Product;
@@ -42,7 +43,7 @@ const ProductInfo = ({ product, count, setCount }: Props) => {
       </p>
 
       <p className="text-2xl md:text-3xl font-bold md:font-semibold mb-12">
-        ${product.attributes.price}{' '}
+        {currencyFormatter.format(product.attributes.price)}
         <span className="text-xs text-neutral-dark/40 font-semibold">
           per item
         </span>
@@ -57,7 +58,8 @@ const ProductInfo = ({ product, count, setCount }: Props) => {
         disabled={loading && !isCartOpen}
       >
         <span className="px-6">
-          add to cart - ${product.attributes.price * count}
+          add to cart -{' '}
+          {currencyFormatter.format(product.attributes.price * count)}
         </span>
       </ActionBtn>
     </div>

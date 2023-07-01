@@ -8,6 +8,7 @@ import AddToCartBtn from './AddToCartBtn';
 import ProductTag from './ProductTag';
 import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
+import { currencyFormatter } from '@/helpers';
 
 type Props = {
   product: Product;
@@ -54,7 +55,7 @@ const ProductCard = ({ product, touchEnabled = true }: Props) => {
             <div>
               <p className="text-sm mb-1 text-neutral-dark/70">Price:</p>
               <p className="text-xl font-semibold text-neutral-dark/90">
-                ${product.attributes.price}
+                {currencyFormatter.format(product.attributes.price)}
               </p>
             </div>
             <AddToCartBtn
