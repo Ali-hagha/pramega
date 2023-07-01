@@ -20,7 +20,7 @@ const MenuSideDrawerItem = ({
       <Link
         href={`${href}`}
         onClick={toggleMenu}
-        className={`flex text-lg group items-center justify-between font-medium  hover:text-neutral-dark hover:bg-gray-100 rounded-md  w-full py-3 px-6 transition-colors ${
+        className={`flex md:text-lg group items-center justify-between font-medium  hover:text-neutral-dark hover:bg-gray-100 rounded-md  w-full py-3 px-6 transition-colors ${
           href === path
             ? 'bg-gray-100 text-neutral-dark'
             : 'bg-transparent text-neutral-dark/70'

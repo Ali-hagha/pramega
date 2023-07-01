@@ -58,8 +58,10 @@ const MenuSideDrawer = () => {
               </Link>
             </h3>
           </div>
-          <div className="pt-12 px-4">
-            <h3 className="text-2xl font-semibold mb-2">Products:</h3>
+          <div className="pt-8 md:pt-12 px-4">
+            <h3 className="text-xl md:text-2xl font-semibold mb-2">
+              Products:
+            </h3>
             <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
               <MenuSideDrawerItem category={'all'} href={'/products'} />
               <MenuSideDrawerItem
@@ -79,7 +81,7 @@ const MenuSideDrawer = () => {
             </ul>
           </div>
 
-          <div className="flex items-center justify-center mt-auto mb-10 space-x-10 ">
+          <div className="flex items-center justify-center mt-auto space-x-10 ">
             <SocialLink
               DefaultIcon={RiFacebookBoxLine}
               HoverIcon={RiFacebookBoxFill}
