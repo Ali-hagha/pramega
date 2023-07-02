@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import ProductsSideBarItem from './ProductsSideBarItem';
+import ProductsPageSidebarItem from './ProductsPageSidebarItem';
 
-const ProductsSidebar = () => {
+const ProductsPageSidebar = () => {
   const { isReady, query } = useRouter();
   const [category, setCategory] = useState<string | undefined>();
   const [featured, setFeatured] = useState<string | undefined>();
@@ -22,6 +22,8 @@ const ProductsSidebar = () => {
     }
   }, [isReady, query.category, query.featured]);
 
+  // set href based on current path. eg. if the path is products/chairs the href of featured items changes to only show chairs that are featured.
+  // set active state based on current path
   const categoryItemData = [
     {
       title: 'all',
@@ -87,7 +89,7 @@ const ProductsSidebar = () => {
         <h3 className=" text-2xl font-bold mb-3">Categories</h3>
         <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
           {categoryItemData.map(item => (
-            <ProductsSideBarItem
+            <ProductsPageSidebarItem
               key={item.title}
               title={item.title}
               href={item.href}
@@ -100,7 +102,7 @@ const ProductsSidebar = () => {
         <h3 className=" text-2xl font-bold mb-3">Featured</h3>
         <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
           {featureItemData.map(item => (
-            <ProductsSideBarItem
+            <ProductsPageSidebarItem
               key={item.title}
               title={item.title}
               href={item.href}
@@ -113,4 +115,4 @@ const ProductsSidebar = () => {
   );
 };
 
-export default ProductsSidebar;
+export default ProductsPageSidebar;

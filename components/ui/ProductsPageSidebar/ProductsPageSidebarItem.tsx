@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
-const ProductsSideBarItem = ({
+const ProductsPageSidebarItem = ({
   title,
   href,
   active,
@@ -31,4 +31,4 @@ const ProductsSideBarItem = ({
     </li>
   );
 };
-export default ProductsSideBarItem;
+export default ProductsPageSidebarItem;

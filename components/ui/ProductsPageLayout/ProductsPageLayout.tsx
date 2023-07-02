@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import CategorySlider from '../CategorySlider/CategorySlider';
 import Crumbs from '../Crumbs/Crumbs';
-import ProductsSidebar from '../ProductsSidebar/ProductsSidebar';
+import ProductsPageSidebar from '../ProductsPageSidebar/ProductsPageSidebar';
 import { useRouter } from 'next/router';
 
 type Props = { children: React.ReactNode; headTitle?: string };
@@ -26,7 +26,7 @@ const ProductsPageLayout = ({ children, headTitle }: Props) => {
       <div className="mb-20 md:px-10 pt-6">
         <Crumbs />
         <div className="flex flex-col lg:flex-row mt-6">
-          <ProductsSidebar />
+          <ProductsPageSidebar />
           <CategorySlider />
           {children}
         </div>
