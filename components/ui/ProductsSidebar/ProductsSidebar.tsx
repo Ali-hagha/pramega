@@ -11,9 +11,13 @@ const ProductsSidebar = () => {
     if (isReady) {
       if (typeof query.featured === 'string') {
         setFeatured(query.featured);
+      } else {
+        setFeatured(undefined);
       }
       if (typeof query.category === 'string') {
         setCategory(query.category);
+      } else {
+        setCategory(undefined);
       }
     }
   }, [isReady, query.category, query.featured]);
