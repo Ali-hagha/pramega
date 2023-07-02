@@ -14,7 +14,7 @@ const ProductPageFilteringOptions = () => {
   };
 
   return (
-    <div>
+    <div className="lg:hidden">
       <button
         className="text-lg font-semibold flex items-center justify-center px-4 pl-0 py-2 mb-4"
         onClick={toggleFilteringOptions}
