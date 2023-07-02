@@ -19,12 +19,12 @@ const CategoryThumbnailGroup = () => {
           />
         </Link>
         <Link
-          href={'/products/lamps'}
+          href={'/products/storage'}
           className="group bg-neutral-light  md:col-span-1 md:row-span-1  rounded-3xl flex  flex-col items-center justify-center p-4 sm:p-6"
         >
           <CategoryThumbnail
-            imgSrc={'/categories/lamp_tp.png'}
-            title={'lamps'}
+            imgSrc={'/categories/storage_tp.png'}
+            title={'storage'}
           />
         </Link>
         <Link
