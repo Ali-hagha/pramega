@@ -1,11 +1,7 @@
-import CategorySlider from '@/components/ui/CategorySlider/CategorySlider';
 import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
-import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
-import ProductsSidebar from '@/components/ui/ProductsSidebar/ProductsSidebar';
+import ProductsPageLayout from '@/components/ui/ProductsPageLayout/ProductsPageLayout';
 import { NextPageWithLayout } from '@/pages/_app';
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 type PageProps = {
   products: Product[];
@@ -14,29 +10,7 @@ type PageProps = {
 const ProductCategories: NextPageWithLayout<PageProps> = ({
   products,
 }: PageProps) => {
-  const router = useRouter();
-  const category = router.query.category;
-  const title =
-    typeof category === 'string' &&
-    category.charAt(0).toUpperCase() + category.slice(1);
-
-  return (
-    <>
-      <Head>
-        <title>{title || 'Pramega'}</title>
-        <meta
-          name="description"
-          content="Luxury & modern furniture and home decor."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <div className="flex flex-col lg:flex-row w-full">
-        <ProductsSidebar />
-        <CategorySlider />
-        <ProductsGrid products={products} />
-      </div>
-    </>
-  );
+  return <ProductsGrid products={products} />;
 };
 
 export const getStaticPaths = async () => {
@@ -89,7 +63,7 @@ export const getStaticProps: GetStaticProps<{
 };
 
 ProductCategories.getLayout = function getLayout(page: React.ReactElement) {
-  return <ProductsLayout>{page}</ProductsLayout>;
+  return <ProductsPageLayout>{page}</ProductsPageLayout>;
 };
 
 export default ProductCategories;

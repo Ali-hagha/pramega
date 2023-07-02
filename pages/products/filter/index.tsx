@@ -1,9 +1,6 @@
-import CategorySlider from '@/components/ui/CategorySlider/CategorySlider';
 import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
-import ProductsLayout from '@/components/ui/ProductsLayout/ProductsLayout';
-import ProductsSidebar from '@/components/ui/ProductsSidebar/ProductsSidebar';
+import ProductsPageLayout from '@/components/ui/ProductsPageLayout/ProductsPageLayout';
 import { NextPageWithLayout } from '@/pages/_app';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -13,8 +10,6 @@ const FilterAll: NextPageWithLayout = () => {
   const { isReady, query } = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  const title = 'Products';
 
   useEffect(() => {
     const getFilteredProducts = async () => {
@@ -43,25 +38,13 @@ const FilterAll: NextPageWithLayout = () => {
 
   return (
     <>
-      <Head>
-        <title>{title || 'Pramega'}</title>
-        <meta
-          name="description"
-          content="Luxury & modern furniture and home decor."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <div className="flex flex-col lg:flex-row w-full relative">
-        <ProductsSidebar />
-        <CategorySlider />
-        <ProductsGrid products={products} isLoading={isLoading} />
-      </div>
+      <ProductsGrid products={products} isLoading={isLoading} />
     </>
   );
 };
 
 FilterAll.getLayout = function getLayout(page: React.ReactElement) {
-  return <ProductsLayout>{page}</ProductsLayout>;
+  return <ProductsPageLayout>{page}</ProductsPageLayout>;
 };
 
 export default FilterAll;
