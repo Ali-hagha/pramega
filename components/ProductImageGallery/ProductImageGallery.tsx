@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import ProductThumbnailGroup from '@/components/ui/ProductImageGallery/ProductThumbnailGroup';
-import ProductImageGalleryNav from '@/components/ui/ProductImageGallery/ProductImageGalleryNav';
+import ProductThumbnailGroup from './ProductThumbnailGroup';
+import ProductImageGalleryNav from './ProductImageGalleryNav';
 
 type Props = {
   images: [{ attributes: { url: string } }];

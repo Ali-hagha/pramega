@@ -1,9 +1,9 @@
 import Crumbs from '@/components/ui/Crumbs/Crumbs';
 import React, { useState } from 'react';
-import ProductImageGallery from '../../../../components/ui/ProductImageGallery/ProductImageGallery';
 import ProductInfo from './ProductInfo';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import ProductImageGallery from '@/components/ProductImageGallery/ProductImageGallery';
 
 type PageProps = {
   product: Product;
