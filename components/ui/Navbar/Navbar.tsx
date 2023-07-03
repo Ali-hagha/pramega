@@ -18,10 +18,6 @@ const items = [
     title: 'products',
     location: '/products',
   },
-  {
-    title: 'contact',
-    location: '/contact-us',
-  },
 ];
 
 const Navbar = () => {

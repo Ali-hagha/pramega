@@ -33,10 +33,6 @@ const ProductCard = ({ product, touchEnabled = true }: Props) => {
           {product.attributes.productTag && (
             <ProductTag productTag={product.attributes.productTag} />
           )}
-          <AddToWishlistBtn
-            isFavorite={false}
-            onClick={() => console.log('add to wishlist')}
-          />
           <Images
             baseImage={
               backendUrl + product.attributes.primaryImage.data.attributes.url
