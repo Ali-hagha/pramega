@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { RiShoppingCartLine, RiUserLine } from 'react-icons/ri';
 import NavGroup from './NavGroup';
-import MenuBtn from './MenuBtn';
+import MenuBtn from './DrawerMenuBtn';
 import useNavbarVisibility from '@/hooks/useNavBarVIsibility';
 import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';

@@ -1,6 +1,5 @@
 import { MenuDrawerContext } from '@/context/MenuDrawerContext';
-import { Transition } from '@headlessui/react';
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   RiCloseFill,
   RiFacebookBoxFill,

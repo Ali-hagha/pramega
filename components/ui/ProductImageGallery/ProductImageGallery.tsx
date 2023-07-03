@@ -2,14 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import ThumbnailGroup from '@/components/ui/ImageGallery/ThumbnailGroup';
-import Navigation from '@/components/ui/ImageGallery/Navigation';
+import ProductThumbnailGroup from '@/components/ui/ProductImageGallery/ProductThumbnailGroup';
+import ProductImageGalleryNav from '@/components/ui/ProductImageGallery/ProductImageGalleryNav';
 
 type Props = {
   images: [{ attributes: { url: string } }];
 };
 
-const ImageGallery = ({ images }: Props) => {
+const ProductImageGallery = ({ images }: Props) => {
   return (
     <div className="  mb-8">
       <CarouselProvider
@@ -20,7 +20,7 @@ const ImageGallery = ({ images }: Props) => {
         className="relative"
       >
         <div className="flex flex-col-reverse xl:flex-row xl:items-start relative">
-          <ThumbnailGroup images={images} />
+          <ProductThumbnailGroup images={images} />
           <Slider className="flex-1 rounded-3xl overflow-hidden mb-4 xl:ml-4 xl:mb-0">
             {images.map((image, index) => {
               return (
@@ -39,11 +39,11 @@ const ImageGallery = ({ images }: Props) => {
               );
             })}
           </Slider>
-          <Navigation />
+          <ProductImageGalleryNav />
         </div>
       </CarouselProvider>
     </div>
   );
 };
 
-export default ImageGallery;
+export default ProductImageGallery;

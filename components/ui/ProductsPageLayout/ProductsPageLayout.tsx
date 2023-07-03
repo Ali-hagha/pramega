@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Crumbs from '../Crumbs/Crumbs';
-import ProductsPageSidebar from '../ProductsPageSidebar/ProductsPageSidebar';
+import ProductFilterSidebar from '../ProductFilterSidebar/ProductFilterSidebar';
 import { useRouter } from 'next/router';
-import ProductPageFilteringOptions from '../ProductPageFilteringOptions/ProductPageFilteringOptions';
+import ProductFilterCollapseMenu from '../ProductFilterCollapseMenu/ProductFilterCollapseMenu';
 
 type Props = { children: React.ReactNode; headTitle?: string };
 
@@ -26,8 +26,8 @@ const ProductsPageLayout = ({ children, headTitle }: Props) => {
       <div className="mb-20 md:px-10 pt-6">
         <Crumbs />
         <div className="flex flex-col lg:flex-row mt-6">
-          <ProductsPageSidebar />
-          <ProductPageFilteringOptions />
+          <ProductFilterSidebar />
+          <ProductFilterCollapseMenu />
           {children}
         </div>
       </div>

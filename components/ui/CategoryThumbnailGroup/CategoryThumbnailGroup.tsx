@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import CategoryThumbnail from './CategoryThumbnail';
 import Link from 'next/link';
 

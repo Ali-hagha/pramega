@@ -2,13 +2,13 @@ import { DotGroup } from 'pure-react-carousel';
 import React from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css';
-import ThumbnailItem from './ThumbnailItem';
+import ProductThumbnail from './ProductThumbnail';
 
 type Props = {
   images: [{ attributes: { url: string } }];
 };
 
-const ThumbnailGroup = ({ images }: Props) => {
+const ProductThumbnailGroup = ({ images }: Props) => {
   return (
     <>
       {/* filler element to push image slider to right and open space for thumbnails */}
@@ -23,7 +23,7 @@ const ThumbnailGroup = ({ images }: Props) => {
               <ScrollContainer className="flex px-2 py-2 flex-row xl:flex-col">
                 {images.map((image, i) => {
                   return (
-                    <ThumbnailItem
+                    <ProductThumbnail
                       key={i}
                       currentSlide={currentSlide}
                       index={i}
@@ -40,4 +40,4 @@ const ThumbnailGroup = ({ images }: Props) => {
   );
 };
 
-export default ThumbnailGroup;
+export default ProductThumbnailGroup;

@@ -5,7 +5,7 @@ type Props = {
   isFavorite: boolean;
 };
 
-const WishlistBtn = ({ onClick, isFavorite }: Props) => {
+const AddToWishlistBtn = ({ onClick, isFavorite }: Props) => {
   return (
     <button
       className="absolute right-6 top-6 text-2xl z-20 p-2"
@@ -26,4 +26,4 @@ const WishlistBtn = ({ onClick, isFavorite }: Props) => {
   );
 };
 
-export default WishlistBtn;
+export default AddToWishlistBtn;

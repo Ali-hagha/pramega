@@ -1,6 +1,6 @@
 import Crumbs from '@/components/ui/Crumbs/Crumbs';
 import React, { useState } from 'react';
-import ImageGallery from '../../../../components/ui/ImageGallery/ImageGallery';
+import ProductImageGallery from '../../../../components/ui/ProductImageGallery/ProductImageGallery';
 import ProductInfo from './ProductInfo';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -32,7 +32,9 @@ const ProductDetails = ({ product }: PageProps) => {
         />
         <div className="flex flex-col  lg:flex-row items-center lg:items-start justify-center pt-6">
           <div className="grow-[7] shrink-[7] basis-[0%] w-full sm:max-w-xl lg:max-w-none">
-            <ImageGallery images={product.attributes.imageGallery.data} />
+            <ProductImageGallery
+              images={product.attributes.imageGallery.data}
+            />
           </div>
           <div className="grow-[5] shrink-[5] basis-[0%] flex  sm:max-w-xl lg:max-w-none">
             <ProductInfo

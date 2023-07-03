@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
 import Navbar from './ui/Navbar/Navbar';
 import Footer from './ui/Footer/Footer';
-import CartDrawer from './ui/CartDrawer/CartDrawer';
+import CartSideDrawer from './ui/CartSideDrawer/CartSideDrawer';
 import { CartContextProvider } from '../context/CartContext';
 import ErrorSnackBar from './ui/ErrorSnackBar/ErrorSnackBar';
 import { MenuDrawerContextProvider } from '@/context/MenuDrawerContext';
@@ -34,7 +34,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             <main className="pt-20 md:pt-24">{children}</main>
             <Footer />
           </div>
-          <CartDrawer />
+          <CartSideDrawer />
           <MenuSideDrawer />
           <ErrorSnackBar />
         </MenuDrawerContextProvider>

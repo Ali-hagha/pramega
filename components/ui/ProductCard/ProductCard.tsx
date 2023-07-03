@@ -3,7 +3,7 @@ import Link from 'next/link';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { useScreenSize } from '@/hooks/useScreenSize';
 import ProductPreviewImageGallery from './ProductPreviewImageGallery';
-import WishlistBtn from './WishlistBtn';
+import AddToWishlistBtn from './AddToWishlistBtn';
 import AddToCartBtn from './AddToCartBtn';
 import ProductTag from './ProductTag';
 import { useContext } from 'react';
@@ -33,7 +33,7 @@ const ProductCard = ({ product, touchEnabled = true }: Props) => {
           {product.attributes.productTag && (
             <ProductTag productTag={product.attributes.productTag} />
           )}
-          <WishlistBtn
+          <AddToWishlistBtn
             isFavorite={false}
             onClick={() => console.log('add to wishlist')}
           />

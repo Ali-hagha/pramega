@@ -1,4 +1,4 @@
-import CustomerAvatars from '@/components/ui/CustomerAvatars/CustomerAvatars';
+import CustomerFeedbackAvatarGroup from '@/components/ui/CustomerFeedbackAvatarGroup/CustomerFeedbackAvatarGroup';
 import Link from 'next/link';
 import { RiStarFill } from 'react-icons/ri';
 import HeroGallery from './HeroGallery';
@@ -40,7 +40,7 @@ const Hero = ({ images }: { images: HeroImages }) => {
           Explore Products
         </Link>
         <div className="self-start flex justify-center items-center ">
-          <CustomerAvatars />
+          <CustomerFeedbackAvatarGroup />
           <RiStarFill className="ml-4 text-[#f9a825]" />
           <div className="ml-1 text-xs md:text-sm  text-neutral-dark/80">
             4.6 (5.2k reviews)

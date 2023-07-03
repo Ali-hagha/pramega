@@ -4,7 +4,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import React, { useState } from 'react';
 import { Collapse } from '@mui/material';
 
-const ProductPageFilteringOptions = () => {
+const ProductFilterCollapseMenu = () => {
   const { filterByCategoryItems, filterByFeatureItems } =
     useProductFilterOptions();
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
@@ -40,4 +40,4 @@ const ProductPageFilteringOptions = () => {
   );
 };
 
-export default ProductPageFilteringOptions;
+export default ProductFilterCollapseMenu;

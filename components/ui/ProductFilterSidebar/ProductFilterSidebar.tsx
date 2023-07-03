@@ -1,7 +1,7 @@
 import useProductFilterOptions from '@/hooks/useProductFilterOptions';
-import ProductsPageSidebarItem from './ProductsPageSidebarItem';
+import ProductFilterSidebarItem from './ProductFilterSidebarItem';
 
-const ProductsPageSidebar = () => {
+const ProductFilterSidebar = () => {
   const { filterByCategoryItems, filterByFeatureItems } =
     useProductFilterOptions();
 
@@ -11,7 +11,7 @@ const ProductsPageSidebar = () => {
         <h3 className="text-2xl font-bold mb-3">Categories</h3>
         <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
           {filterByCategoryItems.map(item => (
-            <ProductsPageSidebarItem
+            <ProductFilterSidebarItem
               key={item.title}
               title={item.title}
               href={item.href}
@@ -24,7 +24,7 @@ const ProductsPageSidebar = () => {
         <h3 className="text-2xl font-bold mb-3">Featured</h3>
         <ul className="ml-2 pl-2 border-l-gray-200 border-l-2">
           {filterByFeatureItems.map(item => (
-            <ProductsPageSidebarItem
+            <ProductFilterSidebarItem
               key={item.title}
               title={item.title}
               href={item.href}
@@ -37,4 +37,4 @@ const ProductsPageSidebar = () => {
   );
 };
 
-export default ProductsPageSidebar;
+export default ProductFilterSidebar;

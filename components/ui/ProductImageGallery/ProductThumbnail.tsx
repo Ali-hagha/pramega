@@ -8,7 +8,7 @@ type Props = {
   imgUrl: string;
 };
 
-const ThumbnailItem = ({ currentSlide, index, imgUrl }: Props) => {
+const ProductThumbnail = ({ currentSlide, index, imgUrl }: Props) => {
   const thumbRef = useRef<HTMLImageElement>(null);
   const [isThumbActive, setIsThumbActive] = useState(false);
 
@@ -47,4 +47,4 @@ const ThumbnailItem = ({ currentSlide, index, imgUrl }: Props) => {
   );
 };
 
-export default ThumbnailItem;
+export default ProductThumbnail;

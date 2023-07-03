@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { CartContext } from '@/context/CartContext';
-import CartItems from './CartItems';
+import CartItems from './CartSideDrawerItems';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
-import { CircularProgress, Fade, Slide } from '@mui/material';
+import { Fade, Slide } from '@mui/material';
 import ActionBtn from '../ActionBtn/ActionBtn';
 
-const CartDrawer = () => {
+const CartSideDrawer = () => {
   const { isCartOpen, toggleCart, cartProducts, getGrandTotal, loading } =
     useContext(CartContext) as CartContextValue;
 
@@ -67,4 +67,4 @@ const CartDrawer = () => {
   );
 };
 
-export default CartDrawer;
+export default CartSideDrawer;
