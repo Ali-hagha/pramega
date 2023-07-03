@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 import { Montserrat, Bebas_Neue } from 'next/font/google';
-import Navbar from './ui/Navbar/Navbar';
-import Footer from './ui/Footer/Footer';
-import CartSideDrawer from './ui/CartSideDrawer/CartSideDrawer';
-import { CartContextProvider } from '../context/CartContext';
-import ErrorSnackBar from './ui/ErrorSnackBar/ErrorSnackBar';
+import Navbar from '../../ui/Navbar/Navbar';
+import Footer from '../../ui/Footer/Footer';
+import CartSideDrawer from '../../CartSideDrawer/CartSideDrawer';
+import { CartContextProvider } from '../../../context/CartContext';
+import ErrorSnackBar from '../../ui/ErrorSnackBar/ErrorSnackBar';
 import { MenuDrawerContextProvider } from '@/context/MenuDrawerContext';
-import MenuSideDrawer from './ui/MenuSideDrawer/MenuSideDrawer';
+import MenuSideDrawer from '../../MenuSideDrawer/MenuSideDrawer';
 
 const montserrat = Montserrat({
   subsets: ['latin'],

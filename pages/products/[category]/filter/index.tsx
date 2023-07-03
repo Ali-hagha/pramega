@@ -1,5 +1,5 @@
-import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
-import ProductsPageLayout from '@/components/ui/ProductsPageLayout/ProductsPageLayout';
+import ProductsGrid from '@/components/ProductsGrid/ProductsGrid';
+import ProductsPageLayout from '@/components/layouts/ProductsPageLayout/ProductsPageLayout';
 import { NextPageWithLayout } from '@/pages/_app';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

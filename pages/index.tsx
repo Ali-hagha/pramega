@@ -1,6 +1,6 @@
-import CategoryThumbnailGroup from '@/components/ui/CategoryThumbnailGroup/CategoryThumbnailGroup';
-import FavoriteProducts from '@/components/ui/FavoriteProducts/FavoriteProducts';
-import Hero from '@/components/ui/Hero/Hero';
+import CategoryThumbnailGroup from '@/components/CategoryThumbnailGroup/CategoryThumbnailGroup';
+import FavoriteProducts from '@/components/FavoriteProducts/FavoriteProducts';
+import Hero from '@/components/Hero/Hero';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 

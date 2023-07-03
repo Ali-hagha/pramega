@@ -1,7 +1,7 @@
 import { RiShoppingCartFill } from 'react-icons/ri';
 import { useContext, MutableRefObject } from 'react';
 import { CartContext } from '@/context/CartContext';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../ui/Spinner/Spinner';
 
 type Props = {
   onClick: () => void;

@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Crumbs from '../Crumbs/Crumbs';
-import ProductFilterSidebar from '../ProductFilterSidebar/ProductFilterSidebar';
+import Crumbs from '../../ui/Crumbs/Crumbs';
+import ProductFilterSidebar from '../../ui/ProductFilterSidebar/ProductFilterSidebar';
 import { useRouter } from 'next/router';
-import ProductFilterCollapseMenu from '../ProductFilterCollapseMenu/ProductFilterCollapseMenu';
+import ProductFilterCollapseMenu from '../../ui/ProductFilterCollapseMenu/ProductFilterCollapseMenu';
 
 type Props = { children: React.ReactNode; headTitle?: string };
 

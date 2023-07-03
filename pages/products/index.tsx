@@ -1,7 +1,7 @@
-import ProductsGrid from '@/components/ui/ProductsGrid/ProductsGrid';
+import ProductsGrid from '@/components/ProductsGrid/ProductsGrid';
 import React from 'react';
 import { NextPageWithLayout } from '../_app';
-import ProductsPageLayout from '@/components/ui/ProductsPageLayout/ProductsPageLayout';
+import ProductsPageLayout from '@/components/layouts/ProductsPageLayout/ProductsPageLayout';
 import { GetStaticProps } from 'next';
 
 type PageProps = {

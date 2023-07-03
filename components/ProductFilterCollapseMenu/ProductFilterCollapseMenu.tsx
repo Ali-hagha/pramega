@@ -1,5 +1,5 @@
 import useProductFilterOptions from '@/hooks/useProductFilterOptions';
-import ProductFilterButtonGroup from '../ProductFilterButtonGroup/ProductFilterButtonGroup';
+import ProductFilterButtonGroup from '../ui/ProductFilterButtonGroup/ProductFilterButtonGroup';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import React, { useState } from 'react';
 import { Collapse } from '@mui/material';

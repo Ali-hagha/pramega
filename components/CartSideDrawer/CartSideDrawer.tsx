@@ -4,9 +4,9 @@ import CartSideDrawerGroup from './CartSideDrawerGroup';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
 import { Fade, Slide } from '@mui/material';
-import ActionBtn from '../ActionBtn/ActionBtn';
+import ActionBtn from '../ui/ActionBtn/ActionBtn';
 import useHideOverflowOnBody from '@/hooks/useHideOverflowOnBody';
-import SideDrawerBackdrop from '@/components/SideDrawerBackdrop/SideDrawerBackdrop';
+import SideDrawerBackdrop from '@/components/ui/SideDrawerBackdrop/SideDrawerBackdrop';
 
 const CartSideDrawer = () => {
   const { isCartOpen, toggleCart, loading } = useContext(

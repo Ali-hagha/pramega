@@ -11,10 +11,10 @@ import {
 } from 'react-icons/ri';
 import MenuSideDrawerItem from './MenuSideDrawerItem';
 import Link from 'next/link';
-import SocialLink from '../Footer/SocialLink';
+import SocialLink from '../ui/Footer/SocialLink';
 import { Fade, Slide } from '@mui/material';
 import useHideOverflowOnBody from '@/hooks/useHideOverflowOnBody';
-import SideDrawerBackdrop from '@/components/SideDrawerBackdrop/SideDrawerBackdrop';
+import SideDrawerBackdrop from '@/components/ui/SideDrawerBackdrop/SideDrawerBackdrop';
 
 const MenuSideDrawer = () => {
   const { isMenuOpen, toggleMenu } = useContext(MenuDrawerContext);

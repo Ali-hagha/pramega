@@ -1,4 +1,4 @@
-import ProductCard from '@/components/ui/ProductCard/ProductCard';
+import ProductCard from '@/components/ProductCard/ProductCard';
 import { CarouselProvider, Slide, Slider } from 'pure-react-carousel';
 import React from 'react';
 import 'pure-react-carousel/dist/react-carousel.es.css';

@@ -1,5 +1,5 @@
 import ProductCard from '../ProductCard/ProductCard';
-import ProductCardLoadingShimmer from '../ProductCardLoadingShimmer/ProductCardLoadingShimmer';
+import ProductCardLoadingShimmer from '../ui/ProductCardLoadingShimmer/ProductCardLoadingShimmer';
 
 type Props = {
   products: Product[];
