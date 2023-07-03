@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 type MenuDrawerContextType = {
-  isOpen: boolean;
+  isMenuOpen: boolean;
   toggleMenu: () => void;
 };
 
@@ -10,21 +10,21 @@ const MenuDrawerContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(prevState => !prevState);
+    setIsMenuOpen(prevState => !prevState);
   };
 
   return (
-    <MenuDrawerContext.Provider value={{ isOpen, toggleMenu }}>
+    <MenuDrawerContext.Provider value={{ isMenuOpen, toggleMenu }}>
       {children}
     </MenuDrawerContext.Provider>
   );
 };
 
 const MenuDrawerContext = createContext<MenuDrawerContextType>({
-  isOpen: false,
+  isMenuOpen: false,
   toggleMenu: () => null,
 });
 

@@ -14,28 +14,22 @@ import Link from 'next/link';
 import SocialLink from '../Footer/SocialLink';
 import { Fade, Slide } from '@mui/material';
 import useHideOverflowOnBody from '@/hooks/useHideOverflowOnBody';
+import SideDrawerBackdrop from '@/components/SideDrawerBackdrop/SideDrawerBackdrop';
 
 const MenuSideDrawer = () => {
-  const { isOpen, toggleMenu } = useContext(MenuDrawerContext);
+  const { isMenuOpen, toggleMenu } = useContext(MenuDrawerContext);
   // hide overflow on body when sidedrawer is open to stop scrolling
-  useHideOverflowOnBody(isOpen);
+  useHideOverflowOnBody(isMenuOpen);
 
   return (
     <>
       {/* Backdrop */}
-      <Fade in={isOpen}>
-        <div
-          className="fixed inset-0 bg-black/50 z-[90] "
-          onClick={toggleMenu}
-        ></div>
-      </Fade>
+      <SideDrawerBackdrop isOpen={isMenuOpen} onClick={toggleMenu} />
 
       {/* Sidebar */}
-      <Slide in={isOpen} direction="right" timeout={200}>
+      <Slide in={isMenuOpen} direction="right" timeout={200}>
         <div
-          className={`fixed flex flex-col inset-y-0 max-w-full w-[550px] bg-white z-[100] shadow-lg p-6 transition-transform ease-in-out duration-300
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-        `}
+          className={`fixed flex flex-col inset-y-0 max-w-full w-[550px] bg-white z-[100] shadow-lg p-6 transition-transform ease-in-out duration-300`}
         >
           <div className="flex  items-center justify-center relative">
             <button
