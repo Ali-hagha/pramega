@@ -1,24 +1,17 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
 import CartItems from './CartSideDrawerItems';
 import { RiCloseFill } from 'react-icons/ri';
 import { currencyFormatter } from '@/helpers';
 import { Fade, Slide } from '@mui/material';
 import ActionBtn from '../ActionBtn/ActionBtn';
+import useHideOverflowOnBody from '@/hooks/useHideOverflowOnBody';
 
 const CartSideDrawer = () => {
   const { isCartOpen, toggleCart, cartProducts, getGrandTotal, loading } =
     useContext(CartContext) as CartContextValue;
-
   // hide overflow on body when sidedrawer is open to stop scrolling
-  useEffect(() => {
-    if (isCartOpen) document.body.classList.add('overflow-hidden');
-    if (!isCartOpen) document.body.classList.remove('overflow-hidden');
-
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isCartOpen]);
+  useHideOverflowOnBody(isCartOpen);
 
   return (
     <>

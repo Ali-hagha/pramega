@@ -1,5 +1,5 @@
 import { MenuDrawerContext } from '@/context/MenuDrawerContext';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {
   RiCloseFill,
   RiFacebookBoxFill,
@@ -13,19 +13,12 @@ import MenuSideDrawerItem from './MenuSideDrawerItem';
 import Link from 'next/link';
 import SocialLink from '../Footer/SocialLink';
 import { Fade, Slide } from '@mui/material';
+import useHideOverflowOnBody from '@/hooks/useHideOverflowOnBody';
 
 const MenuSideDrawer = () => {
   const { isOpen, toggleMenu } = useContext(MenuDrawerContext);
-
   // hide overflow on body when sidedrawer is open to stop scrolling
-  useEffect(() => {
-    if (isOpen) document.body.classList.add('overflow-hidden');
-    if (!isOpen) document.body.classList.remove('overflow-hidden');
-
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isOpen]);
+  useHideOverflowOnBody(isOpen);
 
   return (
     <>
