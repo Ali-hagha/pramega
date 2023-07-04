@@ -1,7 +1,7 @@
 import { CircularProgress, Rating } from '@mui/material';
 import React, { useContext } from 'react';
-import ProductDimensions from './ProductDimensions';
-import ProductCounter from './ProductCounter';
+import ProductDimensions from '../ProductDimensions/ProductDimensions';
+import ProductCounter from '../ProductCounter/ProductCounter';
 import { CartContext } from '@/context/CartContext';
 import ActionBtn from '@/components/ui/ActionBtn/ActionBtn';
 import { currencyFormatter } from '@/helpers';
