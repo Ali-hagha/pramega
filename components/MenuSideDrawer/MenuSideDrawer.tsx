@@ -28,7 +28,7 @@ const MenuSideDrawer = () => {
 
       {/* Sidebar */}
       <Slide in={isMenuOpen} direction="right" timeout={200}>
-        <div
+        <aside
           className={`fixed flex flex-col inset-y-0 max-w-full w-[550px] bg-white z-[100] shadow-lg p-6 transition-transform ease-in-out duration-300`}
         >
           <div className="flex  items-center justify-center relative">
@@ -87,7 +87,7 @@ const MenuSideDrawer = () => {
               onClick={toggleMenu}
             />
           </div>
-        </div>
+        </aside>
       </Slide>
     </>
   );

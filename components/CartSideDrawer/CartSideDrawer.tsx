@@ -22,7 +22,7 @@ const CartSideDrawer = () => {
 
       {/* Sidebar */}
       <Slide in={isCartOpen} direction="left" timeout={200}>
-        <div className="fixed  inset-y-0 right-0 max-w-full w-[550px] bg-white z-[100] shadow-lg">
+        <aside className="fixed  inset-y-0 right-0 max-w-full w-[550px] bg-white z-[100] shadow-lg">
           <div className=" flex flex-col h-full">
             <CartHeader />
             <CartSideDrawerGroup />
@@ -37,7 +37,7 @@ const CartSideDrawer = () => {
               </ActionBtn>
             </div>
           </div>
-        </div>
+        </aside>
       </Slide>
     </>
   );
