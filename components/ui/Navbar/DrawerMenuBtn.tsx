@@ -3,7 +3,7 @@ import { RiMenuLine } from 'react-icons/ri';
 import { useContext } from 'react';
 import { MenuDrawerContext } from '@/context/MenuDrawerContext';
 
-const MenuBtn = () => {
+const DrawerMenuBtn = () => {
   const { toggleMenu } = useContext(MenuDrawerContext);
 
   return (
@@ -20,4 +20,4 @@ const MenuBtn = () => {
   );
 };
 
-export default MenuBtn;
+export default DrawerMenuBtn;
