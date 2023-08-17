@@ -1,12 +1,14 @@
 import CategoryThumbnailGroup from '@/components/CategoryThumbnailGroup/CategoryThumbnailGroup';
 import FavoriteProducts from '@/components/FavoriteProducts/FavoriteProducts';
 import Hero from '@/components/Hero/Hero';
+import { FavoriteProductsType } from '@/types/favoriteProducts';
+import { HeroImages } from '@/types/heroImages';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
 type PageProps = {
   images: HeroImages;
-  favoriteProducts: FavoriteProducts;
+  favoriteProducts: FavoriteProductsType;
 };
 
 export default function Home({ images, favoriteProducts }: PageProps) {

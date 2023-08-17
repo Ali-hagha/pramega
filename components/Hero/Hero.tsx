@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { RiStarFill } from 'react-icons/ri';
 import HeroGallery from './HeroGallery';
 import Image from 'next/image';
+import { HeroImages } from '@/types/heroImages';
 
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
 const Hero = ({ images }: { images: HeroImages }) => {
-  const imgUrl = `${strapiUrl}/uploads/hero_image_4_877184fa9f.jpg`;
+  const imgUrl = `${strapiUrl}/uploads/medium_hero_image_4_877184fa9f.jpg`;
 
   return (
     <div

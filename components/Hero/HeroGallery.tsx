@@ -1,4 +1,5 @@
 import { useScreenSize } from '@/hooks/useScreenSize';
+import { HeroImages } from '@/types/heroImages';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -35,7 +36,7 @@ const HeroGallery = ({ images }: { images: HeroImages }) => {
             >
               <Link href="/products" className="w-full h-full">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.formats.medium.url}`}
                   alt={''}
                   width={900}
                   height={900}

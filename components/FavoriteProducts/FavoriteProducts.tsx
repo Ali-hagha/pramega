@@ -1,8 +1,9 @@
 import React from 'react';
 import FavoritesSlider from './FavoritesSlider';
+import { FavoriteProductsType } from '@/types/favoriteProducts';
 
 type Props = {
-  favoriteProducts: FavoriteProducts;
+  favoriteProducts: FavoriteProductsType;
 };
 
 const FavoriteProducts = ({ favoriteProducts }: Props) => {
