@@ -3,9 +3,10 @@ import React from 'react';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import 'react-indiana-drag-scroll/dist/style.css';
 import ProductThumbnail from './ProductThumbnail';
+import { StrapiImage } from '@/types/types';
 
 type Props = {
-  images: [{ attributes: { url: string } }];
+  images: StrapiImage[];
 };
 
 const ProductThumbnailGroup = ({ images }: Props) => {
@@ -27,7 +28,7 @@ const ProductThumbnailGroup = ({ images }: Props) => {
                       key={i}
                       currentSlide={currentSlide}
                       index={i}
-                      imgUrl={image.attributes.url}
+                      imgUrl={image.attributes.formats.thumbnail.url}
                     />
                   );
                 })}

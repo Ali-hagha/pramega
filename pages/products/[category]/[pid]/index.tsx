@@ -4,6 +4,7 @@ import ProductInfo from '../../../../components/ProductInfo/ProductInfo';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import ProductImageGallery from '@/components/ProductImageGallery/ProductImageGallery';
+import { Product } from '@/types/product';
 
 type PageProps = {
   product: Product;

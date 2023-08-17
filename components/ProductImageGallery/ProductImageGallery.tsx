@@ -4,9 +4,10 @@ import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import ProductThumbnailGroup from './ProductThumbnailGroup';
 import ProductImageGalleryNav from './ProductImageGalleryNav';
+import { StrapiImage } from '@/types/types';
 
 type Props = {
-  images: [{ attributes: { url: string } }];
+  images: StrapiImage[];
 };
 
 const ProductImageGallery = ({ images }: Props) => {
@@ -30,7 +31,7 @@ const ProductImageGallery = ({ images }: Props) => {
                   innerClassName="flex items-center justify-center bg-neutral-light"
                 >
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`}
+                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.formats.large.url}`}
                     alt={''}
                     width={900}
                     height={900}
