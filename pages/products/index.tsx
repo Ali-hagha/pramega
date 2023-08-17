@@ -3,6 +3,7 @@ import React from 'react';
 import { NextPageWithLayout } from '../_app';
 import ProductsPageLayout from '@/components/layouts/ProductsPageLayout/ProductsPageLayout';
 import { GetStaticProps } from 'next';
+import { Product } from '@/types/product';
 
 type PageProps = {
   products: Product[];

@@ -9,6 +9,7 @@ import ProductTag from './ProductTag';
 import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
 import { currencyFormatter } from '@/helpers';
+import { Product } from '@/types/product';
 
 type Props = {
   product: Product;
@@ -35,10 +36,13 @@ const ProductCard = ({ product, touchEnabled = true }: Props) => {
           )}
           <Images
             baseImage={
-              backendUrl + product.attributes.primaryImage.data.attributes.url
+              backendUrl +
+              product.attributes.primaryImage.data.attributes.formats.small.url
             }
             secondaryImage={
-              backendUrl + product.attributes.secondaryImage.data.attributes.url
+              backendUrl +
+              product.attributes.secondaryImage.data.attributes.formats.small
+                .url
             }
             touchEnabled={touchEnabled}
           />

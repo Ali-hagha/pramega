@@ -1,3 +1,4 @@
+import { Product } from '@/types/product';
 import ProductCard from '../ProductCard/ProductCard';
 import ProductCardLoadingShimmer from '../ui/ProductCardLoadingShimmer/ProductCardLoadingShimmer';
 
