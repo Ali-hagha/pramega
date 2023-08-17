@@ -38,11 +38,11 @@ const ProductCard = ({ product, touchEnabled = true }: Props) => {
           <Images
             baseImage={
               backendUrl +
-              product.attributes.primaryImage.data.attributes.formats.small.url
+              product.attributes.primaryImage.data.attributes.formats.medium.url
             }
             secondaryImage={
               backendUrl +
-              product.attributes.secondaryImage.data.attributes.formats.small
+              product.attributes.secondaryImage.data.attributes.formats.medium
                 .url
             }
             touchEnabled={touchEnabled}
