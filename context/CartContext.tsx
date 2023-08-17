@@ -1,3 +1,5 @@
+import { CartContextValue } from '@/types/cartContextvalue';
+import { Product } from '@/types/product';
 import { createContext } from 'react';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';

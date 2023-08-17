@@ -7,6 +7,7 @@ import { Fade, Slide } from '@mui/material';
 import ActionBtn from '../ui/ActionBtn/ActionBtn';
 import useHideOverflowOnBody from '@/hooks/useHideOverflowOnBody';
 import SideDrawerBackdrop from '@/components/ui/SideDrawerBackdrop/SideDrawerBackdrop';
+import { CartContextValue } from '@/types/cartContextvalue';
 
 const CartSideDrawer = () => {
   const { isCartOpen, toggleCart, loading } = useContext(

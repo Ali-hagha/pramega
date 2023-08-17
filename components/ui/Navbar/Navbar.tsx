@@ -9,6 +9,7 @@ import { Fragment } from 'react';
 import { CartContext } from '@/context/CartContext';
 import CustomMuiBadge from '../CustomMuiBadge/CustomMuiBadge';
 import { IconType } from 'react-icons/lib';
+import { CartContextValue } from '@/types/cartContextvalue';
 
 const items = [
   {

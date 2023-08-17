@@ -1,4 +1,5 @@
 import { CartContext } from '@/context/CartContext';
+import { CartContextValue } from '@/types/cartContextvalue';
 import { Alert, Snackbar } from '@mui/material';
 import React, { useContext } from 'react';
 

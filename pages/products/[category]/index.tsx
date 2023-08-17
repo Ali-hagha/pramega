@@ -1,6 +1,7 @@
 import ProductsGrid from '@/components/ProductsGrid/ProductsGrid';
 import ProductsPageLayout from '@/components/layouts/ProductsPageLayout/ProductsPageLayout';
 import { NextPageWithLayout } from '@/pages/_app';
+import { Product } from '@/types/product';
 import { GetStaticProps } from 'next';
 
 type PageProps = {

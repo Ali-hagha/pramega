@@ -4,9 +4,10 @@ import React from 'react';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import FavPageChangeBtn from './SlideChangeBtn';
 import { useScreenSize } from '@/hooks/useScreenSize';
+import { FavoriteProductsType } from '@/types/favoriteProducts';
 
 type Props = {
-  favoriteProducts: FavoriteProducts;
+  favoriteProducts: FavoriteProductsType;
 };
 
 const FavoritesSlider = ({ favoriteProducts }: Props) => {

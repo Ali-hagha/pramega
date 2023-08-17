@@ -5,6 +5,8 @@ import ProductCounter from '../ProductCounter/ProductCounter';
 import { CartContext } from '@/context/CartContext';
 import ActionBtn from '@/components/ui/ActionBtn/ActionBtn';
 import { currencyFormatter } from '@/helpers';
+import { Product } from '@/types/product';
+import { CartContextValue } from '@/types/cartContextvalue';
 
 type Props = {
   product: Product;

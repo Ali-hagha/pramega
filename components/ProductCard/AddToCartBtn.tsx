@@ -2,6 +2,7 @@ import { RiShoppingCartFill } from 'react-icons/ri';
 import { useContext, MutableRefObject } from 'react';
 import { CartContext } from '@/context/CartContext';
 import Spinner from '../ui/Spinner/Spinner';
+import { CartContextValue } from '@/types/cartContextvalue';
 
 type Props = {
   onClick: () => void;

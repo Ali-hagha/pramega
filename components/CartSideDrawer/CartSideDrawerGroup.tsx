@@ -1,6 +1,7 @@
 import { CartContext } from '@/context/CartContext';
 import { useContext } from 'react';
 import CartSideDrawerItem from './CartSideDrawerItem';
+import { CartContextValue } from '@/types/cartContextvalue';
 
 const CartSideDrawerGroup = () => {
   const { cartProducts } = useContext(CartContext) as CartContextValue;

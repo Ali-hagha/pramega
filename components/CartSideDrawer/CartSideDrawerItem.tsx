@@ -1,5 +1,7 @@
 import { CartContext } from '@/context/CartContext';
 import { currencyFormatter } from '@/helpers';
+import { CartContextValue } from '@/types/cartContextvalue';
+import { Product } from '@/types/product';
 import { CircularProgress } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
