@@ -1,3 +1,4 @@
+import { useScreenSize } from '@/hooks/useScreenSize';
 import Image from 'next/image';
 import { Dot } from 'pure-react-carousel';
 import React, { useEffect, useRef, useState } from 'react';
@@ -11,6 +12,7 @@ type Props = {
 const ProductThumbnail = ({ currentSlide, index, imgUrl }: Props) => {
   const thumbRef = useRef<HTMLImageElement>(null);
   const [isThumbActive, setIsThumbActive] = useState(false);
+  const { isMobile } = useScreenSize();
 
   // scroll active thumbnail into view
   useEffect(() => {
@@ -18,14 +20,14 @@ const ProductThumbnail = ({ currentSlide, index, imgUrl }: Props) => {
   }, [currentSlide, index]);
 
   useEffect(() => {
-    if (isThumbActive) {
+    if (isMobile && isThumbActive) {
       thumbRef.current?.scrollIntoView({
         behavior: 'smooth',
         block: 'end',
         inline: 'center',
       });
     }
-  }, [isThumbActive]);
+  }, [isMobile, isThumbActive]);
 
   return (
     <Dot
