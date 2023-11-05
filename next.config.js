@@ -10,9 +10,15 @@ const nextConfig = {
         port: '1337',
         pathname: '/uploads/**',
       },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'pramega-backend.iran.liara.run',
+      //   port: '',
+      //   pathname: '/uploads/**',
+      // },
       {
         protocol: 'https',
-        hostname: 'pramega-backend.iran.liara.run',
+        hostname: 'api.pramega.alihaghayegh.ir',
         port: '',
         pathname: '/uploads/**',
       },
